@@ -9,29 +9,24 @@ export interface MilestoneMessage {
 /** The first five 5-application milestones get a personal message each. */
 export const SPECIAL_MILESTONE_MESSAGES: Record<number, MilestoneMessage> = {
   5: {
-    title: "5 down. This is just the beginning.",
-    message:
-      "Hey, I know 5 applications might not feel like a huge number, but you started — and that's what matters. Keep showing up. I'm always rooting for you. ❤️",
+    title: "5 Applications Sent",
+    message: "Mujhe pta hai tu kr lega! Kyuki chobbar bolde! 😂❤️",
   },
   10: {
-    title: "Double digits! Look at you go.",
-    message:
-      "10 applications done. Every application is one more door you've knocked on. Some will open, some won't — but you only need the right one. Keep going. You've got this.",
+    title: "10 Applications Sent",
+    message: "Mujhe pta h shyd aaj majboori h, pr ek din kamyabi banegi yeh. ❤️",
   },
   15: {
-    title: "15 applications. Still going strong.",
-    message:
-      "I hope you remember that your worth is never decided by an acceptance or rejection email. Keep learning, keep applying, and keep becoming better every day. I'm already proud of how far you've come.",
+    title: "15 Applications Sent",
+    message: "Ab Raj Shamani ke podcasts ni dekhne... Aditya Thakur ne build krne hai. 😎🔥",
   },
   20: {
-    title: "20 opportunities chased.",
-    message:
-      "Twenty times you chose to try instead of wondering ‘what if’. That's something to be proud of. The right opportunity may be closer than you think. Don't stop now.",
+    title: "20 Applications Sent",
+    message: "Adiiiii..... We are proud of you already. You are very special. ❤️",
   },
   25: {
-    title: "25 applications! 🎉",
-    message:
-      "If you're reading this, you've already put yourself out there 25 times. I made this little corner of the internet for you because I believe in what you're capable of. No matter how long the journey takes, keep moving forward. One day we'll look back at this phase and smile.\n\nI'm always on your team. ❤️",
+    title: "25 Applications Sent",
+    message: "Kuch nahi se kuch achha hota hai... par tune toh bahut kuch kar liya hai, bete. ❤️",
   },
 };
 

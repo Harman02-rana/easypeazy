@@ -252,48 +252,55 @@ export default function ApplicationTable() {
             </div>
 
             {/* Desktop: data table */}
-            <div className="list-soft hidden overflow-x-auto md:block">
-              <table className="w-full min-w-2xl border-collapse text-sm">
-                <thead>
-                  <tr className="border-b border-border text-left text-xs text-muted">
-                    <th className="px-4 py-3 font-medium">Company</th>
-                    <th className="px-4 py-3 font-medium">Role</th>
-                    <th className="px-4 py-3 font-medium">Type</th>
-                    <th className="px-4 py-3 font-medium">Location</th>
-                    <th className="px-4 py-3 font-medium">Status</th>
-                    <th className="px-4 py-3 font-medium">Deadline</th>
-                    <th className="px-4 py-3 font-medium text-right">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {rows.map((app) => (
-                    <tr key={app.id} className="row-hover border-b border-border last:border-b-0">
-                      <td className="px-4 py-3">
-                        <div className="flex items-center gap-2.5">
-                          <CompanyAvatar name={app.company} size="sm" />
-                          <span className="font-medium text-foreground">{app.company}</span>
-                        </div>
-                      </td>
-                      <td className="max-w-56 truncate px-4 py-3 text-foreground/90">{app.role}</td>
-                      <td className="px-4 py-3 text-muted">{app.jobType}</td>
-                      <td className="px-4 py-3 text-muted">{app.location || "—"}</td>
-                      <td className="px-4 py-3">
-                        <StatusSelect app={app} onChange={(s) => update(app.id, { status: s })} />
-                      </td>
-                      <td className="px-4 py-3 text-muted">{app.applicationDeadline || "—"}</td>
-                      <td className="px-4 py-3">
-                        <div className="flex justify-end">
-                          <RowActions
-                            app={app}
-                            onEdit={() => setEditingId(app.id)}
-                            onDelete={() => remove(app.id)}
-                          />
-                        </div>
-                      </td>
+            {/* .list-soft sets overflow:hidden (to clip its own rounded
+             * corners), so the horizontal scroll needs its own inner
+             * container — putting overflow-x-auto directly on the
+             * .list-soft element would get silently overridden and clip
+             * the Actions column instead of scrolling to it. */}
+            <div className="list-soft hidden md:block">
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-2xl border-collapse text-sm">
+                  <thead>
+                    <tr className="border-b border-border text-left text-xs text-muted">
+                      <th className="px-4 py-3 font-medium">Company</th>
+                      <th className="px-4 py-3 font-medium">Role</th>
+                      <th className="px-4 py-3 font-medium">Type</th>
+                      <th className="px-4 py-3 font-medium">Location</th>
+                      <th className="px-4 py-3 font-medium">Status</th>
+                      <th className="px-4 py-3 font-medium">Deadline</th>
+                      <th className="px-4 py-3 font-medium text-right">Actions</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {rows.map((app) => (
+                      <tr key={app.id} className="row-hover border-b border-border last:border-b-0">
+                        <td className="px-4 py-3">
+                          <div className="flex items-center gap-2.5">
+                            <CompanyAvatar name={app.company} size="sm" />
+                            <span className="font-medium text-foreground">{app.company}</span>
+                          </div>
+                        </td>
+                        <td className="max-w-56 truncate px-4 py-3 text-foreground/90">{app.role}</td>
+                        <td className="px-4 py-3 text-muted">{app.jobType}</td>
+                        <td className="px-4 py-3 text-muted">{app.location || "—"}</td>
+                        <td className="px-4 py-3">
+                          <StatusSelect app={app} onChange={(s) => update(app.id, { status: s })} />
+                        </td>
+                        <td className="px-4 py-3 text-muted">{app.applicationDeadline || "—"}</td>
+                        <td className="px-4 py-3">
+                          <div className="flex justify-end">
+                            <RowActions
+                              app={app}
+                              onEdit={() => setEditingId(app.id)}
+                              onDelete={() => remove(app.id)}
+                            />
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </>
         )}

@@ -23,6 +23,11 @@ export interface Celebration {
   title: string;
   message: string;
   confetti: boolean;
+  /** For kind "milestone": the application-count threshold reached (5, 10,
+   * 15, 20, 25, 30...) — lets the popup pick a slightly different accent
+   * color/particle style per milestone without the logic layer knowing
+   * anything about presentation. */
+  milestoneNumber?: number;
 }
 
 export interface MilestoneState {
@@ -89,6 +94,7 @@ function buildMilestoneCelebration(threshold: number, rotatingIndex: number): Ce
       title: special.title,
       message: special.message,
       confetti,
+      milestoneNumber: threshold,
     };
   }
 
@@ -96,9 +102,10 @@ function buildMilestoneCelebration(threshold: number, rotatingIndex: number): Ce
   return {
     id: `milestone-${threshold}`,
     kind: "milestone",
-    title: `${threshold} applications submitted`,
+    title: `${threshold} Applications Sent`,
     message: text,
     confetti,
+    milestoneNumber: threshold,
   };
 }
 
