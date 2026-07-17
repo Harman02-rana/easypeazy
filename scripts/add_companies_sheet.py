@@ -67,3 +67,4 @@ for idx, col_name in enumerate(COLUMNS, start=1):
 wb.save(WB_PATH)
 print(f"Companies sheet added with {last_row - 1} companies")
 print(f"Blank counts (left blank because not verifiable): {blank_count}")
+

@@ -160,6 +160,10 @@ export default function MilestoneCelebration({
 
   return (
     <div
+      // NOTE: z-[100] is intentional and correct — this project has no
+      // custom z-index scale, so the bare utility "z-100" does not exist
+      // and silently applies no z-index at all (this broke the popup once
+      // already). Do not "simplify" this to z-100.
       className="backdrop-fade-in fixed inset-0 z-[100] flex items-center justify-center bg-foreground/25 p-4 backdrop-blur-sm"
       role="presentation"
     >
