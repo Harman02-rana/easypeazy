@@ -42,30 +42,36 @@ export default function PreparationOverview() {
     <section>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
         {stats.map((s) => (
-          <div key={s.label} className="rounded-lg border border-border bg-surface p-3">
+          <div
+            key={s.label}
+            className="card-soft p-3"
+            style={{ backgroundColor: "var(--cat-study-bg)" }}
+          >
             <p className="text-xs text-muted">{s.label}</p>
-            <p className="mt-1 text-xl font-semibold">{s.value}%</p>
+            <p className="mt-1 text-xl font-semibold" style={{ color: "var(--cat-study)" }}>
+              {s.value}%
+            </p>
           </div>
         ))}
       </div>
 
       <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <div className="rounded-lg border border-border bg-surface p-3">
+        <div className="card-soft p-3">
           <p className="text-xs text-muted">Questions solved</p>
           <p className="mt-1 text-lg font-semibold">{solved}</p>
         </div>
-        <div className="rounded-lg border border-border bg-surface p-3">
-          <p className="text-xs text-muted">Topics completed</p>
+        <div className="card-soft p-3">
+          <p className="text-xs text-muted">Topics you&rsquo;ve conquered</p>
           <p className="mt-1 text-lg font-semibold">{completed}</p>
         </div>
-        <div className="rounded-lg border border-border bg-surface p-3">
-          <p className="text-xs text-muted">Topics remaining</p>
+        <div className="card-soft p-3">
+          <p className="text-xs text-muted">Up next</p>
           <p className="mt-1 text-lg font-semibold">{remaining}</p>
         </div>
-        <div className="rounded-lg border border-border bg-surface p-3">
+        <div className="card-soft p-3">
           <p className="text-xs text-muted">This month</p>
           <div className="mt-2">
-            <ProgressBar value={thisMonthProgress} />
+            <ProgressBar value={thisMonthProgress} showMessage />
           </div>
         </div>
       </div>

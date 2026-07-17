@@ -5,18 +5,13 @@ import { useApplications } from "@/hooks/useTracker";
 import { generateId } from "@/lib/storage";
 import { APPLICATION_STATUSES, JOB_TYPES } from "@/lib/trackerTypes";
 import type { Application, ApplicationStatus } from "@/lib/trackerTypes";
+import { statusColors, statusLabel } from "@/lib/statusDisplay";
 import SearchBar from "./SearchBar";
 import FilterBar from "./FilterBar";
 import ApplicationForm, { type ApplicationDraft } from "./ApplicationForm";
 import EmptyState from "./EmptyState";
 
 type SortKey = "dateApplied" | "applicationDeadline" | "dateSaved";
-
-function statusBadgeClass(status: ApplicationStatus): string {
-  if (status === "Offer") return "border-border text-foreground font-medium";
-  if (status === "Rejected" || status === "Withdrawn") return "text-muted";
-  return "text-foreground";
-}
 
 export default function ApplicationTable() {
   const { items, hydrated, add, update, remove } = useApplications();
@@ -70,7 +65,7 @@ export default function ApplicationTable() {
         {!creating && (
           <button
             onClick={() => setCreating(true)}
-            className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
+            className="btn-tactile rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
           >
             Add application
           </button>
@@ -100,7 +95,10 @@ export default function ApplicationTable() {
                   label: "Status",
                   value: status,
                   onChange: setStatus,
-                  options: APPLICATION_STATUSES.map((s) => ({ label: s, value: s })),
+                  options: APPLICATION_STATUSES.map((s) => ({
+                    label: statusLabel(s),
+                    value: s,
+                  })),
                 },
                 {
                   label: "Job Type",
@@ -135,26 +133,27 @@ export default function ApplicationTable() {
       <div className="mt-4">
         {!hydrated ? null : items.length === 0 ? (
           <EmptyState
-            title="No applications saved yet."
-            description="Save a job from the Jobs page to start tracking it, or add one manually above."
+            title="No applications here yet."
+            description="Your next opportunity might be the first one. 🌱 Save a job from the Jobs page, or add one manually above."
           />
         ) : filtered.length === 0 ? (
           <EmptyState title="Nothing matches" description="Try a different search or filter." />
         ) : (
           <div className="space-y-3">
-            {filtered.map((app) =>
-              editingId === app.id ? (
-                <ApplicationForm
-                  key={app.id}
-                  application={app}
-                  onSave={(draft) => handleSave(draft, app)}
-                  onCancel={() => setEditingId(null)}
-                />
-              ) : (
-                <div
-                  key={app.id}
-                  className="rounded-lg border border-border bg-surface p-4"
-                >
+            {filtered.map((app) => {
+              if (editingId === app.id) {
+                return (
+                  <ApplicationForm
+                    key={app.id}
+                    application={app}
+                    onSave={(draft) => handleSave(draft, app)}
+                    onCancel={() => setEditingId(null)}
+                  />
+                );
+              }
+              const colors = statusColors(app.status);
+              return (
+                <div key={app.id} className="card-soft p-4">
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-2">
@@ -180,11 +179,12 @@ export default function ApplicationTable() {
                             status: e.target.value as ApplicationStatus,
                           })
                         }
-                        className={`rounded-lg border border-border bg-background px-2 py-1.5 text-xs outline-none focus:border-accent ${statusBadgeClass(app.status)}`}
+                        className="rounded-lg border border-border px-2 py-1.5 text-xs font-medium outline-none focus:border-accent"
+                        style={{ backgroundColor: colors.bg, color: colors.text }}
                       >
                         {APPLICATION_STATUSES.map((s) => (
                           <option key={s} value={s}>
-                            {s}
+                            {statusLabel(s)}
                           </option>
                         ))}
                       </select>
@@ -213,8 +213,8 @@ export default function ApplicationTable() {
                     </div>
                   </div>
                 </div>
-              )
-            )}
+              );
+            })}
           </div>
         )}
       </div>

@@ -80,6 +80,7 @@ export function publishKeyChange(key: string): void {
 export const TRACKER_KEYS = {
   plannerEntries: "jhp_planner_entries",
   tasks: "jhp_tasks",
+  littleWins: "jhp_little_wins",
   monthlyGoals: "jhp_monthly_goals",
   studyTopics: "jhp_study_topics",
   milestones: "jhp_roadmap_milestones",

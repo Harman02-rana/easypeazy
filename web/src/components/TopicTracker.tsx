@@ -9,6 +9,34 @@ import TopicForm, { type TopicDraft } from "./TopicForm";
 import ProgressBar from "./ProgressBar";
 import EmptyState from "./EmptyState";
 
+function StatusBadge({ status }: { status: StudyTopic["status"] }) {
+  if (status === "Completed") {
+    return (
+      <span
+        className="rounded-md px-1.5 py-0.5 text-[11px] font-medium"
+        style={{ backgroundColor: "var(--cat-offer-bg)", color: "var(--cat-offer)" }}
+      >
+        ✓ Nice work!
+      </span>
+    );
+  }
+  if (status === "Not Started") {
+    return (
+      <span className="rounded-md border border-border px-1.5 py-0.5 text-[11px] text-muted">
+        {status}
+      </span>
+    );
+  }
+  return (
+    <span
+      className="rounded-md px-1.5 py-0.5 text-[11px] font-medium"
+      style={{ backgroundColor: "var(--cat-study-bg)", color: "var(--cat-study)" }}
+    >
+      {status}
+    </span>
+  );
+}
+
 function TopicRow({
   topic,
   onUpdate,
@@ -40,9 +68,7 @@ function TopicRow({
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
           <span className="font-medium text-foreground">{topic.topic}</span>
-          <span className="rounded-md border border-border px-1.5 py-0.5 text-[11px] text-muted">
-            {topic.status}
-          </span>
+          <StatusBadge status={topic.status} />
         </div>
         <div className="mt-1.5 flex items-center gap-3">
           <div className="w-32">
@@ -95,11 +121,11 @@ export default function TopicTracker() {
   return (
     <section>
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h2 className="text-base font-semibold tracking-tight">Study topics</h2>
+        <h2 className="text-base font-semibold tracking-tight">Things you&rsquo;re working on</h2>
         {!creating && (
           <button
             onClick={() => setCreating(true)}
-            className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
+            className="btn-tactile rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
           >
             Add topic
           </button>
@@ -121,15 +147,15 @@ export default function TopicTracker() {
       <div className="mt-4">
         {!hydrated ? null : grouped.length === 0 ? (
           <EmptyState
-            title="No topics yet"
-            description="Add your first preparation topic to start tracking progress."
+            title="Your learning journey starts whenever you're ready 🌱"
+            description="Add your first topic above — no pressure, just a starting point."
           />
         ) : (
           <div className="space-y-6">
             {grouped.map(({ category, topics }) => (
               <div key={category}>
                 <h3 className="text-sm font-semibold text-muted">{category}</h3>
-                <div className="mt-2 rounded-lg border border-border bg-surface px-4">
+                <div className="card-soft mt-2 px-4">
                   {topics.map((topic) => (
                     <TopicRow
                       key={topic.id}

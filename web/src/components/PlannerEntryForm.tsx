@@ -49,7 +49,7 @@ export default function PlannerEntryForm({
         if (!draft.title.trim()) return;
         onSave(draft);
       }}
-      className="space-y-3 rounded-lg border border-border bg-surface p-4"
+      className="card-soft space-y-3 p-4"
     >
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-xs text-muted">
@@ -115,7 +115,7 @@ export default function PlannerEntryForm({
       <div className="flex gap-2">
         <button
           type="submit"
-          className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
+          className="btn-tactile rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
         >
           {entry ? "Save changes" : "Add entry"}
         </button>

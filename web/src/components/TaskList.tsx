@@ -74,7 +74,7 @@ export default function TaskList() {
         </select>
         <button
           type="submit"
-          className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
+          className="btn-tactile rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
         >
           Add
         </button>
@@ -83,11 +83,11 @@ export default function TaskList() {
       <div className="mt-4">
         {!hydrated ? null : items.length === 0 ? (
           <EmptyState
-            title="No tasks yet"
-            description="Add something small you need to do this week."
+            title="Nothing on your plate right now."
+            description="Enjoy the breathing room. ☀️ Add something small whenever you're ready."
           />
         ) : (
-          <div className="overflow-hidden rounded-lg border border-border bg-surface">
+          <div className="list-soft">
             {sorted.map((t) => {
               const overdue = isOverdue(t.dueDate, t.status);
               return (
@@ -118,7 +118,15 @@ export default function TaskList() {
                     <p className="mt-0.5 text-xs text-muted">
                       {t.dueDate || "No due date"}
                       {overdue && (
-                        <span className="ml-2 text-accent">Overdue</span>
+                        <span
+                          className="ml-2 rounded-md px-1.5 py-0.5 text-[11px] font-medium"
+                          style={{
+                            backgroundColor: "var(--cat-rejected-bg)",
+                            color: "var(--cat-rejected)",
+                          }}
+                        >
+                          A little overdue
+                        </span>
                       )}
                     </p>
                   </div>

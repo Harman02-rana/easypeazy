@@ -4,6 +4,7 @@ import ThemeScript from "@/components/ThemeScript";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MilestoneWatcher from "@/components/MilestoneWatcher";
+import BackgroundDecoration from "@/components/BackgroundDecoration";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -37,6 +38,7 @@ export default function RootLayout({
         <ThemeScript />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <BackgroundDecoration />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

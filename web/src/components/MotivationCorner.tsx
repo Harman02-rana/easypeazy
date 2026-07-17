@@ -18,7 +18,9 @@ export default function MotivationCorner() {
 
   return (
     <div className="flex items-center gap-2 border-t border-border pt-3 text-xs text-muted">
-      <span className="font-medium text-foreground">A note from your sister</span>
+      <span className="font-medium" style={{ color: "var(--cat-sister)" }}>
+        A note from your sister ❤️
+      </span>
       <span aria-hidden>·</span>
       <span>{message}</span>
     </div>

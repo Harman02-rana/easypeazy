@@ -46,7 +46,7 @@ export default function MonthlyGoals() {
       {!creating ? (
         <button
           onClick={() => setCreating(true)}
-          className="mt-3 rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
+          className="btn-tactile mt-3 rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
         >
           Add goal for {formatMonth(month)}
         </button>
@@ -68,7 +68,7 @@ export default function MonthlyGoals() {
             setTarget("");
             setCreating(false);
           }}
-          className="mt-3 space-y-3 rounded-lg border border-border bg-surface p-4"
+          className="card-soft mt-3 space-y-3 p-4"
         >
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <label className="flex flex-col gap-1 text-xs text-muted">
@@ -108,7 +108,7 @@ export default function MonthlyGoals() {
           <div className="flex gap-2">
             <button
               type="submit"
-              className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
+              className="btn-tactile rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
             >
               Add goal
             </button>
@@ -126,15 +126,16 @@ export default function MonthlyGoals() {
       <div className="mt-4">
         {!hydrated ? null : monthGoals.length === 0 ? (
           <EmptyState
-            title={`No goals for ${formatMonth(month)} yet`}
-            description="Add one above to give the month some direction."
+            title={`${formatMonth(month)} is a fresh page`}
+            description="Add a goal above whenever you're ready to give the month some direction."
           />
         ) : (
           <div className="space-y-3">
             {monthGoals.map((g) => (
               <div
                 key={g.id}
-                className="rounded-lg border border-border bg-surface p-4"
+                className="card-soft p-4"
+                style={{ backgroundColor: "var(--cat-planner-bg)" }}
               >
                 <div className="flex flex-wrap items-start justify-between gap-2">
                   <div>

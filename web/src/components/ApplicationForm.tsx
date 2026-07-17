@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { APPLICATION_STATUSES, JOB_TYPES } from "@/lib/trackerTypes";
+import { statusLabel } from "@/lib/statusDisplay";
 import type { Application, ApplicationJobType, ApplicationStatus } from "@/lib/trackerTypes";
 
 export type ApplicationDraft = Omit<Application, "id" | "dateSaved">;
@@ -74,7 +75,7 @@ export default function ApplicationForm({
         if (!draft.company.trim() || !draft.role.trim()) return;
         onSave(draft);
       }}
-      className="space-y-4 rounded-lg border border-border bg-surface p-4"
+      className="card-soft space-y-4 p-4"
     >
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <Field label="Company">
@@ -123,7 +124,7 @@ export default function ApplicationForm({
           >
             {APPLICATION_STATUSES.map((s) => (
               <option key={s} value={s}>
-                {s}
+                {statusLabel(s)}
               </option>
             ))}
           </select>
@@ -244,7 +245,7 @@ export default function ApplicationForm({
       <div className="flex gap-2">
         <button
           type="submit"
-          className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
+          className="btn-tactile rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
         >
           {application ? "Save changes" : "Add application"}
         </button>

@@ -15,11 +15,11 @@ export default function UpcomingEvents({
       <div className="mt-3">
         {events.length === 0 ? (
           <EmptyState
-            title="Nothing upcoming"
-            description="Deadlines, OAs, interviews, and follow-ups will show up here."
+            title="Nothing upcoming — enjoy the calm. ☀️"
+            description="Deadlines, OAs, interviews, and follow-ups will show up here when it's time."
           />
         ) : (
-          <div className="overflow-hidden rounded-lg border border-border bg-surface">
+          <div className="list-soft">
             {events.map((e) => (
               <div
                 key={e.id}

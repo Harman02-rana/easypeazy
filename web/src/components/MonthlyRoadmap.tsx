@@ -37,7 +37,7 @@ function MilestoneForm({
         if (!draft.title.trim()) return;
         onSave(draft);
       }}
-      className="space-y-3 rounded-lg border border-border bg-surface p-4"
+      className="card-soft space-y-3 p-4"
     >
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-xs text-muted">
@@ -76,7 +76,7 @@ function MilestoneForm({
       <div className="flex gap-2">
         <button
           type="submit"
-          className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
+          className="btn-tactile rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
         >
           {milestone ? "Save changes" : "Add milestone"}
         </button>
@@ -101,12 +101,12 @@ export default function MonthlyRoadmap() {
     <section>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h2 className="text-base font-semibold tracking-tight">
-          Month-by-month roadmap
+          Your roadmap, month by month
         </h2>
         {!creating && (
           <button
             onClick={() => setCreating(true)}
-            className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
+            className="btn-tactile rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
           >
             Add milestone
           </button>
@@ -129,16 +129,24 @@ export default function MonthlyRoadmap() {
       <div className="mt-4">
         {!hydrated ? null : items.length === 0 ? (
           <EmptyState
-            title="No milestones yet"
-            description="Add a milestone for each month to keep the roadmap honest."
+            title="Your roadmap is a blank page right now"
+            description="Add a milestone for each month — it can always change later."
           />
         ) : (
-          <div className="space-y-4">
+          <div className="space-y-0 border-l-2 border-border pl-6">
             {ROADMAP_MONTHS.map((month) => {
               const monthMilestones = items.filter((m) => m.month === month);
               if (monthMilestones.length === 0) return null;
+              const allDone = monthMilestones.every((m) => m.completed);
               return (
-                <div key={month}>
+                <div key={month} className="relative pb-6 last:pb-0">
+                  <span
+                    className="absolute top-1 left-[-1.65rem] h-3 w-3 rounded-full border-2"
+                    style={{
+                      borderColor: allDone ? "var(--cat-offer)" : "var(--border-strong)",
+                      backgroundColor: allDone ? "var(--cat-offer)" : "var(--surface)",
+                    }}
+                  />
                   <h3 className="text-sm font-semibold text-muted">
                     {formatMonth(month)}
                   </h3>
@@ -156,10 +164,7 @@ export default function MonthlyRoadmap() {
                           onCancel={() => setEditingId(null)}
                         />
                       ) : (
-                        <div
-                          key={m.id}
-                          className="flex items-start gap-3 rounded-lg border border-border bg-surface p-3"
-                        >
+                        <div key={m.id} className="card-soft flex items-start gap-3 p-3">
                           <input
                             type="checkbox"
                             checked={m.completed}
@@ -169,15 +174,26 @@ export default function MonthlyRoadmap() {
                             className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-accent"
                           />
                           <div className="min-w-0 flex-1">
-                            <p
-                              className={`font-medium ${
-                                m.completed
-                                  ? "text-muted line-through"
-                                  : "text-foreground"
-                              }`}
-                            >
-                              {m.title}
-                            </p>
+                            <div className="flex flex-wrap items-center gap-2">
+                              <p
+                                className={`font-medium ${
+                                  m.completed ? "text-muted line-through" : "text-foreground"
+                                }`}
+                              >
+                                {m.title}
+                              </p>
+                              {m.completed && (
+                                <span
+                                  className="sparkle-pop rounded-md px-1.5 py-0.5 text-[11px] font-medium"
+                                  style={{
+                                    backgroundColor: "var(--cat-offer-bg)",
+                                    color: "var(--cat-offer)",
+                                  }}
+                                >
+                                  Nice work! ✨
+                                </span>
+                              )}
+                            </div>
                             {m.description && (
                               <p className="mt-0.5 text-sm text-muted">
                                 {m.description}

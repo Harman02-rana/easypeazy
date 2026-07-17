@@ -73,7 +73,7 @@ export default function PlannerEntriesSection() {
         {!creating && (
           <button
             onClick={() => setCreating(true)}
-            className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
+            className="btn-tactile rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
           >
             New entry
           </button>
@@ -127,7 +127,7 @@ export default function PlannerEntriesSection() {
       <div className="mt-4">
         {!hydrated ? null : items.length === 0 ? (
           <EmptyState
-            title="No entries yet"
+            title="Your notebook is empty for now 📝"
             description="Start with a quick daily plan or a career goal — whatever's on your mind."
           />
         ) : filtered.length === 0 ? (
@@ -136,7 +136,7 @@ export default function PlannerEntriesSection() {
             description="Try a different search or clear a filter."
           />
         ) : (
-          <div className="rounded-lg border border-border bg-surface px-4">
+          <div className="list-soft px-4">
             {filtered.map((entry) => (
               <PlannerEntry
                 key={entry.id}

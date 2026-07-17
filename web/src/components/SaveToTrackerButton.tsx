@@ -23,7 +23,7 @@ export default function SaveToTrackerButton({ job }: { job: Job }) {
         });
       }}
       disabled={saved}
-      className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors ${
+      className={`btn-tactile rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors ${
         saved
           ? "border-border text-muted"
           : "border-border text-foreground hover:border-border-strong hover:bg-surface-hover cursor-pointer"

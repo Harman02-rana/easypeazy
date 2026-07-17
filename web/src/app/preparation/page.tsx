@@ -14,10 +14,10 @@ export default function PreparationPage() {
     <div className="mx-auto max-w-4xl px-5 py-10">
       <TrackerHeader />
 
-      <h1 className="text-2xl font-semibold tracking-tight">Preparation Tracker</h1>
+      <h1 className="text-2xl font-semibold tracking-tight">Your Learning Journey</h1>
       <p className="mt-1 text-sm text-muted">
-        Everything to study and practice for software engineering placements,
-        tracked by topic and by month.
+        Everything you&rsquo;re studying and practicing, one topic and one month
+        at a time. Progress here counts, even the slow days.
       </p>
 
       <div className="mt-8">

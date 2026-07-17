@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import TrackerHeader from "@/components/TrackerHeader";
 import TaskList from "@/components/TaskList";
 import MonthlyGoals from "@/components/MonthlyGoals";
+import LittleWins from "@/components/LittleWins";
 import PlannerEntriesSection from "@/components/PlannerEntriesSection";
 
 export const metadata: Metadata = {
@@ -15,8 +16,8 @@ export default function PlannerPage() {
 
       <h1 className="text-2xl font-semibold tracking-tight">My Planner</h1>
       <p className="mt-1 text-sm text-muted">
-        A personal space to plan, reflect, and keep track of what matters this
-        week and this month.
+        Your own little notebook — plans, reflections, and the small stuff
+        worth remembering.
       </p>
 
       <div className="mt-10">
@@ -25,6 +26,10 @@ export default function PlannerPage() {
 
       <div className="mt-12">
         <MonthlyGoals />
+      </div>
+
+      <div className="mt-12">
+        <LittleWins />
       </div>
 
       <div className="mt-12">

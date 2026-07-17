@@ -41,20 +41,52 @@ export default function PersonalDashboard() {
     monthGoals.length === 0;
 
   const stats = [
-    { label: "Study Progress", value: `${studyProgress}%`, href: "/preparation" },
-    { label: "Applications Sent", value: appStats.totalApplied, href: "/applications" },
-    { label: "OAs", value: appStats.oas, href: "/applications" },
-    { label: "Interviews", value: appStats.interviews, href: "/applications" },
-    { label: "Offers", value: appStats.offers, href: "/applications" },
+    {
+      label: "Study Progress",
+      value: `${studyProgress}%`,
+      href: "/preparation",
+      text: "var(--cat-study)",
+      bg: "var(--cat-study-bg)",
+    },
+    {
+      label: "Applications Sent",
+      value: appStats.totalApplied,
+      href: "/applications",
+      text: "var(--cat-applications)",
+      bg: "var(--cat-applications-bg)",
+    },
+    {
+      label: "OAs",
+      value: appStats.oas,
+      href: "/applications",
+      text: "var(--cat-study)",
+      bg: "var(--cat-study-bg)",
+    },
+    {
+      label: "Interviews",
+      value: appStats.interviews,
+      href: "/applications",
+      text: "var(--cat-interview)",
+      bg: "var(--cat-interview-bg)",
+    },
+    {
+      label: "Offers 🎉",
+      value: appStats.offers,
+      href: "/applications",
+      text: "var(--cat-offer)",
+      bg: "var(--cat-offer-bg)",
+    },
     {
       label: "Tasks This Month",
       value: `${tasksDone}/${tasksThisMonth.length}`,
       href: "/planner",
+      text: "var(--cat-planner)",
+      bg: "var(--cat-planner-bg)",
     },
   ];
 
   return (
-    <section className="border-b border-border bg-surface/40">
+    <section className="border-b border-border">
       <div className="mx-auto max-w-6xl px-5 py-8">
         <h2 className="text-sm font-semibold text-muted">Your progress</h2>
 
@@ -63,10 +95,13 @@ export default function PersonalDashboard() {
             <Link
               key={s.label}
               href={s.href}
-              className="row-hover rounded-lg border border-border bg-background p-3"
+              className="card-soft p-3"
+              style={{ backgroundColor: s.bg }}
             >
               <p className="text-xs text-muted">{s.label}</p>
-              <p className="mt-1 text-lg font-semibold">{s.value}</p>
+              <p className="mt-1 text-lg font-semibold" style={{ color: s.text }}>
+                {s.value}
+              </p>
             </Link>
           ))}
         </div>
@@ -74,19 +109,19 @@ export default function PersonalDashboard() {
         {noDataAtAll ? (
           <div className="mt-4">
             <EmptyState
-              title="Nothing tracked yet"
-              description="Save a job, log a study topic, or add a task to see your progress here."
+              title="Nothing tracked yet — and that's okay 🌱"
+              description="Save a job, log a study topic, or add a task, and your progress will start showing up here."
             />
           </div>
         ) : (
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div className="rounded-lg border border-border bg-background p-4">
+            <div className="card-soft p-4">
               <p className="text-sm font-semibold">
                 {formatMonth(month)} goals
               </p>
               {monthGoals.length === 0 ? (
                 <p className="mt-1 text-sm text-muted">
-                  No goals set for this month yet.
+                  No goals set yet for this month — whenever you&rsquo;re ready.
                 </p>
               ) : (
                 <ul className="mt-2 space-y-1">
@@ -99,11 +134,11 @@ export default function PersonalDashboard() {
               )}
             </div>
 
-            <div className="rounded-lg border border-border bg-background p-4">
+            <div className="card-soft p-4">
               <p className="text-sm font-semibold">Upcoming</p>
               {upcoming.length === 0 ? (
                 <p className="mt-1 text-sm text-muted">
-                  No upcoming deadlines, OAs, or interviews.
+                  Nothing on the calendar right now — enjoy the breathing room.
                 </p>
               ) : (
                 <ul className="mt-2 space-y-1">

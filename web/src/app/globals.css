@@ -3,31 +3,66 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #faf8f5;
-  --foreground: #1c1a17;
-  --surface: #f2efe9;
-  --surface-hover: #eae6de;
-  --border: rgba(28, 25, 20, 0.12);
-  --border-strong: rgba(28, 25, 20, 0.22);
-  --muted: #726a61;
-  --accent: #a8541f;
+  /* Warm cream, not stark white — the page should feel like a cozy notebook. */
+  --background: #fef6ea;
+  --foreground: #3b342a;
+  --surface: #ffffff;
+  --surface-hover: #fff8ed;
+  --border: rgba(120, 90, 60, 0.13);
+  --border-strong: rgba(120, 90, 60, 0.24);
+  --muted: #8c8072;
+  --accent: #c9573f;
   --accent-foreground: #fffaf6;
-  --success-bg: #eaf3ea;
+  --success-bg: #e5f5ea;
   --success-fg: #33633a;
+
+  /* Category colors — used as small, intentional accents (badges, left
+   * borders, stat tiles), never as whole-page theming. Each has a
+   * deep-enough "-text" tone for labels/icons and a soft "-bg" tint. */
+  --cat-applications: #3d6fa8;
+  --cat-applications-bg: #e6f0fb;
+  --cat-study: #7a5fbf;
+  --cat-study-bg: #efe9fb;
+  --cat-interview: #c1703b;
+  --cat-interview-bg: #fbeadd;
+  --cat-offer: #3e8a5c;
+  --cat-offer-bg: #e5f5ea;
+  --cat-planner: #a87e14;
+  --cat-planner-bg: #fbf3d9;
+  --cat-sister: #c15a7d;
+  --cat-sister-bg: #fbe7ee;
+  --cat-rejected: #96677a;
+  --cat-rejected-bg: #f1e7ec;
 }
 
 .dark {
-  --background: #171512;
-  --foreground: #eeeae3;
-  --surface: #1e1b17;
-  --surface-hover: #26221d;
+  /* Dark purple-gray, not pure black. */
+  --background: #1f1b27;
+  --foreground: #f3ede5;
+  --surface: #2a2433;
+  --surface-hover: #332c3d;
   --border: rgba(255, 255, 255, 0.09);
   --border-strong: rgba(255, 255, 255, 0.18);
-  --muted: #a89d90;
-  --accent: #d98a4e;
-  --accent-foreground: #1a1310;
+  --muted: #b3a8b8;
+  --accent: #f0946f;
+  --accent-foreground: #2a1712;
   --success-bg: #1c2a1e;
-  --success-fg: #7fbf88;
+  --success-fg: #86c99a;
+
+  --cat-applications: #9cc4ee;
+  --cat-applications-bg: rgba(156, 196, 238, 0.14);
+  --cat-study: #c7b3f2;
+  --cat-study-bg: rgba(199, 179, 242, 0.14);
+  --cat-interview: #f0b383;
+  --cat-interview-bg: rgba(240, 179, 131, 0.14);
+  --cat-offer: #91d6aa;
+  --cat-offer-bg: rgba(145, 214, 170, 0.14);
+  --cat-planner: #e8c765;
+  --cat-planner-bg: rgba(232, 199, 101, 0.14);
+  --cat-sister: #f0a8c2;
+  --cat-sister-bg: rgba(240, 168, 194, 0.14);
+  --cat-rejected: #b699a6;
+  --cat-rejected-bg: rgba(182, 153, 166, 0.14);
 }
 
 @theme inline {
@@ -40,6 +75,24 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-success-bg: var(--success-bg);
+  --color-success-fg: var(--success-fg);
+
+  --color-cat-applications: var(--cat-applications);
+  --color-cat-applications-bg: var(--cat-applications-bg);
+  --color-cat-study: var(--cat-study);
+  --color-cat-study-bg: var(--cat-study-bg);
+  --color-cat-interview: var(--cat-interview);
+  --color-cat-interview-bg: var(--cat-interview-bg);
+  --color-cat-offer: var(--cat-offer);
+  --color-cat-offer-bg: var(--cat-offer-bg);
+  --color-cat-planner: var(--cat-planner);
+  --color-cat-planner-bg: var(--cat-planner-bg);
+  --color-cat-sister: var(--cat-sister);
+  --color-cat-sister-bg: var(--cat-sister-bg);
+  --color-cat-rejected: var(--cat-rejected);
+  --color-cat-rejected-bg: var(--cat-rejected-bg);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -61,13 +114,47 @@ body {
   background: color-mix(in srgb, var(--accent) 30%, transparent);
 }
 
-/* Subtle, restrained hover — a border change only, no lift/shadow/glow. */
+/* Soft, friendly hover — a gentle lift, not a corporate border-only change. */
 .row-hover {
-  transition: background-color 0.12s ease, border-color 0.12s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .row-hover:hover {
   background: var(--surface-hover);
+}
+
+.card-soft {
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(80, 50, 20, 0.04), 0 4px 14px rgba(80, 50, 20, 0.03);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.card-soft:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(80, 50, 20, 0.05), 0 10px 20px rgba(80, 50, 20, 0.05);
+  border-color: var(--border-strong);
+}
+
+/* Same soft look as .card-soft but without the hover-lift — for containers
+ * that hold several individually-hoverable rows, where lifting the whole
+ * box because one row inside it is hovered would look wrong. */
+.list-soft {
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(80, 50, 20, 0.04), 0 4px 14px rgba(80, 50, 20, 0.03);
+  overflow: hidden;
+}
+
+/* A gentle press-down, not a bounce — buttons should feel tactile, not toy-like. */
+.btn-tactile {
+  transition: transform 0.1s ease, opacity 0.15s ease;
+}
+
+.btn-tactile:active {
+  transform: scale(0.97);
 }
 
 .link-underline {
@@ -106,4 +193,46 @@ body {
 
 .celebration-in {
   animation: celebration-in 0.22s ease-out both;
+}
+
+/* A tiny sparkle for completed goals/topics — used sparingly. */
+@keyframes sparkle-pop {
+  0% {
+    transform: scale(0.5) rotate(-10deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.15) rotate(6deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.sparkle-pop {
+  display: inline-block;
+  animation: sparkle-pop 0.4s ease-out both;
+}
+
+/* Very soft, blurred pastel shapes for background warmth — fixed, behind
+ * all content, low opacity. Never interactive, never busy. */
+.bg-decoration {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-decoration span {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.14;
+}
+
+.dark .bg-decoration span {
+  opacity: 0.08;
 }

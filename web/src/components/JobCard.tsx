@@ -3,17 +3,18 @@ import type { Job } from "@/lib/types";
 import SaveToTrackerButton from "./SaveToTrackerButton";
 
 export default function JobCard({ job }: { job: Job }) {
+  const isInternship = job.type === "Internship";
   return (
     <div className="row-hover flex flex-col gap-3 border-b border-border px-4 py-4 last:border-b-0 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
           <span className="font-medium text-foreground">{job.company}</span>
           <span
-            className={`rounded-md px-1.5 py-0.5 text-[11px] font-medium ${
-              job.type === "Internship"
-                ? "bg-surface-hover text-muted"
-                : "border border-border text-muted"
-            }`}
+            className="rounded-md px-1.5 py-0.5 text-[11px] font-medium"
+            style={{
+              backgroundColor: isInternship ? "var(--cat-study-bg)" : "var(--cat-applications-bg)",
+              color: isInternship ? "var(--cat-study)" : "var(--cat-applications)",
+            }}
           >
             {job.type}
           </span>
@@ -42,7 +43,7 @@ export default function JobCard({ job }: { job: Job }) {
             href={job.applyLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground transition-opacity hover:opacity-90"
+            className="btn-tactile rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground transition-opacity hover:opacity-90"
           >
             Apply
           </a>

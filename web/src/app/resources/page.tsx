@@ -29,7 +29,7 @@ export default function ResourcesPage() {
             <h2 className="text-base font-semibold tracking-tight">
               {category}
             </h2>
-            <div className="mt-3 overflow-hidden rounded-lg border border-border bg-surface">
+            <div className="list-soft mt-3">
               {resources
                 .filter((r) => r.category === category)
                 .map((resource) => (

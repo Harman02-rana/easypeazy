@@ -6,6 +6,7 @@ import { generateId, TRACKER_KEYS } from "@/lib/storage";
 import { createStarterMilestones, createStarterStudyTopics } from "@/lib/starterData";
 import type {
   Application,
+  LittleWin,
   MonthlyGoal,
   NewApplicationInput,
   PlannerEntry,
@@ -59,6 +60,10 @@ export function usePlannerEntries() {
 
 export function useTasks() {
   return useCrudList<Task>(TRACKER_KEYS.tasks, []);
+}
+
+export function useLittleWins() {
+  return useCrudList<LittleWin>(TRACKER_KEYS.littleWins, []);
 }
 
 export function useMonthlyGoals() {

@@ -94,7 +94,7 @@ export default async function CompanyPage({
             href={company.officialCareers}
             target="_blank"
             rel="noopener noreferrer"
-            className="whitespace-nowrap rounded-lg bg-accent px-4 py-2 text-center text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90"
+            className="btn-tactile whitespace-nowrap rounded-lg bg-accent px-4 py-2 text-center text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90"
           >
             Apply on official site
           </a>
@@ -102,7 +102,7 @@ export default async function CompanyPage({
       </div>
 
       {hasLinks && (
-        <div className="mt-6 overflow-hidden rounded-lg border border-border bg-surface">
+        <div className="list-soft mt-6">
           <LinkRow label="Official Careers" href={company.officialCareers} />
           <LinkRow label="Internships" href={company.internships} />
           <LinkRow label="New Grad" href={company.newGrad} />

@@ -27,6 +27,12 @@ export interface PlannerEntry {
   updatedAt: string;
 }
 
+export interface LittleWin {
+  id: string;
+  text: string;
+  date: string; // ISO date
+}
+
 export const TASK_PRIORITIES = ["Low", "Medium", "High"] as const;
 export type TaskPriority = (typeof TASK_PRIORITIES)[number];
 

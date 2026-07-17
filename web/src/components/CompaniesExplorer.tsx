@@ -39,11 +39,11 @@ export default function CompaniesExplorer({
       <div className="mt-3">
         {filtered.length === 0 ? (
           <EmptyState
-            title="No companies match"
+            title="No companies match yet"
             description="Try a different search term."
           />
         ) : (
-          <div className="overflow-hidden rounded-lg border border-border bg-surface">
+          <div className="list-soft">
             {filtered.map((company) => (
               <CompanyCard key={company.slug} company={company} />
             ))}

@@ -44,19 +44,19 @@ export default function PreparationMonthView() {
       </div>
 
       <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <div className="rounded-lg border border-border bg-surface p-3">
+        <div className="card-soft p-3">
           <p className="text-xs text-muted">Topics planned</p>
           <p className="mt-1 text-lg font-semibold">{monthTopics.length}</p>
         </div>
-        <div className="rounded-lg border border-border bg-surface p-3">
+        <div className="card-soft p-3">
           <p className="text-xs text-muted">Topics completed</p>
           <p className="mt-1 text-lg font-semibold">{completedTopics.length}</p>
         </div>
-        <div className="rounded-lg border border-border bg-surface p-3">
+        <div className="card-soft p-3">
           <p className="text-xs text-muted">Questions solved</p>
           <p className="mt-1 text-lg font-semibold">{questionsSolvedThisMonth}</p>
         </div>
-        <div className="rounded-lg border border-border bg-surface p-3">
+        <div className="card-soft p-3">
           <p className="text-xs text-muted">Progress</p>
           <div className="mt-2">
             <ProgressBar value={progress} />
@@ -96,8 +96,8 @@ export default function PreparationMonthView() {
       {monthTopics.length === 0 && monthGoals.length === 0 && monthMilestones.length === 0 && (
         <div className="mt-4">
           <EmptyState
-            title={`Nothing planned for ${formatMonth(month)} yet`}
-            description="Set a target month on a topic or add a goal to see it here."
+            title={`${formatMonth(month)} is wide open right now`}
+            description="Set a target month on a topic or add a goal, and it'll show up here."
           />
         </div>
       )}
