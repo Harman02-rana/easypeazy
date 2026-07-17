@@ -1,5 +1,4 @@
 import { Flame } from "lucide-react";
-import LiveClock from "./LiveClock";
 import DateDisplay from "./DateDisplay";
 import TodayGoal from "./TodayGoal";
 
@@ -8,20 +7,18 @@ import TodayGoal from "./TodayGoal";
  * today; wiring in a real streak count/percentage later is just changing
  * this component's contents, nothing about how it's mounted in the header).
  *
- * Deliberately built as three independent sub-components (LiveClock,
- * DateDisplay, TodayGoal) rather than one that owns all the state, so any
- * future addition (streak counter, GATE countdown, weather, a rotating
- * quote) is one more sibling here — never a rewrite of this component or
- * of how the header renders it.
+ * The live clock lives separately, next to the logo on the left (see
+ * Navbar.tsx) — kept out of this box so this widget stays lightweight and
+ * doesn't compete with the logo/nav for width on the right side.
  *
- * Always rendered (not hidden below a breakpoint) so the clock shows on
- * every page at every screen size; the badge/date/goal progressively
- * appear as space opens up (sm/lg) rather than the whole widget vanishing.
+ * Always rendered (not hidden below a breakpoint); the badge/date/goal
+ * progressively appear as space opens up (sm/xl) rather than the whole
+ * widget vanishing below a breakpoint.
  */
 export default function HeaderProductivityWidget({ className = "" }: { className?: string }) {
   return (
     <div
-      className={`step-fade-in flex items-center gap-2 rounded-lg border px-2 py-1 text-[10px] leading-tight text-foreground/90 backdrop-blur-sm sm:px-3 sm:py-1.5 xl:flex-col xl:items-end xl:gap-1 ${className}`}
+      className={`step-fade-in hidden items-center gap-2 rounded-lg border px-3 py-1.5 text-[10px] leading-tight text-foreground/90 backdrop-blur-sm sm:flex xl:flex-col xl:items-end xl:gap-1 ${className}`}
       style={{
         borderColor: "var(--border)",
         background:
@@ -38,11 +35,7 @@ export default function HeaderProductivityWidget({ className = "" }: { className
         </span>
       </span>
 
-      <div className="flex items-center gap-2">
-        <LiveClock />
-        <span className="hidden text-border-strong sm:inline">·</span>
-        <DateDisplay className="hidden sm:flex" />
-      </div>
+      <DateDisplay className="hidden sm:flex" />
 
       <TodayGoal className="hidden font-medium xl:flex" style={{ color: "var(--accent)" }} />
     </div>

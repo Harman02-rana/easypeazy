@@ -24,6 +24,7 @@ import NavbarSearch from "./NavbarSearch";
 import NavDropdown from "./NavDropdown";
 import HeaderProductivityWidget from "./HeaderProductivityWidget";
 import NotificationBell from "./NotificationBell";
+import LiveClock from "./LiveClock";
 import TodayGoal from "./TodayGoal";
 import { SITE_NAME } from "@/lib/personalConfig";
 
@@ -69,6 +70,8 @@ export default function Navbar() {
               <span className="text-[11px] text-muted">2027 Placement Hub</span>
             </span>
           </Link>
+
+          <LiveClock className="text-xs text-muted" />
 
           <nav className="hidden items-center gap-1 text-sm xl:flex">
             {links.map((link) => {
