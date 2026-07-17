@@ -160,7 +160,7 @@ export default function MilestoneCelebration({
 
   return (
     <div
-      className="backdrop-fade-in fixed inset-0 z-[100] flex items-center justify-center bg-foreground/25 p-4 backdrop-blur-sm"
+      className="backdrop-fade-in fixed inset-0 z-100 flex items-center justify-center bg-foreground/25 p-4 backdrop-blur-sm"
       role="presentation"
     >
       <div
@@ -199,15 +199,12 @@ export default function MilestoneCelebration({
 
           {step >= 3 && (
             <div className="step-fade-in w-full">
-              <div className="flex items-center justify-center gap-1.5">
+              <div className="flex items-center justify-center">
                 {visual.particle === "single-sparkle" ? (
-                  <Sparkles className="sparkle-pop h-4 w-4" style={{ color: visual.accent }} strokeWidth={2} />
+                  <Sparkles className="sparkle-pop h-5 w-5" style={{ color: visual.accent }} strokeWidth={2} />
                 ) : (
-                  <Heart className="h-3.5 w-3.5" style={{ color: visual.accent }} strokeWidth={2} fill={visual.accent} />
+                  <Heart className="h-5 w-5" style={{ color: visual.accent }} strokeWidth={2} fill={visual.accent} />
                 )}
-                <span className="text-xs font-semibold" style={{ color: visual.accent }}>
-                  A little note from your sister ❤️
-                </span>
               </div>
 
               <h2
