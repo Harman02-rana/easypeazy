@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 function encouragingMessage(value: number): string {
   if (value >= 100) return "Done! You crushed this 🎉";
   if (value >= 81) return "Almost there!";
@@ -20,6 +24,23 @@ export default function ProgressBar({
   showMessage?: boolean;
 }) {
   const clamped = Math.max(0, Math.min(100, value));
+
+  // Animate the fill growing in from 0 on first mount, so a freshly-loaded
+  // page reads as "alive" rather than the bar just appearing pre-filled.
+  // Later value changes (e.g. dragging the goal-progress slider) still
+  // animate via the CSS transition below, just without the initial delay.
+  const [display, setDisplay] = useState(0);
+  const mounted = useRef(false);
+
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+      const frame = requestAnimationFrame(() => setDisplay(clamped));
+      return () => cancelAnimationFrame(frame);
+    }
+    setDisplay(clamped);
+  }, [clamped]);
+
   return (
     <div>
       {label && (
@@ -30,8 +51,8 @@ export default function ProgressBar({
       )}
       <div className="h-1.5 w-full overflow-hidden rounded-full border border-border bg-surface-hover">
         <div
-          className="h-full rounded-full bg-accent transition-[width] duration-300"
-          style={{ width: `${clamped}%` }}
+          className="h-full rounded-full bg-accent transition-[width] duration-500 ease-out"
+          style={{ width: `${display}%` }}
         />
       </div>
       {showMessage && (

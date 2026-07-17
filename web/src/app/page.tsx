@@ -1,22 +1,45 @@
 import Link from "next/link";
+import { Briefcase, GraduationCap, Landmark, Rocket } from "lucide-react";
 import HomeSearch from "@/components/HomeSearch";
-import JobList from "@/components/JobList";
 import PersonalDashboard from "@/components/PersonalDashboard";
 import Greeting from "@/components/Greeting";
-import { getJobs, getStats } from "@/lib/data";
+import { getJobs } from "@/lib/data";
 
 const quickLinks = [
-  { label: "New Grad Jobs", href: "/jobs?type=New+Grad" },
-  { label: "Internships", href: "/internships" },
-  { label: "Startup Jobs", href: "/resources#startup-jobs" },
-  { label: "Government Opportunities", href: "/jobs?category=Government" },
+  {
+    label: "New Grad Jobs",
+    href: "/jobs?type=New+Grad",
+    icon: Briefcase,
+    text: "var(--cat-applications)",
+    bg: "var(--cat-applications-bg)",
+  },
+  {
+    label: "Internships",
+    href: "/internships",
+    icon: GraduationCap,
+    text: "var(--cat-study)",
+    bg: "var(--cat-study-bg)",
+  },
+  {
+    label: "Startup Jobs",
+    href: "/resources#startup-jobs",
+    icon: Rocket,
+    text: "var(--cat-interview)",
+    bg: "var(--cat-interview-bg)",
+  },
+  {
+    label: "Government Opportunities",
+    href: "/jobs?category=Government",
+    icon: Landmark,
+    text: "var(--cat-offer)",
+    bg: "var(--cat-offer-bg)",
+  },
 ];
 
 export default function Home() {
-  const stats = getStats();
   const recentJobs = [...getJobs()]
     .sort((a, b) => (b.datePosted || "").localeCompare(a.datePosted || ""))
-    .slice(0, 8);
+    .slice(0, 5);
 
   return (
     <div>
@@ -25,48 +48,40 @@ export default function Home() {
           2027 Focus
         </span>
 
-        <div className="mt-3">
+        <div className="mt-3 flex flex-wrap items-end justify-between gap-3">
           <Greeting />
+          <p className="text-sm italic text-muted">
+            One step at a time. You&rsquo;re doing just fine.
+          </p>
         </div>
 
         <p className="mt-2 text-[15px] text-muted">
-          Let&rsquo;s see what we&rsquo;re working on today.
+          Here&rsquo;s what&rsquo;s happening with your placement journey.
         </p>
 
         <div className="mt-6 max-w-xl">
           <HomeSearch />
         </div>
-
-        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {quickLinks.map((link) => (
-            <Link key={link.label} href={link.href} className="card-soft btn-tactile px-4 py-3 text-sm font-medium text-foreground">
-              {link.label}
-            </Link>
-          ))}
-        </div>
       </div>
 
-      <PersonalDashboard />
+      <PersonalDashboard recentJobs={recentJobs} />
 
       <div className="mx-auto max-w-6xl px-5 py-10">
-        <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h2 className="text-lg font-semibold tracking-tight">
-            Opportunities worth checking
-          </h2>
-          <Link
-            href="/jobs"
-            className="text-sm text-muted transition-colors hover:text-foreground"
-          >
-            View all {stats.totalJobs} roles →
-          </Link>
-        </div>
-        <p className="mt-1 text-sm text-muted">
-          Curated for the 2027 season — always check eligibility on the
-          official posting before applying.
-        </p>
-
-        <div className="mt-4">
-          <JobList jobs={recentJobs} />
+        <h2 className="text-sm font-semibold text-muted">Quick access</h2>
+        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {quickLinks.map((link) => (
+            <Link key={link.label} href={link.href} className="card-soft btn-tactile p-4">
+              <span
+                className="flex h-9 w-9 items-center justify-center rounded-lg"
+                style={{ backgroundColor: link.bg, color: link.text }}
+              >
+                <link.icon className="h-4.5 w-4.5" strokeWidth={2} />
+              </span>
+              <span className="mt-3 block text-sm font-medium text-foreground">
+                {link.label}
+              </span>
+            </Link>
+          ))}
         </div>
       </div>
     </div>

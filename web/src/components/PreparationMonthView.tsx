@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { CheckCircle2, Circle } from "lucide-react";
 import { useMilestones, useMonthlyGoals, useStudyTopics } from "@/hooks/useTracker";
 import { averageProgress } from "@/lib/prepUtils";
 import { ROADMAP_MONTHS, currentMonthKey, formatMonth } from "@/lib/trackerTypes";
@@ -33,7 +34,7 @@ export default function PreparationMonthView() {
         <select
           value={month}
           onChange={(e) => setMonth(e.target.value)}
-          className="rounded-lg border border-border bg-surface px-3 py-1.5 text-sm text-foreground outline-none focus:border-accent"
+          className="rounded-lg border border-border bg-surface px-3 py-1.5 text-sm text-foreground outline-none transition-all focus:border-accent focus:ring-4 focus:ring-accent-soft-bg"
         >
           {ROADMAP_MONTHS.map((m) => (
             <option key={m} value={m}>
@@ -67,10 +68,15 @@ export default function PreparationMonthView() {
       {monthMilestones.length > 0 && (
         <div className="mt-4">
           <h3 className="text-sm font-semibold text-muted">Milestones</h3>
-          <ul className="mt-1.5 space-y-1">
+          <ul className="mt-1.5 space-y-1.5">
             {monthMilestones.map((m) => (
-              <li key={m.id} className="text-sm text-foreground">
-                {m.completed ? "✓" : "—"} {m.title}
+              <li key={m.id} className="flex items-center gap-1.5 text-sm text-foreground">
+                {m.completed ? (
+                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0" style={{ color: "var(--cat-offer)" }} strokeWidth={2} />
+                ) : (
+                  <Circle className="h-3.5 w-3.5 shrink-0 text-muted" strokeWidth={2} />
+                )}
+                {m.title}
               </li>
             ))}
           </ul>

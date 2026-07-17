@@ -245,14 +245,14 @@ export default function ApplicationForm({
       <div className="flex gap-2">
         <button
           type="submit"
-          className="btn-tactile rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
+          className="btn-primary"
         >
           {application ? "Save changes" : "Add application"}
         </button>
         <button
           type="button"
           onClick={onCancel}
-          className="rounded-lg border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-surface-hover cursor-pointer"
+          className="btn-secondary"
         >
           Cancel
         </button>

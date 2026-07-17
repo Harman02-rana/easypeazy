@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { Pencil, Trash2 } from "lucide-react";
 import { useMilestones } from "@/hooks/useTracker";
 import { generateId } from "@/lib/storage";
-import { ROADMAP_MONTHS, formatMonth } from "@/lib/trackerTypes";
+import { ROADMAP_MONTHS, currentMonthKey, formatMonth } from "@/lib/trackerTypes";
 import type { RoadmapMilestone } from "@/lib/trackerTypes";
 import EmptyState from "./EmptyState";
 
@@ -76,14 +77,14 @@ function MilestoneForm({
       <div className="flex gap-2">
         <button
           type="submit"
-          className="btn-tactile rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
+          className="btn-primary"
         >
           {milestone ? "Save changes" : "Add milestone"}
         </button>
         <button
           type="button"
           onClick={onCancel}
-          className="rounded-lg border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-surface-hover cursor-pointer"
+          className="btn-secondary"
         >
           Cancel
         </button>
@@ -96,6 +97,7 @@ export default function MonthlyRoadmap() {
   const { items, hydrated, add, update, remove } = useMilestones();
   const [creating, setCreating] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const thisMonth = currentMonthKey();
 
   return (
     <section>
@@ -106,7 +108,7 @@ export default function MonthlyRoadmap() {
         {!creating && (
           <button
             onClick={() => setCreating(true)}
-            className="btn-tactile rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
+            className="btn-primary-sm"
           >
             Add milestone
           </button>
@@ -138,17 +140,28 @@ export default function MonthlyRoadmap() {
               const monthMilestones = items.filter((m) => m.month === month);
               if (monthMilestones.length === 0) return null;
               const allDone = monthMilestones.every((m) => m.completed);
+              const isCurrent = month === thisMonth && !allDone;
+              const markerColor = allDone
+                ? "var(--cat-offer)"
+                : isCurrent
+                  ? "var(--accent)"
+                  : "var(--border-strong)";
               return (
                 <div key={month} className="relative pb-6 last:pb-0">
                   <span
                     className="absolute top-1 left-[-1.65rem] h-3 w-3 rounded-full border-2"
                     style={{
-                      borderColor: allDone ? "var(--cat-offer)" : "var(--border-strong)",
-                      backgroundColor: allDone ? "var(--cat-offer)" : "var(--surface)",
+                      borderColor: markerColor,
+                      backgroundColor: allDone || isCurrent ? markerColor : "var(--surface)",
                     }}
                   />
-                  <h3 className="text-sm font-semibold text-muted">
+                  <h3 className="flex items-center gap-2 text-sm font-semibold text-muted">
                     {formatMonth(month)}
+                    {isCurrent && (
+                      <span className="pill" style={{ backgroundColor: "var(--accent-soft-bg)", color: "var(--accent)" }}>
+                        Now
+                      </span>
+                    )}
                   </h3>
                   <div className="mt-2 space-y-2">
                     {monthMilestones.map((m) =>
@@ -184,7 +197,7 @@ export default function MonthlyRoadmap() {
                               </p>
                               {m.completed && (
                                 <span
-                                  className="sparkle-pop rounded-md px-1.5 py-0.5 text-[11px] font-medium"
+                                  className="pill sparkle-pop"
                                   style={{
                                     backgroundColor: "var(--cat-offer-bg)",
                                     color: "var(--cat-offer)",
@@ -200,18 +213,20 @@ export default function MonthlyRoadmap() {
                               </p>
                             )}
                           </div>
-                          <div className="flex shrink-0 gap-2 text-xs">
+                          <div className="flex shrink-0 gap-1">
                             <button
                               onClick={() => setEditingId(m.id)}
-                              className="rounded-lg border border-border px-2.5 py-1 font-medium transition-colors hover:bg-surface-hover cursor-pointer"
+                              aria-label="Edit milestone"
+                              className="flex h-7 w-7 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-hover hover:text-foreground cursor-pointer"
                             >
-                              Edit
+                              <Pencil className="h-3.5 w-3.5" strokeWidth={2} />
                             </button>
                             <button
                               onClick={() => remove(m.id)}
-                              className="rounded-lg border border-border px-2.5 py-1 font-medium text-muted transition-colors hover:bg-surface-hover cursor-pointer"
+                              aria-label="Delete milestone"
+                              className="flex h-7 w-7 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-hover hover:text-foreground cursor-pointer"
                             >
-                              Delete
+                              <Trash2 className="h-3.5 w-3.5" strokeWidth={2} />
                             </button>
                           </div>
                         </div>

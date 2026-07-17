@@ -11,10 +11,17 @@
   --border: rgba(120, 90, 60, 0.13);
   --border-strong: rgba(120, 90, 60, 0.24);
   --muted: #8c8072;
-  --accent: #c9573f;
-  --accent-foreground: #fffaf6;
   --success-bg: #e5f5ea;
   --success-fg: #33633a;
+
+  /* One primary brand color — deep indigo/violet. This is the "70%
+   * professional" anchor: every primary action, active nav state, and
+   * focus ring reads from this single hue so the product feels considered
+   * rather than randomly colored. */
+  --accent: #4f46e5;
+  --accent-strong: #4338ca;
+  --accent-foreground: #fbfaff;
+  --accent-soft-bg: rgba(79, 70, 229, 0.09);
 
   /* Category colors — used as small, intentional accents (badges, left
    * borders, stat tiles), never as whole-page theming. Each has a
@@ -33,6 +40,8 @@
   --cat-sister-bg: #fbe7ee;
   --cat-rejected: #96677a;
   --cat-rejected-bg: #f1e7ec;
+
+  --shadow-tint: 30, 27, 60;
 }
 
 .dark {
@@ -44,10 +53,13 @@
   --border: rgba(255, 255, 255, 0.09);
   --border-strong: rgba(255, 255, 255, 0.18);
   --muted: #b3a8b8;
-  --accent: #f0946f;
-  --accent-foreground: #2a1712;
   --success-bg: #1c2a1e;
   --success-fg: #86c99a;
+
+  --accent: #9089f0;
+  --accent-strong: #a79cf7;
+  --accent-foreground: #1c1638;
+  --accent-soft-bg: rgba(144, 137, 240, 0.16);
 
   --cat-applications: #9cc4ee;
   --cat-applications-bg: rgba(156, 196, 238, 0.14);
@@ -63,6 +75,8 @@
   --cat-sister-bg: rgba(240, 168, 194, 0.14);
   --cat-rejected: #b699a6;
   --cat-rejected-bg: rgba(182, 153, 166, 0.14);
+
+  --shadow-tint: 0, 0, 0;
 }
 
 @theme inline {
@@ -74,7 +88,9 @@
   --color-border-strong: var(--border-strong);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft-bg: var(--accent-soft-bg);
   --color-success-bg: var(--success-bg);
   --color-success-fg: var(--success-fg);
 
@@ -124,16 +140,20 @@ body {
 }
 
 .card-soft {
-  border-radius: 1rem;
+  border-radius: 0.875rem;
   border: 1px solid var(--border);
   background: var(--surface);
-  box-shadow: 0 1px 2px rgba(80, 50, 20, 0.04), 0 4px 14px rgba(80, 50, 20, 0.03);
+  box-shadow:
+    0 1px 2px rgba(var(--shadow-tint), 0.04),
+    0 6px 16px rgba(var(--shadow-tint), 0.05);
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 .card-soft:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(80, 50, 20, 0.05), 0 10px 20px rgba(80, 50, 20, 0.05);
+  transform: translateY(-3px);
+  box-shadow:
+    0 2px 4px rgba(var(--shadow-tint), 0.06),
+    0 14px 28px rgba(var(--shadow-tint), 0.08);
   border-color: var(--border-strong);
 }
 
@@ -141,20 +161,156 @@ body {
  * that hold several individually-hoverable rows, where lifting the whole
  * box because one row inside it is hovered would look wrong. */
 .list-soft {
+  border-radius: 0.875rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow:
+    0 1px 2px rgba(var(--shadow-tint), 0.04),
+    0 6px 16px rgba(var(--shadow-tint), 0.05);
+  overflow: hidden;
+}
+
+/* A slightly stronger elevation for the one or two hero surfaces per page
+ * (the dashboard greeting header, a featured panel) — used sparingly. */
+.surface-elevated {
   border-radius: 1rem;
   border: 1px solid var(--border);
   background: var(--surface);
-  box-shadow: 0 1px 2px rgba(80, 50, 20, 0.04), 0 4px 14px rgba(80, 50, 20, 0.03);
-  overflow: hidden;
+  box-shadow:
+    0 2px 6px rgba(var(--shadow-tint), 0.05),
+    0 16px 36px rgba(var(--shadow-tint), 0.07);
 }
 
 /* A gentle press-down, not a bounce — buttons should feel tactile, not toy-like. */
 .btn-tactile {
-  transition: transform 0.1s ease, opacity 0.15s ease;
+  transition: transform 0.1s ease, opacity 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn-tactile:active {
   transform: scale(0.97);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  border-radius: 0.625rem;
+  background: var(--accent);
+  color: var(--accent-foreground);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 1px 2px rgba(var(--shadow-tint), 0.08), 0 4px 10px rgba(79, 70, 229, 0.18);
+  transition: transform 0.1s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-primary-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3125rem;
+  border-radius: 0.5rem;
+  background: var(--accent);
+  color: var(--accent-foreground);
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  box-shadow: 0 1px 2px rgba(var(--shadow-tint), 0.08), 0 3px 8px rgba(79, 70, 229, 0.16);
+  transition: transform 0.1s ease, opacity 0.15s ease;
+  cursor: pointer;
+}
+
+.btn-primary-sm:hover {
+  opacity: 0.92;
+}
+
+.btn-primary-sm:active {
+  transform: scale(0.97);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  border-radius: 0.625rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--foreground);
+  font-weight: 500;
+  font-size: 0.8125rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+}
+
+.btn-secondary:active {
+  transform: scale(0.97);
+}
+
+.btn-secondary-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3125rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--foreground);
+  font-weight: 500;
+  font-size: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  cursor: pointer;
+}
+
+.btn-secondary-sm:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+}
+
+.btn-secondary-sm:active {
+  transform: scale(0.97);
+}
+
+/* Small rounded-rectangle tag — for job type, category, filters. Distinct
+ * from .pill (below), which is reserved for workflow/status states. */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.4375rem;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Fully-rounded status pill — Applied/OA/Interview/Offer/Rejected and
+ * similar workflow states. Kept visually distinct from tag badges so a
+ * glance at shape alone tells you "this is a status", not just a label. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.25rem 0.6875rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 .link-underline {
@@ -235,4 +391,37 @@ body {
 
 .dark .bg-decoration span {
   opacity: 0.08;
+}
+
+/* Slim, quiet brand strip — the one deliberately decorative flourish at
+ * the top of the page. Not sticky, not interactive, scrolls away with
+ * everything else. */
+.brand-strip {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    var(--cat-applications) 22%,
+    var(--cat-study) 44%,
+    var(--cat-offer) 66%,
+    var(--cat-interview) 84%,
+    var(--cat-sister) 100%
+  );
+  opacity: 0.55;
+}
+
+/* Fade+scale entrance for progress fills and freshly-mounted panels. */
+@keyframes grow-in {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-grow-in {
+  animation: grow-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: left;
 }

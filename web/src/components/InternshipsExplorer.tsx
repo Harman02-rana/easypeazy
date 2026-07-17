@@ -58,11 +58,15 @@ export default function InternshipsExplorer({
               options: companyNames.map((c) => ({ label: c, value: c })),
             },
           ]}
+          onClear={() => {
+            setLocation("");
+            setCompany("");
+          }}
         />
       </div>
 
-      <p className="mt-4 text-sm text-muted">
-        {filtered.length} internship{filtered.length === 1 ? "" : "s"}
+      <p className="mt-4 text-sm font-medium text-foreground">
+        {filtered.length} internship{filtered.length === 1 ? "" : "s"} found
       </p>
 
       <div className="mt-3">

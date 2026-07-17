@@ -40,13 +40,13 @@ export default function BackupControls() {
     <div className="flex flex-wrap items-center gap-2 text-xs">
       <button
         onClick={() => exportTrackerData()}
-        className="rounded-lg border border-border px-3 py-1.5 font-medium text-foreground transition-colors hover:border-border-strong hover:bg-surface-hover cursor-pointer"
+        className="btn-secondary-sm"
       >
         Export my data
       </button>
       <button
         onClick={() => fileInputRef.current?.click()}
-        className="rounded-lg border border-border px-3 py-1.5 font-medium text-foreground transition-colors hover:border-border-strong hover:bg-surface-hover cursor-pointer"
+        className="btn-secondary-sm"
       >
         Import my data
       </button>

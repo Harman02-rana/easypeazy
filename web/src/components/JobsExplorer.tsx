@@ -88,11 +88,17 @@ export default function JobsExplorer({
               options: companyNames.map((c) => ({ label: c, value: c })),
             },
           ]}
+          onClear={() => {
+            setType("");
+            setLocation("");
+            setCategory("");
+            setCompany("");
+          }}
         />
       </div>
 
-      <p className="mt-4 text-sm text-muted">
-        {filtered.length} role{filtered.length === 1 ? "" : "s"}
+      <p className="mt-4 text-sm font-medium text-foreground">
+        {filtered.length} opportunit{filtered.length === 1 ? "y" : "ies"} found
       </p>
 
       <div className="mt-3">

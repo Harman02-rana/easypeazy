@@ -1,11 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { Trash2 } from "lucide-react";
 import { useTasks } from "@/hooks/useTracker";
 import { generateId } from "@/lib/storage";
 import { TASK_PRIORITIES } from "@/lib/trackerTypes";
 import type { TaskPriority } from "@/lib/trackerTypes";
 import EmptyState from "./EmptyState";
+
+const PRIORITY_TINT: Record<TaskPriority, { text: string; bg: string }> = {
+  High: { text: "var(--cat-interview)", bg: "var(--cat-interview-bg)" },
+  Medium: { text: "var(--cat-planner)", bg: "var(--cat-planner-bg)" },
+  Low: { text: "var(--cat-applications)", bg: "var(--cat-applications-bg)" },
+};
 
 function isOverdue(dueDate: string, status: string): boolean {
   if (!dueDate || status === "Done") return false;
@@ -74,7 +81,7 @@ export default function TaskList() {
         </select>
         <button
           type="submit"
-          className="btn-tactile rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
+          className="btn-primary"
         >
           Add
         </button>
@@ -119,7 +126,7 @@ export default function TaskList() {
                       {t.dueDate || "No due date"}
                       {overdue && (
                         <span
-                          className="ml-2 rounded-md px-1.5 py-0.5 text-[11px] font-medium"
+                          className="pill ml-2"
                           style={{
                             backgroundColor: "var(--cat-rejected-bg)",
                             color: "var(--cat-rejected)",
@@ -130,14 +137,18 @@ export default function TaskList() {
                       )}
                     </p>
                   </div>
-                  <span className="shrink-0 rounded-md border border-border px-1.5 py-0.5 text-[11px] text-muted">
+                  <span
+                    className="badge shrink-0"
+                    style={{ backgroundColor: PRIORITY_TINT[t.priority].bg, color: PRIORITY_TINT[t.priority].text }}
+                  >
                     {t.priority}
                   </span>
                   <button
                     onClick={() => remove(t.id)}
-                    className="shrink-0 text-xs text-muted transition-colors hover:text-foreground cursor-pointer"
+                    aria-label="Delete task"
+                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-hover hover:text-foreground cursor-pointer"
                   >
-                    Delete
+                    <Trash2 className="h-3.5 w-3.5" strokeWidth={2} />
                   </button>
                 </div>
               );

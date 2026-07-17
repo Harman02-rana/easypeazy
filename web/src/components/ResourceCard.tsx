@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import type { Resource } from "@/lib/types";
 
 export default function ResourceCard({ resource }: { resource: Resource }) {
@@ -11,9 +12,10 @@ export default function ResourceCard({ resource }: { resource: Resource }) {
         href={resource.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="shrink-0 rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-border-strong hover:bg-surface-hover"
+        className="btn-secondary-sm shrink-0"
       >
         Visit
+        <ArrowUpRight className="h-3 w-3" strokeWidth={2.25} />
       </a>
     </div>
   );

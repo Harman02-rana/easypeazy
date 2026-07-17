@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { NotebookPen } from "lucide-react";
 import TrackerHeader from "@/components/TrackerHeader";
+import PageHeader from "@/components/PageHeader";
 import TaskList from "@/components/TaskList";
 import MonthlyGoals from "@/components/MonthlyGoals";
 import LittleWins from "@/components/LittleWins";
@@ -15,11 +17,14 @@ export default function PlannerPage() {
     <div className="mx-auto max-w-4xl px-5 py-10">
       <TrackerHeader />
 
-      <h1 className="text-2xl font-semibold tracking-tight">My Planner</h1>
-      <p className="mt-1 text-sm text-muted">
-        Your own little notebook — plans, reflections, and the small stuff
-        worth remembering.
-      </p>
+      <PageHeader
+        icon={NotebookPen}
+        eyebrow="Planner"
+        title="My Planner"
+        description="Your own little notebook — plans, reflections, and the small stuff worth remembering."
+        tint="var(--cat-planner)"
+        tintBg="var(--cat-planner-bg)"
+      />
 
       <div className="mt-10">
         <TaskList />

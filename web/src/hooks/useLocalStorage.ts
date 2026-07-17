@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { publishKeyChange, store, subscribeToKey } from "@/lib/storage";
 
 /**
@@ -21,6 +21,14 @@ import { publishKeyChange, store, subscribeToKey } from "@/lib/storage";
 export function useLocalStorage<T>(key: string, initialValue: T) {
   const [value, setValue] = useState<T>(initialValue);
   const [hydrated, setHydrated] = useState(false);
+
+  // Mirrors `value` synchronously so `update` can resolve a functional
+  // updater's `prev` without putting side effects (store writes, publishing
+  // to other instances) inside the `setValue` updater itself — React may
+  // invoke that updater outside of the normal event-handler timing, which
+  // is unsafe for anything that isn't a pure state computation.
+  const valueRef = useRef(value);
+  valueRef.current = value;
 
   useEffect(() => {
     const stored = store.getItem<T>(key);
@@ -48,13 +56,14 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
 
   const update = useCallback(
     (next: T | ((prev: T) => T)) => {
-      setValue((prev) => {
-        const resolved =
-          typeof next === "function" ? (next as (prev: T) => T)(prev) : next;
-        store.setItem(key, resolved);
-        publishKeyChange(key);
-        return resolved;
-      });
+      const resolved =
+        typeof next === "function"
+          ? (next as (prev: T) => T)(valueRef.current)
+          : next;
+      valueRef.current = resolved;
+      store.setItem(key, resolved);
+      publishKeyChange(key);
+      setValue(resolved);
     },
     [key]
   );

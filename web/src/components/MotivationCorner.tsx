@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Quote } from "lucide-react";
 import { motivationCornerMessageForToday } from "@/lib/milestoneMessages";
 
 export default function MotivationCorner() {
@@ -17,8 +18,22 @@ export default function MotivationCorner() {
   if (!message) return null;
 
   return (
-    <div className="border-t border-border pt-3 text-xs text-muted">
-      <span>{message}</span>
+    <div
+      className="relative overflow-hidden rounded-2xl border p-5"
+      style={{
+        borderColor: "var(--cat-sister)",
+        background: "linear-gradient(155deg, var(--cat-sister-bg) 0%, var(--cat-planner-bg) 100%)",
+      }}
+    >
+      <Quote
+        className="absolute -right-2 -top-2 h-16 w-16 opacity-15"
+        style={{ color: "var(--cat-sister)" }}
+        strokeWidth={1.5}
+        fill="var(--cat-sister)"
+      />
+      <p className="relative text-[15px] italic leading-relaxed text-foreground/90">
+        &ldquo;{message}&rdquo;
+      </p>
     </div>
   );
 }

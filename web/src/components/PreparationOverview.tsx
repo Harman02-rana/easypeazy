@@ -1,5 +1,13 @@
 "use client";
 
+import {
+  Calculator,
+  Code2,
+  Cpu,
+  FolderGit2,
+  MessagesSquare,
+  Target,
+} from "lucide-react";
 import { useStudyTopics } from "@/hooks/useTracker";
 import {
   computeHeadlineProgress,
@@ -29,28 +37,33 @@ export default function PreparationOverview() {
             thisMonthTopics.length
         );
 
-  const stats: { label: string; value: number }[] = [
-    { label: "Overall", value: headline.overall },
-    { label: "DSA", value: headline.dsa },
-    { label: "Core CS", value: headline.coreCs },
-    { label: "Aptitude", value: headline.aptitude },
-    { label: "Interview Prep", value: headline.interviewPrep },
-    { label: "Projects", value: headline.projects },
+  const stats = [
+    { label: "Overall", value: headline.overall, icon: Target },
+    { label: "DSA", value: headline.dsa, icon: Code2 },
+    { label: "Core CS", value: headline.coreCs, icon: Cpu },
+    { label: "Aptitude", value: headline.aptitude, icon: Calculator },
+    { label: "Interview Prep", value: headline.interviewPrep, icon: MessagesSquare },
+    { label: "Projects", value: headline.projects, icon: FolderGit2 },
   ];
 
   return (
     <section>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
         {stats.map((s) => (
-          <div
-            key={s.label}
-            className="card-soft p-3"
-            style={{ backgroundColor: "var(--cat-study-bg)" }}
-          >
-            <p className="text-xs text-muted">{s.label}</p>
-            <p className="mt-1 text-xl font-semibold" style={{ color: "var(--cat-study)" }}>
-              {s.value}%
-            </p>
+          <div key={s.label} className="card-soft p-3.5">
+            <div className="flex items-center justify-between">
+              <span
+                className="flex h-7 w-7 items-center justify-center rounded-lg"
+                style={{ backgroundColor: "var(--cat-study-bg)", color: "var(--cat-study)" }}
+              >
+                <s.icon className="h-3.5 w-3.5" strokeWidth={2} />
+              </span>
+              <span className="text-lg font-semibold text-foreground">{s.value}%</span>
+            </div>
+            <p className="mt-2 text-xs text-muted">{s.label}</p>
+            <div className="mt-2">
+              <ProgressBar value={s.value} />
+            </div>
           </div>
         ))}
       </div>

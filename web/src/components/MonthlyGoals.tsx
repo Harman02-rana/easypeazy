@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Trash2 } from "lucide-react";
 import { useMonthlyGoals } from "@/hooks/useTracker";
 import { generateId } from "@/lib/storage";
 import {
@@ -108,14 +109,14 @@ export default function MonthlyGoals() {
           <div className="flex gap-2">
             <button
               type="submit"
-              className="btn-tactile rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
+              className="btn-primary"
             >
               Add goal
             </button>
             <button
               type="button"
               onClick={() => setCreating(false)}
-              className="rounded-lg border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-surface-hover cursor-pointer"
+              className="btn-secondary"
             >
               Cancel
             </button>
@@ -141,7 +142,7 @@ export default function MonthlyGoals() {
                   <div>
                     <div className="flex flex-wrap items-center gap-2">
                       <p className="font-medium text-foreground">{g.goal}</p>
-                      <span className="rounded-md border border-border px-1.5 py-0.5 text-[11px] text-muted">
+                      <span className="badge border border-border text-muted">
                         {g.category}
                       </span>
                     </div>
@@ -151,9 +152,10 @@ export default function MonthlyGoals() {
                   </div>
                   <button
                     onClick={() => remove(g.id)}
-                    className="text-xs text-muted transition-colors hover:text-foreground cursor-pointer"
+                    aria-label="Delete goal"
+                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-hover hover:text-foreground cursor-pointer"
                   >
-                    Delete
+                    <Trash2 className="h-3.5 w-3.5" strokeWidth={2} />
                   </button>
                 </div>
                 <div className="mt-3 flex items-center gap-3">

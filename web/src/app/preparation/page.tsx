@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { GraduationCap } from "lucide-react";
 import TrackerHeader from "@/components/TrackerHeader";
+import PageHeader from "@/components/PageHeader";
 import PreparationOverview from "@/components/PreparationOverview";
+import CurrentFocus from "@/components/CurrentFocus";
 import PreparationMonthView from "@/components/PreparationMonthView";
 import TopicTracker from "@/components/TopicTracker";
 import MonthlyRoadmap from "@/components/MonthlyRoadmap";
@@ -15,14 +18,21 @@ export default function PreparationPage() {
     <div className="mx-auto max-w-4xl px-5 py-10">
       <TrackerHeader />
 
-      <h1 className="text-2xl font-semibold tracking-tight">Your Learning Journey</h1>
-      <p className="mt-1 text-sm text-muted">
-        Everything you&rsquo;re studying and practicing, one topic and one month
-        at a time. Progress here counts, even the slow days.
-      </p>
+      <PageHeader
+        icon={GraduationCap}
+        eyebrow="Preparation"
+        title="Your Learning Journey"
+        description="Everything you're studying and practicing, one topic and one month at a time. Progress here counts, even the slow days."
+        tint="var(--cat-study)"
+        tintBg="var(--cat-study-bg)"
+      />
 
       <div className="mt-8">
         <PreparationOverview />
+      </div>
+
+      <div className="mt-12">
+        <CurrentFocus />
       </div>
 
       <div className="mt-12">

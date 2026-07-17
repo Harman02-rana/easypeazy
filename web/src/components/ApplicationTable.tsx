@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { ExternalLink, Pencil, Trash2 } from "lucide-react";
 import { useApplications } from "@/hooks/useTracker";
 import { generateId } from "@/lib/storage";
 import { APPLICATION_STATUSES, JOB_TYPES } from "@/lib/trackerTypes";
@@ -10,8 +11,73 @@ import SearchBar from "./SearchBar";
 import FilterBar from "./FilterBar";
 import ApplicationForm, { type ApplicationDraft } from "./ApplicationForm";
 import EmptyState from "./EmptyState";
+import CompanyAvatar from "./CompanyAvatar";
 
 type SortKey = "dateApplied" | "applicationDeadline" | "dateSaved";
+
+function StatusSelect({
+  app,
+  onChange,
+}: {
+  app: Application;
+  onChange: (status: ApplicationStatus) => void;
+}) {
+  const colors = statusColors(app.status);
+  return (
+    <select
+      value={app.status}
+      onChange={(e) => onChange(e.target.value as ApplicationStatus)}
+      className="pill cursor-pointer border-0 outline-none"
+      style={{ backgroundColor: colors.bg, color: colors.text }}
+    >
+      {APPLICATION_STATUSES.map((s) => (
+        <option key={s} value={s}>
+          {statusLabel(s)}
+        </option>
+      ))}
+    </select>
+  );
+}
+
+function RowActions({
+  app,
+  onEdit,
+  onDelete,
+}: {
+  app: Application;
+  onEdit: () => void;
+  onDelete: () => void;
+}) {
+  return (
+    <div className="flex shrink-0 items-center gap-1">
+      {app.applicationLink && (
+        <a
+          href={app.applicationLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open application link"
+          className="flex h-7 w-7 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-hover hover:text-foreground"
+        >
+          <ExternalLink className="h-3.5 w-3.5" strokeWidth={2} />
+        </a>
+      )}
+      <button
+        onClick={onEdit}
+        aria-label="Edit application"
+        className="flex h-7 w-7 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-hover hover:text-foreground cursor-pointer"
+      >
+        <Pencil className="h-3.5 w-3.5" strokeWidth={2} />
+      </button>
+      <button
+        onClick={onDelete}
+        aria-label="Delete application"
+        className="flex h-7 w-7 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-hover hover:text-foreground cursor-pointer"
+      >
+        <Trash2 className="h-3.5 w-3.5" strokeWidth={2} />
+      </button>
+    </div>
+  );
+}
 
 export default function ApplicationTable() {
   const { items, hydrated, add, update, remove } = useApplications();
@@ -44,6 +110,9 @@ export default function ApplicationTable() {
       .sort((a, b) => (b[sortKey] || "").localeCompare(a[sortKey] || ""));
   }, [items, query, status, jobType, location, sortKey]);
 
+  const editingApp = filtered.find((a) => a.id === editingId);
+  const rows = filtered.filter((a) => a.id !== editingId);
+
   function handleSave(draft: ApplicationDraft, existing?: Application) {
     if (existing) {
       update(existing.id, draft);
@@ -63,10 +132,7 @@ export default function ApplicationTable() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h2 className="text-base font-semibold tracking-tight">Applications</h2>
         {!creating && (
-          <button
-            onClick={() => setCreating(true)}
-            className="btn-tactile rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground transition-opacity hover:opacity-90 cursor-pointer"
-          >
+          <button onClick={() => setCreating(true)} className="btn-primary-sm">
             Add application
           </button>
         )}
@@ -113,13 +179,18 @@ export default function ApplicationTable() {
                   options: locations.map((l) => ({ label: l, value: l })),
                 },
               ]}
+              onClear={() => {
+                setStatus("");
+                setJobType("");
+                setLocation("");
+              }}
             />
             <label className="flex flex-col gap-1 text-xs text-muted">
               Sort by
               <select
                 value={sortKey}
                 onChange={(e) => setSortKey(e.target.value as SortKey)}
-                className="rounded-lg border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-accent"
+                className="rounded-lg border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none transition-all focus:border-accent focus:ring-4 focus:ring-accent-soft-bg"
               >
                 <option value="dateSaved">Date saved</option>
                 <option value="dateApplied">Date applied</option>
@@ -139,83 +210,92 @@ export default function ApplicationTable() {
         ) : filtered.length === 0 ? (
           <EmptyState title="Nothing matches" description="Try a different search or filter." />
         ) : (
-          <div className="space-y-3">
-            {filtered.map((app) => {
-              if (editingId === app.id) {
-                return (
-                  <ApplicationForm
-                    key={app.id}
-                    application={app}
-                    onSave={(draft) => handleSave(draft, app)}
-                    onCancel={() => setEditingId(null)}
-                  />
-                );
-              }
-              const colors = statusColors(app.status);
-              return (
+          <>
+            {editingApp && (
+              <div className="mb-3">
+                <ApplicationForm
+                  application={editingApp}
+                  onSave={(draft) => handleSave(draft, editingApp)}
+                  onCancel={() => setEditingId(null)}
+                />
+              </div>
+            )}
+
+            {/* Mobile: cards */}
+            <div className="space-y-3 md:hidden">
+              {rows.map((app) => (
                 <div key={app.id} className="card-soft p-4">
-                  <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div className="min-w-0">
+                  <div className="flex items-start gap-3">
+                    <CompanyAvatar name={app.company} size="sm" />
+                    <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="font-medium text-foreground">
-                          {app.company}
-                        </span>
-                        <span className="rounded-md border border-border px-1.5 py-0.5 text-[11px] text-muted">
-                          {app.jobType}
-                        </span>
+                        <span className="font-medium text-foreground">{app.company}</span>
+                        <span className="badge border border-border text-muted">{app.jobType}</span>
                       </div>
                       <p className="mt-0.5 text-sm text-foreground/90">{app.role}</p>
                       <p className="mt-0.5 text-xs text-muted">
                         {app.location || "Location not specified"}
-                        {app.applicationDeadline &&
-                          ` · Deadline ${app.applicationDeadline}`}
+                        {app.applicationDeadline && ` · Deadline ${app.applicationDeadline}`}
                       </p>
-                    </div>
-                    <div className="flex shrink-0 items-center gap-2">
-                      <select
-                        value={app.status}
-                        onChange={(e) =>
-                          update(app.id, {
-                            status: e.target.value as ApplicationStatus,
-                          })
-                        }
-                        className="rounded-lg border border-border px-2 py-1.5 text-xs font-medium outline-none focus:border-accent"
-                        style={{ backgroundColor: colors.bg, color: colors.text }}
-                      >
-                        {APPLICATION_STATUSES.map((s) => (
-                          <option key={s} value={s}>
-                            {statusLabel(s)}
-                          </option>
-                        ))}
-                      </select>
-                      {app.applicationLink && (
-                        <a
-                          href={app.applicationLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="rounded-lg border border-border px-2.5 py-1.5 text-xs font-medium transition-colors hover:bg-surface-hover"
-                        >
-                          Apply ↗
-                        </a>
-                      )}
-                      <button
-                        onClick={() => setEditingId(app.id)}
-                        className="rounded-lg border border-border px-2.5 py-1.5 text-xs font-medium transition-colors hover:bg-surface-hover cursor-pointer"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => remove(app.id)}
-                        className="rounded-lg border border-border px-2.5 py-1.5 text-xs font-medium text-muted transition-colors hover:bg-surface-hover cursor-pointer"
-                      >
-                        Delete
-                      </button>
+                      <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
+                        <StatusSelect app={app} onChange={(s) => update(app.id, { status: s })} />
+                        <RowActions
+                          app={app}
+                          onEdit={() => setEditingId(app.id)}
+                          onDelete={() => remove(app.id)}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+
+            {/* Desktop: data table */}
+            <div className="list-soft hidden overflow-x-auto md:block">
+              <table className="w-full min-w-2xl border-collapse text-sm">
+                <thead>
+                  <tr className="border-b border-border text-left text-xs text-muted">
+                    <th className="px-4 py-3 font-medium">Company</th>
+                    <th className="px-4 py-3 font-medium">Role</th>
+                    <th className="px-4 py-3 font-medium">Type</th>
+                    <th className="px-4 py-3 font-medium">Location</th>
+                    <th className="px-4 py-3 font-medium">Status</th>
+                    <th className="px-4 py-3 font-medium">Deadline</th>
+                    <th className="px-4 py-3 font-medium text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map((app) => (
+                    <tr key={app.id} className="row-hover border-b border-border last:border-b-0">
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-2.5">
+                          <CompanyAvatar name={app.company} size="sm" />
+                          <span className="font-medium text-foreground">{app.company}</span>
+                        </div>
+                      </td>
+                      <td className="max-w-56 truncate px-4 py-3 text-foreground/90">{app.role}</td>
+                      <td className="px-4 py-3 text-muted">{app.jobType}</td>
+                      <td className="px-4 py-3 text-muted">{app.location || "—"}</td>
+                      <td className="px-4 py-3">
+                        <StatusSelect app={app} onChange={(s) => update(app.id, { status: s })} />
+                      </td>
+                      <td className="px-4 py-3 text-muted">{app.applicationDeadline || "—"}</td>
+                      <td className="px-4 py-3">
+                        <div className="flex justify-end">
+                          <RowActions
+                            app={app}
+                            onEdit={() => setEditingId(app.id)}
+                            onDelete={() => remove(app.id)}
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
         )}
       </div>
     </section>

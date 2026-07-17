@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { ClipboardList } from "lucide-react";
 import TrackerHeader from "@/components/TrackerHeader";
+import PageHeader from "@/components/PageHeader";
 import ApplicationsPageContent from "@/components/ApplicationsPageContent";
 import { SITE_NAME } from "@/lib/personalConfig";
 
@@ -12,10 +14,14 @@ export default function ApplicationsPage() {
     <div className="mx-auto max-w-4xl px-5 py-10">
       <TrackerHeader />
 
-      <h1 className="text-2xl font-semibold tracking-tight">My Applications</h1>
-      <p className="mt-1 text-sm text-muted">
-        Every application, from saved to offer, in one place.
-      </p>
+      <PageHeader
+        icon={ClipboardList}
+        eyebrow="Applications"
+        title="My Applications"
+        description="Every application, from saved to offer, in one place."
+        tint="var(--cat-applications)"
+        tintBg="var(--cat-applications-bg)"
+      />
 
       <ApplicationsPageContent />
     </div>
