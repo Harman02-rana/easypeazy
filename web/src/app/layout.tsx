@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MilestoneWatcher from "@/components/MilestoneWatcher";
 import BackgroundDecoration from "@/components/BackgroundDecoration";
+import { SITE_NAME } from "@/lib/personalConfig";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "JobHunter Pro — 2027 Placement Hub",
+  title: `${SITE_NAME} — 2027 Placement Hub`,
   description:
     "A personal collection of internships, graduate roles, and job-hunting resources for the 2027 placement season.",
 };

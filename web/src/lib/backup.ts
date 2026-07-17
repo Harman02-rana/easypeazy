@@ -1,4 +1,5 @@
 import { store, TRACKER_KEYS } from "./storage";
+import { SITE_NAME } from "./personalConfig";
 
 const BACKUP_VERSION = 1;
 
@@ -27,7 +28,7 @@ export function exportTrackerData(): void {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = `jobhunter-pro-backup-${new Date().toISOString().slice(0, 10)}.json`;
+  a.download = `${SITE_NAME.toLowerCase()}-backup-${new Date().toISOString().slice(0, 10)}.json`;
   document.body.appendChild(a);
   a.click();
   a.remove();
@@ -37,7 +38,7 @@ export function exportTrackerData(): void {
 export function parseBackupFile(text: string): BackupFile {
   const parsed = JSON.parse(text);
   if (!parsed || typeof parsed !== "object" || !("data" in parsed)) {
-    throw new Error("This doesn't look like a JobHunter Pro backup file.");
+    throw new Error(`This doesn't look like a ${SITE_NAME} backup file.`);
   }
   return parsed as BackupFile;
 }

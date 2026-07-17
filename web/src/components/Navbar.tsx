@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 import NavbarSearch from "./NavbarSearch";
+import { SITE_NAME } from "@/lib/personalConfig";
 
 const links = [
   { href: "/", label: "Home" },
@@ -86,7 +87,7 @@ export default function Navbar() {
         <div className="flex items-center gap-8">
           <Link href="/" className="flex flex-col leading-tight">
             <span className="text-[15px] font-semibold tracking-tight">
-              JobHunter Pro
+              {SITE_NAME}
             </span>
             <span className="text-[11px] text-muted">2027 Placement Hub</span>
           </Link>

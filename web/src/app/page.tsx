@@ -32,9 +32,6 @@ export default function Home() {
         <p className="mt-2 text-[15px] text-muted">
           Let&rsquo;s see what we&rsquo;re working on today.
         </p>
-        <p className="mt-1 text-xs text-muted">
-          Built with a little extra love by your sister ❤️
-        </p>
 
         <div className="mt-6 max-w-xl">
           <HomeSearch />

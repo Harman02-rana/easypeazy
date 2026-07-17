@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import CompaniesExplorer from "@/components/CompaniesExplorer";
 import { getCompanies } from "@/lib/data";
+import { SITE_NAME } from "@/lib/personalConfig";
 
 export const metadata: Metadata = {
-  title: "Companies — JobHunter Pro",
+  title: `Companies — ${SITE_NAME}`,
 };
 
 export default function CompaniesPage() {

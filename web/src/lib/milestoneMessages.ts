@@ -11,27 +11,27 @@ export const SPECIAL_MILESTONE_MESSAGES: Record<number, MilestoneMessage> = {
   5: {
     title: "5 down. This is just the beginning.",
     message:
-      "Hey, I know 5 applications might not feel like a huge number, but you started — and that's what matters. Keep showing up. I'm always rooting for you. ❤️\n\n— Your Sister",
+      "Hey, I know 5 applications might not feel like a huge number, but you started — and that's what matters. Keep showing up. I'm always rooting for you. ❤️",
   },
   10: {
     title: "Double digits! Look at you go.",
     message:
-      "10 applications done. Every application is one more door you've knocked on. Some will open, some won't — but you only need the right one. Keep going. You've got this.\n\n— Your Sister",
+      "10 applications done. Every application is one more door you've knocked on. Some will open, some won't — but you only need the right one. Keep going. You've got this.",
   },
   15: {
     title: "15 applications. Still going strong.",
     message:
-      "I hope you remember that your worth is never decided by an acceptance or rejection email. Keep learning, keep applying, and keep becoming better every day. I'm already proud of how far you've come.\n\n— Your Sister",
+      "I hope you remember that your worth is never decided by an acceptance or rejection email. Keep learning, keep applying, and keep becoming better every day. I'm already proud of how far you've come.",
   },
   20: {
     title: "20 opportunities chased.",
     message:
-      "Twenty times you chose to try instead of wondering ‘what if’. That's something to be proud of. The right opportunity may be closer than you think. Don't stop now.\n\n— Your Sister",
+      "Twenty times you chose to try instead of wondering ‘what if’. That's something to be proud of. The right opportunity may be closer than you think. Don't stop now.",
   },
   25: {
-    title: "25 applications! A message from your sister.",
+    title: "25 applications! 🎉",
     message:
-      "If you're reading this, you've already put yourself out there 25 times. I made this little corner of the internet for you because I believe in what you're capable of. No matter how long the journey takes, keep moving forward. One day we'll look back at this phase and smile.\n\nI'm always on your team. ❤️\n\n— Your Sister",
+      "If you're reading this, you've already put yourself out there 25 times. I made this little corner of the internet for you because I believe in what you're capable of. No matter how long the journey takes, keep moving forward. One day we'll look back at this phase and smile.\n\nI'm always on your team. ❤️",
   },
 };
 
@@ -68,7 +68,7 @@ export const FIRST_INTERVIEW_MESSAGE: MilestoneMessage = {
 export const FIRST_OFFER_MESSAGE: MilestoneMessage = {
   title: "YOU DID IT! ❤️",
   message:
-    "All those applications, all that preparation, all the days you kept going even when things felt uncertain — they brought you here.\n\nI always knew you could do it.\n\nNow go celebrate. You earned this one.\n\n— Your very proud sister ❤️",
+    "All those applications, all that preparation, all the days you kept going even when things felt uncertain — they brought you here.\n\nI always knew you could do it.\n\nNow go celebrate. You earned this one. ❤️",
 };
 
 /** Small dashboard section, rotates once per day (deterministic by day of

@@ -22,7 +22,6 @@ export interface Celebration {
   kind: CelebrationKind;
   title: string;
   message: string;
-  showSignature: boolean;
   confetti: boolean;
 }
 
@@ -89,7 +88,6 @@ function buildMilestoneCelebration(threshold: number, rotatingIndex: number): Ce
       kind: "milestone",
       title: special.title,
       message: special.message,
-      showSignature: false, // signature is already part of these messages
       confetti,
     };
   }
@@ -100,7 +98,6 @@ function buildMilestoneCelebration(threshold: number, rotatingIndex: number): Ce
     kind: "milestone",
     title: `${threshold} applications submitted`,
     message: text,
-    showSignature: true,
     confetti,
   };
 }
@@ -148,7 +145,6 @@ export function computeMilestoneUpdate(
       kind: "first-application",
       title: FIRST_APPLICATION_MESSAGE.title,
       message: FIRST_APPLICATION_MESSAGE.message,
-      showSignature: true,
       confetti: false,
     });
   }
@@ -165,7 +161,6 @@ export function computeMilestoneUpdate(
       kind: "first-oa",
       title: FIRST_OA_MESSAGE.title,
       message: FIRST_OA_MESSAGE.message,
-      showSignature: true,
       confetti: false,
     });
   }
@@ -176,7 +171,6 @@ export function computeMilestoneUpdate(
       kind: "first-interview",
       title: FIRST_INTERVIEW_MESSAGE.title,
       message: FIRST_INTERVIEW_MESSAGE.message,
-      showSignature: true,
       confetti: false,
     });
   }
@@ -187,7 +181,6 @@ export function computeMilestoneUpdate(
       kind: "first-offer",
       title: FIRST_OFFER_MESSAGE.title,
       message: FIRST_OFFER_MESSAGE.message,
-      showSignature: false, // signature already in the message
       confetti: true,
     });
   }

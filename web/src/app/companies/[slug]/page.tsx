@@ -7,6 +7,7 @@ import {
   getCompanyBySlug,
   getJobsForCompany,
 } from "@/lib/data";
+import { SITE_NAME } from "@/lib/personalConfig";
 
 export function generateStaticParams() {
   return getCompanies().map((c) => ({ slug: c.slug }));
@@ -21,7 +22,7 @@ export async function generateMetadata({
   const company = getCompanyBySlug(slug);
   if (!company) return {};
   return {
-    title: `${company.name} — JobHunter Pro`,
+    title: `${company.name} — ${SITE_NAME}`,
     description: `Careers, internship, and new-grad links for ${company.name}.`,
   };
 }

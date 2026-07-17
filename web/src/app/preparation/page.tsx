@@ -4,9 +4,10 @@ import PreparationOverview from "@/components/PreparationOverview";
 import PreparationMonthView from "@/components/PreparationMonthView";
 import TopicTracker from "@/components/TopicTracker";
 import MonthlyRoadmap from "@/components/MonthlyRoadmap";
+import { SITE_NAME } from "@/lib/personalConfig";
 
 export const metadata: Metadata = {
-  title: "Preparation Tracker — JobHunter Pro",
+  title: `Preparation Tracker — ${SITE_NAME}`,
 };
 
 export default function PreparationPage() {

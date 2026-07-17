@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import InternshipsExplorer from "@/components/InternshipsExplorer";
 import { getJobs } from "@/lib/data";
 import type { LocationBucket } from "@/lib/types";
+import { SITE_NAME } from "@/lib/personalConfig";
 
 export const metadata: Metadata = {
-  title: "Internships — JobHunter Pro",
+  title: `Internships — ${SITE_NAME}`,
 };
 
 export default function InternshipsPage() {

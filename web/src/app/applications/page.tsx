@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import TrackerHeader from "@/components/TrackerHeader";
 import ApplicationsPageContent from "@/components/ApplicationsPageContent";
+import { SITE_NAME } from "@/lib/personalConfig";
 
 export const metadata: Metadata = {
-  title: "Application Tracker — JobHunter Pro",
+  title: `Application Tracker — ${SITE_NAME}`,
 };
 
 export default function ApplicationsPage() {

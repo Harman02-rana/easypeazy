@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import ResourceCard from "@/components/ResourceCard";
 import { getResources, getResourceCategories } from "@/lib/data";
+import { SITE_NAME } from "@/lib/personalConfig";
 
 export const metadata: Metadata = {
-  title: "Resources — JobHunter Pro",
+  title: `Resources — ${SITE_NAME}`,
 };
 
 function slugify(label: string): string {

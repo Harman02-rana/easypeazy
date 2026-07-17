@@ -4,9 +4,10 @@ import TaskList from "@/components/TaskList";
 import MonthlyGoals from "@/components/MonthlyGoals";
 import LittleWins from "@/components/LittleWins";
 import PlannerEntriesSection from "@/components/PlannerEntriesSection";
+import { SITE_NAME } from "@/lib/personalConfig";
 
 export const metadata: Metadata = {
-  title: "My Planner — JobHunter Pro",
+  title: `My Planner — ${SITE_NAME}`,
 };
 
 export default function PlannerPage() {

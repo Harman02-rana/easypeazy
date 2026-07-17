@@ -35,8 +35,6 @@ export default function MilestoneCelebration({
       >
         {celebration.confetti && <Confetti />}
 
-        <span className="relative block text-2xl">💌</span>
-
         <h2 className="relative mt-2 text-lg font-semibold tracking-tight text-foreground">
           {celebration.title}
         </h2>
@@ -44,15 +42,6 @@ export default function MilestoneCelebration({
         {celebration.message && (
           <p className="relative mt-3 whitespace-pre-line text-sm leading-relaxed text-foreground/80">
             {celebration.message}
-          </p>
-        )}
-
-        {celebration.showSignature && (
-          <p
-            className="relative mt-3 text-xs font-medium"
-            style={{ color: "var(--cat-sister)" }}
-          >
-            A little note from your sister ❤️
           </p>
         )}
 

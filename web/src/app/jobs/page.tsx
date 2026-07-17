@@ -6,9 +6,10 @@ import {
   getLocationBuckets,
   getCompanyNamesWithJobs,
 } from "@/lib/data";
+import { SITE_NAME } from "@/lib/personalConfig";
 
 export const metadata: Metadata = {
-  title: "Jobs — JobHunter Pro",
+  title: `Jobs — ${SITE_NAME}`,
 };
 
 function firstParam(value: string | string[] | undefined): string {
