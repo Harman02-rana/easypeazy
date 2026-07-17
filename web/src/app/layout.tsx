@@ -4,6 +4,7 @@ import ThemeScript from "@/components/ThemeScript";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MilestoneWatcher from "@/components/MilestoneWatcher";
+import WelcomeNote from "@/components/WelcomeNote";
 import BackgroundDecoration from "@/components/BackgroundDecoration";
 import { SITE_NAME } from "@/lib/personalConfig";
 import "./globals.css";
@@ -44,6 +45,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <MilestoneWatcher />
+        <WelcomeNote />
       </body>
     </html>
   );
