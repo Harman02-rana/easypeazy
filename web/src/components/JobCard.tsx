@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Job } from "@/lib/types";
+import SaveToTrackerButton from "./SaveToTrackerButton";
 
 export default function JobCard({ job }: { job: Job }) {
   return (
@@ -28,13 +29,14 @@ export default function JobCard({ job }: { job: Job }) {
         </p>
       </div>
 
-      <div className="flex shrink-0 items-center gap-2">
+      <div className="flex shrink-0 flex-wrap items-center gap-2">
         <Link
           href={`/companies/${job.companySlug}`}
           className="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-border-strong hover:bg-surface-hover"
         >
           View details
         </Link>
+        <SaveToTrackerButton job={job} />
         {job.applyLink && (
           <a
             href={job.applyLink}
