@@ -11,6 +11,8 @@ export interface Company {
   openNewGradRoles: number;
 }
 
+export type LocationBucket = "India" | "International" | "Remote";
+
 export interface Job {
   id: number;
   company: string;
@@ -22,4 +24,13 @@ export interface Job {
   applyLink: string;
   datePosted: string;
   source: string;
+  category: string;
+  locationBucket: LocationBucket;
+}
+
+export interface Resource {
+  name: string;
+  category: string;
+  description: string;
+  url: string;
 }

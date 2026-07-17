@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Easypeazyy — Internships & New Grad Jobs for the Class of 2027",
+  title: "JobHunter Pro — 2027 Placement Hub",
   description:
-    "Find verified internship and new-grad software engineering openings from top companies, all in one place. Built for 2027 Computer Science students.",
+    "A personal collection of internships, graduate roles, and job-hunting resources for the 2027 placement season.",
 };
 
 export default function RootLayout({

@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Wellfound",
+    "category": "Startup Jobs",
+    "description": "Startup job board with salary and equity listed upfront.",
+    "url": "https://wellfound.com/"
+  },
+  {
+    "name": "Y Combinator — Work at a Startup",
+    "category": "Startup Jobs",
+    "description": "Roles exclusively at YC-backed startups.",
+    "url": "https://www.workatastartup.com/"
+  },
+  {
+    "name": "LinkedIn Jobs",
+    "category": "General Jobs",
+    "description": "Broadest general job search, useful for filtering by date posted.",
+    "url": "https://www.linkedin.com/jobs/"
+  },
+  {
+    "name": "Indeed",
+    "category": "General Jobs",
+    "description": "Large general job aggregator, good for keyword searches.",
+    "url": "https://www.indeed.com/"
+  },
+  {
+    "name": "Naukri",
+    "category": "India",
+    "description": "One of the largest job boards for India-based roles.",
+    "url": "https://www.naukri.com/"
+  },
+  {
+    "name": "Internshala",
+    "category": "India",
+    "description": "India-focused internships across most fields, not just tech.",
+    "url": "https://internshala.com/"
+  },
+  {
+    "name": "Instahyre",
+    "category": "India",
+    "description": "India tech-hiring platform, mostly experienced + some new grad.",
+    "url": "https://www.instahyre.com/"
+  },
+  {
+    "name": "Glassdoor",
+    "category": "International",
+    "description": "Job listings plus company reviews and reported interview questions.",
+    "url": "https://www.glassdoor.com/"
+  },
+  {
+    "name": "Levels.fyi",
+    "category": "International",
+    "description": "Real compensation data by company and level — useful once you have an offer.",
+    "url": "https://www.levels.fyi/"
+  },
+  {
+    "name": "DRDO",
+    "category": "Government",
+    "description": "Defence Research and Development Organisation.",
+    "url": "https://www.drdo.gov.in/"
+  },
+  {
+    "name": "ISRO",
+    "category": "Government",
+    "description": "Indian Space Research Organisation.",
+    "url": "https://www.isro.gov.in/"
+  },
+  {
+    "name": "MeitY",
+    "category": "Government",
+    "description": "Ministry of Electronics and Information Technology.",
+    "url": "https://www.meity.gov.in/"
+  },
+  {
+    "name": "C-DAC",
+    "category": "Government",
+    "description": "Centre for Development of Advanced Computing.",
+    "url": "https://www.cdac.in/"
+  },
+  {
+    "name": "NIC",
+    "category": "Government",
+    "description": "National Informatics Centre.",
+    "url": "https://www.nic.in/"
+  }
+]
