@@ -17,6 +17,8 @@ export function statusColors(status: ApplicationStatus): { text: string; bg: str
       return { text: "var(--cat-study)", bg: "var(--cat-study-bg)" };
     case "Interview":
       return { text: "var(--cat-interview)", bg: "var(--cat-interview-bg)" };
+    case "HR":
+      return { text: "var(--cat-sister)", bg: "var(--cat-sister-bg)" };
     case "Offer":
       return { text: "var(--cat-offer)", bg: "var(--cat-offer-bg)" };
     case "Rejected":

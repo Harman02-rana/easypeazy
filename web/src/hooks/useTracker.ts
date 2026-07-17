@@ -6,6 +6,7 @@ import { generateId, TRACKER_KEYS } from "@/lib/storage";
 import { createStarterMilestones, createStarterStudyTopics } from "@/lib/starterData";
 import type {
   Application,
+  CompanyNote,
   LittleWin,
   MonthlyGoal,
   NewApplicationInput,
@@ -136,4 +137,77 @@ export function useApplications() {
   );
 
   return { ...crud, saveFromJob, isSaved };
+}
+
+/** One note per company (resume version, referral status, interview/OA
+ * notes, important dates) — an upsert map rather than a CRUD list, since
+ * there's only ever one record per company. */
+export function useCompanyNotes() {
+  const [notes, setNotes, hydrated] = useLocalStorage<Record<string, CompanyNote>>(
+    TRACKER_KEYS.companyNotes,
+    {}
+  );
+
+  const getNote = useCallback(
+    (companyId: string): CompanyNote =>
+      notes[companyId] ?? {
+        companyId,
+        resumeVersion: "",
+        referralStatus: "",
+        interviewNotes: "",
+        oaNotes: "",
+        importantDates: "",
+        updatedAt: "",
+      },
+    [notes]
+  );
+
+  const saveNote = useCallback(
+    (companyId: string, patch: Partial<Omit<CompanyNote, "companyId">>) => {
+      setNotes((prev) => ({
+        ...prev,
+        [companyId]: {
+          ...(prev[companyId] ?? {
+            companyId,
+            resumeVersion: "",
+            referralStatus: "",
+            interviewNotes: "",
+            oaNotes: "",
+            importantDates: "",
+            updatedAt: "",
+          }),
+          ...patch,
+          companyId,
+          updatedAt: new Date().toISOString(),
+        },
+      }));
+    },
+    [setNotes]
+  );
+
+  return { notes, hydrated, getNote, saveNote };
+}
+
+/** Dismissed hiring-reminder ids — a plain string set, persisted so a
+ * dismissed reminder ("Microsoft opens in 20 days") doesn't reappear on the
+ * next visit within the same window it was generated for. */
+export function useReminderDismissals() {
+  const [dismissed, setDismissed, hydrated] = useLocalStorage<string[]>(
+    TRACKER_KEYS.reminderDismissals,
+    []
+  );
+
+  const dismiss = useCallback(
+    (reminderId: string) => {
+      setDismissed((prev) => (prev.includes(reminderId) ? prev : [...prev, reminderId]));
+    },
+    [setDismissed]
+  );
+
+  const isDismissed = useCallback(
+    (reminderId: string) => dismissed.includes(reminderId),
+    [dismissed]
+  );
+
+  return { dismissed, hydrated, dismiss, isDismissed };
 }

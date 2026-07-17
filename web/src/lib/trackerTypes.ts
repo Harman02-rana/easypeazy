@@ -33,6 +33,19 @@ export interface LittleWin {
   date: string; // ISO date
 }
 
+/** One personal note per company (keyed by company slug/id, not a list —
+ * there's only ever one note per company, so this is an upsert record
+ * rather than a CRUD list like everything else in this file). */
+export interface CompanyNote {
+  companyId: string;
+  resumeVersion: string;
+  referralStatus: string;
+  interviewNotes: string;
+  oaNotes: string;
+  importantDates: string;
+  updatedAt: string;
+}
+
 export const TASK_PRIORITIES = ["Low", "Medium", "High"] as const;
 export type TaskPriority = (typeof TASK_PRIORITIES)[number];
 
@@ -167,6 +180,7 @@ export const APPLICATION_STATUSES = [
   "Applied",
   "OA",
   "Interview",
+  "HR",
   "Offer",
   "Rejected",
   "Withdrawn",
@@ -180,6 +194,7 @@ export const PIPELINE_STATUSES: ApplicationStatus[] = [
   "Applied",
   "OA",
   "Interview",
+  "HR",
   "Offer",
 ];
 

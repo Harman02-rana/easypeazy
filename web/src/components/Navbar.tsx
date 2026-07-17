@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import {
   BookOpen,
   Briefcase,
   Building2,
-  ChevronDown,
+  CalendarDays,
   ClipboardList,
   GraduationCap,
   House,
@@ -15,11 +15,13 @@ import {
   MapPin,
   Menu,
   NotebookPen,
+  Radio,
   Sparkles,
   X,
 } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import NavbarSearch from "./NavbarSearch";
+import NavDropdown from "./NavDropdown";
 import { SITE_NAME } from "@/lib/personalConfig";
 
 const links = [
@@ -37,61 +39,10 @@ const trackerLinks = [
   { href: "/applications", label: "My Applications", icon: ClipboardList },
 ];
 
-function TrackerDropdown() {
-  const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  const active = trackerLinks.some((t) => pathname.startsWith(t.href));
-
-  useEffect(() => {
-    function onClickOutside(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    }
-    document.addEventListener("mousedown", onClickOutside);
-    return () => document.removeEventListener("mousedown", onClickOutside);
-  }, []);
-
-  return (
-    <div ref={ref} className="relative">
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm transition-colors cursor-pointer ${
-          active
-            ? "font-medium"
-            : "text-muted hover:bg-surface-hover hover:text-foreground"
-        }`}
-        style={active ? { backgroundColor: "var(--accent-soft-bg)", color: "var(--accent)" } : undefined}
-      >
-        <LayoutDashboard className="h-3.5 w-3.5" strokeWidth={2} />
-        My Tracker
-        <ChevronDown className={`h-3 w-3 transition-transform ${open ? "rotate-180" : ""}`} strokeWidth={2} />
-      </button>
-      {open && (
-        <div className="absolute right-0 top-full z-10 mt-2 w-48 rounded-xl border border-border bg-surface p-1 shadow-lg">
-          {trackerLinks.map((t) => {
-            const itemActive = pathname.startsWith(t.href);
-            return (
-              <Link
-                key={t.href}
-                href={t.href}
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors"
-                style={
-                  itemActive
-                    ? { backgroundColor: "var(--accent-soft-bg)", color: "var(--accent)", fontWeight: 500 }
-                    : undefined
-                }
-              >
-                <t.icon className="h-4 w-4 shrink-0" strokeWidth={2} />
-                {t.label}
-              </Link>
-            );
-          })}
-        </div>
-      )}
-    </div>
-  );
-}
+const hiringRadarLinks = [
+  { href: "/ongoing-hiring", label: "Ongoing Hiring", icon: Radio },
+  { href: "/calendar", label: "Hiring Calendar", icon: CalendarDays },
+];
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -136,7 +87,8 @@ export default function Navbar() {
               );
             })}
             <span className="mx-1 h-4 w-px bg-border" aria-hidden />
-            <TrackerDropdown />
+            <NavDropdown label="Hiring Radar" icon={Radio} items={hiringRadarLinks} />
+            <NavDropdown label="My Tracker" icon={LayoutDashboard} items={trackerLinks} />
           </nav>
         </div>
 
@@ -175,6 +127,29 @@ export default function Navbar() {
                 >
                   <link.icon className="h-4 w-4 shrink-0" strokeWidth={2} />
                   {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <p className="mt-3 border-t border-border px-3 pt-3 text-[11px] font-medium uppercase tracking-wide text-muted">
+            Hiring Radar
+          </p>
+          <nav className="mt-1 flex flex-col gap-1">
+            {hiringRadarLinks.map((t) => {
+              const active = pathname.startsWith(t.href);
+              return (
+                <Link
+                  key={t.href}
+                  href={t.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm transition-colors ${
+                    active ? "font-medium" : "text-muted hover:bg-surface-hover hover:text-foreground"
+                  }`}
+                  style={active ? { backgroundColor: "var(--accent-soft-bg)", color: "var(--accent)" } : undefined}
+                >
+                  <t.icon className="h-4 w-4 shrink-0" strokeWidth={2} />
+                  {t.label}
                 </Link>
               );
             })}

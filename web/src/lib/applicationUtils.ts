@@ -25,7 +25,8 @@ export function computeApplicationStats(applications: Application[]): Applicatio
     (a) =>
       Boolean(a.interviewDate) ||
       Boolean(a.interviewResult) ||
-      a.status === "Interview"
+      a.status === "Interview" ||
+      a.status === "HR"
   ).length;
   const offers = applications.filter((a) => a.status === "Offer").length;
   const rejected = applications.filter((a) => a.status === "Rejected").length;

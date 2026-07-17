@@ -1,4 +1,4 @@
-import { ArrowRight, Award, Bookmark, ClipboardCheck, Send, Users } from "lucide-react";
+import { ArrowRight, Award, Bookmark, ClipboardCheck, Send, UserCheck, Users } from "lucide-react";
 import { PIPELINE_STATUSES } from "@/lib/trackerTypes";
 import type { Application, ApplicationStatus } from "@/lib/trackerTypes";
 import { statusColors, statusLabel } from "@/lib/statusDisplay";
@@ -8,6 +8,7 @@ const STAGE_ICONS: Record<ApplicationStatus, typeof Bookmark> = {
   Applied: Send,
   OA: ClipboardCheck,
   Interview: Users,
+  HR: UserCheck,
   Offer: Award,
   Rejected: Bookmark,
   Withdrawn: Bookmark,

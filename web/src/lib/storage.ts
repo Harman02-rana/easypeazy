@@ -86,6 +86,8 @@ export const TRACKER_KEYS = {
   milestones: "jhp_roadmap_milestones",
   applications: "jhp_applications",
   applicationMilestoneState: "jhp_application_milestone_state",
+  companyNotes: "jhp_company_notes",
+  reminderDismissals: "jhp_reminder_dismissals",
 } as const;
 
 export function generateId(): string {

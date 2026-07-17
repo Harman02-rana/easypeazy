@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import JobList from "@/components/JobList";
+import CompanyNotes from "@/components/CompanyNotes";
 import {
   getCompanies,
   getCompanyBySlug,
@@ -123,6 +124,10 @@ export default async function CompanyPage({
         <div className="mt-4">
           <JobList jobs={jobs} />
         </div>
+      </div>
+
+      <div className="mt-10">
+        <CompanyNotes companySlug={slug} companyName={company.name} />
       </div>
     </div>
   );

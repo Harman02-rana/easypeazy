@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MilestoneWatcher from "@/components/MilestoneWatcher";
 import WelcomeNote from "@/components/WelcomeNote";
+import HiringReminders from "@/components/HiringReminders";
 import BackgroundDecoration from "@/components/BackgroundDecoration";
 import { SITE_NAME } from "@/lib/personalConfig";
 import "./globals.css";
@@ -46,6 +47,7 @@ export default function RootLayout({
         <Footer />
         <MilestoneWatcher />
         <WelcomeNote />
+        <HiringReminders />
       </body>
     </html>
   );

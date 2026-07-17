@@ -49,7 +49,7 @@ export const INITIAL_MILESTONE_STATE: MilestoneState = {
   rotatingIndex: 0,
 };
 
-const SUBMITTED_STATUSES = new Set(["Applied", "OA", "Interview", "Offer"]);
+const SUBMITTED_STATUSES = new Set(["Applied", "OA", "Interview", "HR", "Offer"]);
 
 /** "Submitted" = CURRENT status is Applied, OA, Interview, or Offer.
  * Saved, Rejected, and Withdrawn never count — deliberately stricter than
