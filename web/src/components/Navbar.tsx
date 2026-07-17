@@ -22,6 +22,9 @@ import {
 import ThemeToggle from "./ThemeToggle";
 import NavbarSearch from "./NavbarSearch";
 import NavDropdown from "./NavDropdown";
+import HeaderProductivityWidget from "./HeaderProductivityWidget";
+import LiveClock from "./LiveClock";
+import TodayGoal from "./TodayGoal";
 import { SITE_NAME } from "@/lib/personalConfig";
 
 const links = [
@@ -50,7 +53,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-background">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+      <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between gap-3 px-5">
         <div className="flex items-center gap-7">
           <Link href="/" className="flex items-center gap-2.5">
             <span
@@ -92,7 +95,8 @@ export default function Navbar() {
           </nav>
         </div>
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-2.5">
+          <HeaderProductivityWidget className="hidden lg:flex" />
           <div className="hidden sm:block">
             <NavbarSearch />
           </div>
@@ -109,7 +113,12 @@ export default function Navbar() {
 
       {menuOpen && (
         <div className="border-t border-border px-5 py-3 sm:hidden">
-          <nav className="flex flex-col gap-1">
+          <div className="flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-xs text-muted">
+            <LiveClock />
+            <TodayGoal style={{ color: "var(--accent)" }} />
+          </div>
+
+          <nav className="mt-1 flex flex-col gap-1">
             {links.map((link) => {
               const active =
                 link.href === "/"
