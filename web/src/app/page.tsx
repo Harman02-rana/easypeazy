@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Briefcase, GraduationCap, Landmark, Rocket } from "lucide-react";
+import { Briefcase, GraduationCap, Landmark, MapPin, Rocket } from "lucide-react";
 import HomeSearch from "@/components/HomeSearch";
 import PersonalDashboard from "@/components/PersonalDashboard";
 import Greeting from "@/components/Greeting";
@@ -33,6 +33,13 @@ const quickLinks = [
     icon: Landmark,
     text: "var(--cat-offer)",
     bg: "var(--cat-offer-bg)",
+  },
+  {
+    label: "India Opportunities",
+    href: "/india",
+    icon: MapPin,
+    text: "var(--cat-planner)",
+    bg: "var(--cat-planner-bg)",
   },
 ];
 
@@ -68,7 +75,7 @@ export default function Home() {
 
       <div className="mx-auto max-w-6xl px-5 py-10">
         <h2 className="text-sm font-semibold text-muted">Quick access</h2>
-        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {quickLinks.map((link) => (
             <Link key={link.label} href={link.href} className="card-soft btn-tactile p-4">
               <span

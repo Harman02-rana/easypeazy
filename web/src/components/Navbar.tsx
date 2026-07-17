@@ -12,6 +12,7 @@ import {
   GraduationCap,
   House,
   LayoutDashboard,
+  MapPin,
   Menu,
   NotebookPen,
   Sparkles,
@@ -25,6 +26,7 @@ const links = [
   { href: "/", label: "Home", icon: House },
   { href: "/jobs", label: "Jobs", icon: Briefcase },
   { href: "/internships", label: "Internships", icon: GraduationCap },
+  { href: "/india", label: "India", icon: MapPin },
   { href: "/companies", label: "Companies", icon: Building2 },
   { href: "/resources", label: "Resources", icon: BookOpen },
 ];
