@@ -31,7 +31,6 @@ export interface Celebration {
 }
 
 export interface MilestoneState {
-  initialized: boolean;
   seenThresholds: number[];
   firstApplicationSeen: boolean;
   firstOASeen: boolean;
@@ -42,7 +41,6 @@ export interface MilestoneState {
 }
 
 export const INITIAL_MILESTONE_STATE: MilestoneState = {
-  initialized: false,
   seenThresholds: [],
   firstApplicationSeen: false,
   firstOASeen: false,
@@ -111,10 +109,14 @@ function buildMilestoneCelebration(threshold: number, rotatingIndex: number): Ce
 
 /** Given the current applications and the previously-stored milestone
  * state, returns any newly-earned celebrations plus the updated state to
- * persist. Pure and side-effect free so the tricky backfill logic (don't
- * retroactively pop 5/10/15 for data that already existed before this
- * feature shipped) can be unit-tested without any React/storage plumbing.
- */
+ * persist. Pure and side-effect free so it can be unit-tested without any
+ * React/storage plumbing.
+ *
+ * Every threshold not yet in `seenThresholds` pops a celebration — including
+ * on the very first run, so a milestone that was already crossed before this
+ * ever loaded (e.g. importing existing data, or the feature reaching a
+ * browser that already had applications tracked) still celebrates it rather
+ * than silently marking it "seen". */
 export function computeMilestoneUpdate(
   applications: Application[],
   state: MilestoneState
@@ -124,24 +126,6 @@ export function computeMilestoneUpdate(
   const interview = hasReachedInterview(applications);
   const offer = hasReachedOffer(applications);
   const crossedThresholds = multiplesOf5UpTo(submitted);
-
-  if (!state.initialized) {
-    // First time this feature has ever run in this browser: silently catch
-    // up to the current state. Nothing pops here, even if the user already
-    // has 17 submitted applications and an offer sitting in their tracker.
-    return {
-      celebrations: [],
-      nextState: {
-        initialized: true,
-        seenThresholds: crossedThresholds,
-        firstApplicationSeen: submitted >= 1,
-        firstOASeen: oa,
-        firstInterviewSeen: interview,
-        firstOfferSeen: offer,
-        rotatingIndex: 0,
-      },
-    };
-  }
 
   const celebrations: Celebration[] = [];
   let rotatingIndex = state.rotatingIndex;
@@ -199,7 +183,6 @@ export function computeMilestoneUpdate(
   return {
     celebrations,
     nextState: {
-      initialized: true,
       seenThresholds: [...state.seenThresholds, ...newThresholds],
       firstApplicationSeen: state.firstApplicationSeen || submitted >= 1,
       firstOASeen: state.firstOASeen || oa,
