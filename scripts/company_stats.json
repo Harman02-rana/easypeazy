@@ -1,0 +1,3382 @@
+{
+  "Google": {
+    "positions": [
+      "Junior SoC DFT Engineer - Google Cloud",
+      "Customer Engineer Associate - Platform - Google Cloud",
+      "Junior Emulation Engineer - University Graduate - Google Cloud"
+    ],
+    "countries": [
+      "Australia",
+      "Israel"
+    ],
+    "counts": {
+      "new_grad": 3
+    },
+    "website": "https://www.google.com"
+  },
+  "TikTok": {
+    "positions": [
+      "Frontend Software Engineer Graduate - TikTok Foundation - 2027 Start - BS/MS",
+      "Mobile Software Engineer Graduate - TikTok Foundation - 2027 Start - BS/MS",
+      "Backend Software Engineer Graduate - TikTok Foundation - 2027 Start - BS/MS",
+      "Software Engineer Graduate - Multimedia Arch-Live - 2027 Start - BS/MS",
+      "Backend Software Engineer Graduate - Multimedia Platform - 2027 Start - BS/MS",
+      "Software Engineer Intern - Multimedia Framework - C++ - 2027 Start - BS/MS",
+      "Frontend Software Engineer Intern - TikTok Foundation - 2027 Start - BS/MS",
+      "Backend Software Engineer Intern - TikTok Foundation - 2027 Start - BS/MS",
+      "Software Engineer Intern - TikTok Live - 2027 Start - BS/MS",
+      "Backend Software Engineer Intern - Platform Engineering - 2027 Start - BS/MS",
+      "Backend Engineer Intern - TikTok LIVE - Sydney - 2026 Start - BS/MS",
+      "Frontend Engineer Intern - TikTok Live - 2026 start - BS/MS",
+      "Software Development Engineer in Test Intern - QA - 2027 Start - BS/MS"
+    ],
+    "countries": [
+      "Australia"
+    ],
+    "counts": {
+      "new_grad": 5,
+      "internship": 8
+    },
+    "website": "https://www.tiktok.com"
+  },
+  "Amazon": {
+    "positions": [
+      "Software Development Engineer I - Amazon Payments",
+      "Software Dev Engineer I - L4",
+      "Software Development Graduate - 2027 Melbourne",
+      "Software Development Graduate - AWS - 2027 Sydney",
+      "Software Dev Engineer I - L4 - FTC - Amazon Pay - Merchant Tech",
+      "Software Development Engineer I - IN Payments - Use Cases -Tech",
+      "Software Development Graduate - 2027 - Stores - Brisbane",
+      "Software Development Graduate - AWS - 2026 Sydney",
+      "2027 Software Dev Engineer Intern",
+      "Software Dev Engineer Intern - Devices 2026 Beijing",
+      "Software Dev Engineer Intern - Alexa 2026 Shenzhen",
+      "SEED Engineer Program - Software Development Engineer Intern - 2026 Shenzhen",
+      "Software Dev Engineer Intern - Manufacturing &Ops 2026 Shenzhen",
+      "Software Dev Engineer Intern - Manufacturing&Ops 2026 Shanghai",
+      "Software Dev Engineer Intern - Devices 2026 Shanghai",
+      "Software Dev Engineer Intern - Sustaining Operations 2026 Shanghai",
+      "Software Dev Engineer Intern - 2026 Shanghai",
+      "Software Dev Engineer Intern - OpenSearch - 2026 Shanghai",
+      "Software Dev Engineer Intern - 2026 Beijing",
+      "Software Development Engineer - 2026",
+      "Software Development Engineer - 2026"
+    ],
+    "countries": [
+      "Australia",
+      "China",
+      "India",
+      "Ireland",
+      "South Africa"
+    ],
+    "counts": {
+      "new_grad": 8,
+      "internship": 11,
+      "review": 2
+    },
+    "website": "https://www.amazon.com"
+  },
+  "NVIDIA": {
+    "positions": [
+      "System Software Engineer - SOC - New College Graduate",
+      "Robotics Software Intern - Deployment and Humanoids - 2026",
+      "Software Engineering Intern - Robot Learning Platform - 2026"
+    ],
+    "countries": [
+      "China",
+      "Taiwan"
+    ],
+    "counts": {
+      "new_grad": 1,
+      "internship": 2
+    },
+    "website": "https://www.nvidia.com"
+  },
+  "Apple": {
+    "positions": [
+      "Early Career Analog Mixed-Signal Modeling Software Engineer - m/f/d",
+      "Software Engineer - Early Career"
+    ],
+    "countries": [
+      "Germany",
+      "Singapore"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.apple.com"
+  },
+  "Stripe": {
+    "positions": [
+      "Software Engineer - New Grad - Developer & End User Experience Platform",
+      "Software Engineer - Intern"
+    ],
+    "countries": [
+      "Canada",
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1,
+      "internship": 1
+    },
+    "website": "https://www.stripe.com"
+  },
+  "Boeing": {
+    "positions": [
+      "Associate Aerospace Software Engineer",
+      "Associate Software Engineer",
+      "Junior C++ Software Engineer"
+    ],
+    "countries": [
+      "India",
+      "Poland"
+    ],
+    "counts": {
+      "new_grad": 3
+    },
+    "website": "https://boeing.com/"
+  },
+  "Manulife": {
+    "positions": [
+      "Associate Back-end Software Engineer-1",
+      "Full Stack Engineer Intern"
+    ],
+    "countries": [
+      "Philippines"
+    ],
+    "counts": {
+      "new_grad": 1,
+      "internship": 1
+    },
+    "website": "https://www.manulife.ca"
+  },
+  "Morgan Stanley": {
+    "positions": [
+      "Analyst - P1 - Software Eng I : Job Level - Analyst"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.morganstanley.com/"
+  },
+  "Outset Medical": {
+    "positions": [
+      "Junior Software Engineer"
+    ],
+    "countries": [
+      "Mexico"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.outsetmedical.com"
+  },
+  "WPP": {
+    "positions": [
+      "Junior Cloud Engineer"
+    ],
+    "countries": [
+      "Poland"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.wpp.com"
+  },
+  "Accenture": {
+    "positions": [
+      "Junior Software Developer"
+    ],
+    "countries": [
+      "Mexico"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.accenture.com"
+  },
+  "Arista Networks": {
+    "positions": [
+      "Graduate Software Engineer - EOS - Sydney",
+      "Software Engineer - EOS - Early-career/Mid-level - Sydney"
+    ],
+    "countries": [
+      "Australia"
+    ],
+    "counts": {
+      "new_grad": 1,
+      "review": 1
+    },
+    "website": "https://www.arista.com/"
+  },
+  "Canonical": {
+    "positions": [
+      "Graduate Software Engineer - Open Source and Linux - Canonical Ubuntu"
+    ],
+    "countries": [
+      "Worldwide"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://canonical.com/"
+  },
+  "CME Group": {
+    "positions": [
+      "Software Engineer 1",
+      "Software Engineer I"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.cmegroup.com"
+  },
+  "Devsinc": {
+    "positions": [
+      "Software Engineer - I - Python"
+    ],
+    "countries": [
+      "Pakistan"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://devsinc.com/"
+  },
+  "Empower": {
+    "positions": [
+      "Associate Engineer Software"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://empower.com"
+  },
+  "Global Payments": {
+    "positions": [
+      "software engineer I"
+    ],
+    "countries": [
+      "Mexico"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.globalpayments.com"
+  },
+  "Hewlett Packard Enterprise": {
+    "positions": [
+      "Graduate Software Engineer",
+      "Software Engineer Graduate - Embedded Firmware"
+    ],
+    "countries": [
+      "India",
+      "Singapore"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://hpe.com/"
+  },
+  "Infobip": {
+    "positions": [
+      "Junior/Mid Software Engineer",
+      "Junior Software Engineer - Java"
+    ],
+    "countries": [
+      "Croatia"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.infobip.com"
+  },
+  "Leidos": {
+    "positions": [
+      "Junior Application Software Developer",
+      "Junior Cloud Platform Engineer - Systems Administrator",
+      "Junior Software Engineer - SWE-1",
+      "Junior Software Engineer"
+    ],
+    "countries": [
+      "Australia",
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 4
+    },
+    "website": "https://www.leidos.com"
+  },
+  "Megaport": {
+    "positions": [
+      "Junior Software Quality Assurance Engineer"
+    ],
+    "countries": [
+      "Australia"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.megaport.com/"
+  },
+  "Nike": {
+    "positions": [
+      "Software Engineer I - ITC"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://nike.com"
+  },
+  "TD Bank": {
+    "positions": [
+      "Associate Software Engineer",
+      "Software Engineer I"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://td.com/"
+  },
+  "Tekion": {
+    "positions": [
+      "Software Engineer I"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://tekion.com"
+  },
+  "UiPath": {
+    "positions": [
+      "Software Engineer I"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.uipath.com/"
+  },
+  "Wolters Kluwer": {
+    "positions": [
+      "Associate Software Quality Assurance Analyst"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.wolterskluwer.com"
+  },
+  "Magical": {
+    "positions": [
+      "New Grad Software Engineer"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.getmagical.com"
+  },
+  "7shifts": {
+    "positions": [
+      "Junior Software Developer - Android"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.7shifts.com"
+  },
+  "Toast": {
+    "positions": [
+      "Software Engineer I - Canada and Emerging Markets - Fullstack"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "http://pos.toasttab.com"
+  },
+  "Edwards Lifesciences": {
+    "positions": [
+      "Engineer I - IT Cloud"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.edwards.com"
+  },
+  "Endava": {
+    "positions": [
+      "Junior Software Engineer - C/C++ - Linux",
+      "Junior C++ Software Developer - Linux",
+      "Software Developer Intern - 5G"
+    ],
+    "countries": [
+      "Vietnam"
+    ],
+    "counts": {
+      "new_grad": 2,
+      "internship": 1
+    },
+    "website": "https://www.endava.com"
+  },
+  "LexisNexis Risk Solutions": {
+    "positions": [
+      "Software Engineer Apprentice",
+      "Apprentice Software Engineer",
+      "Software Engineer I"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 3
+    },
+    "website": "https://risk.lexisnexis.com"
+  },
+  "Mistral AI": {
+    "positions": [
+      "Software Engineer - New Grad"
+    ],
+    "countries": [
+      "France"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://mistral.ai/"
+  },
+  "Motorola Solutions": {
+    "positions": [
+      "Software Engineer Graduate Trainee",
+      "Junior Back End Engineer",
+      "Software Engineer - Fresh Graduate",
+      "Software Engineer GraduateTrainee",
+      "Java Software Developer Intern",
+      "Intern Software Developer - Java",
+      "Software Engineer Intern",
+      "Intern Software Developer - C/C++"
+    ],
+    "countries": [
+      "Malaysia",
+      "Poland",
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 4,
+      "internship": 4
+    },
+    "website": "https://www.motorolasolutions.com"
+  },
+  "Pitney Bowes": {
+    "positions": [
+      "Associate Software Engineer"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.pitneybowes.com"
+  },
+  "Priceline": {
+    "positions": [
+      "Associate Software Engineer"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://priceline.com/"
+  },
+  "RELX": {
+    "positions": [
+      "Software Engineer Apprentice",
+      "Apprentice Software Engineer",
+      "Software Engineer I",
+      "Software Engineer I",
+      "Software Engineer I"
+    ],
+    "countries": [
+      "Philippines",
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 5
+    },
+    "website": "https://www.relx.com"
+  },
+  "ASM": {
+    "positions": [
+      "Engineer I - Field Software"
+    ],
+    "countries": [
+      "Taiwan"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.asm.com/"
+  },
+  "Balchem": {
+    "positions": [
+      "Software - ERP Implementation Junior Consultant - 2026"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://balchem.com"
+  },
+  "Checkout.com": {
+    "positions": [
+      "Software Engineer I",
+      "Software Engineer I",
+      "Software Engineer I",
+      "Software Engineer I"
+    ],
+    "countries": [
+      "China",
+      "Estonia",
+      "France",
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 4
+    },
+    "website": "https://www.checkout.com/"
+  },
+  "ConnectWise": {
+    "positions": [
+      "Software Support Specialist I"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "http://www.connectwise.com"
+  },
+  "Elwood": {
+    "positions": [
+      "Graduate Software Engineer - UI",
+      "Graduate/Junior Software Engineer - Backend"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.elwood.io"
+  },
+  "Faros": {
+    "positions": [
+      "Software Engineer - New Grad"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.faros.ai/"
+  },
+  "KLA": {
+    "positions": [
+      "Associate Software Engineer"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.kla.com"
+  },
+  "Moog": {
+    "positions": [
+      "Engineering - Software Engineering I",
+      "Junior Embedded Software Engineer"
+    ],
+    "countries": [
+      "Italy",
+      "Lithuania"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.moog.com"
+  },
+  "Philips": {
+    "positions": [
+      "Software Technologist I",
+      "Software Technologist I - Testing",
+      "Software Technologist I -Test",
+      "Software Technologist I- C++",
+      "Software Development Intern",
+      "Software Intern"
+    ],
+    "countries": [
+      "China",
+      "India"
+    ],
+    "counts": {
+      "new_grad": 4,
+      "internship": 2
+    },
+    "website": "https://www.usa.philips.com"
+  },
+  "State Street": {
+    "positions": [
+      "Junior Software Engineer"
+    ],
+    "countries": [
+      "Poland"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://statestreet.com"
+  },
+  "Alfa Laval": {
+    "positions": [
+      "Junior Software Developer - Microsoft Dynamics 365 - Sales/Field service"
+    ],
+    "countries": [
+      "Poland"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.alfalaval.us"
+  },
+  "Qualtrics": {
+    "positions": [
+      "Software Engineer I"
+    ],
+    "countries": [
+      "Poland"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.qualtrics.com"
+  },
+  "Semtech": {
+    "positions": [
+      "Engineer I - Software Engineer"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.semtech.com"
+  },
+  "Almedia": {
+    "positions": [
+      "Junior Frontend Engineer",
+      "Junior Backend Engineer"
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.almedia.co/"
+  },
+  "ALTEN": {
+    "positions": [
+      "V.I.E - Junior Software Engineer - C++"
+    ],
+    "countries": [
+      "The Netherlands"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.alten.com/"
+  },
+  "AspenTech": {
+    "positions": [
+      "Software Quality Engineer I",
+      "Software Quality Engineer I",
+      "Software Developer I - Exp w/ Vue & React JS/Anugular"
+    ],
+    "countries": [
+      "India",
+      "Mexico"
+    ],
+    "counts": {
+      "new_grad": 3
+    },
+    "website": "https://www.aspentech.com"
+  },
+  "SAP Fioneer": {
+    "positions": [
+      "Developer Graduates - Backend Developer",
+      "Cloud-Native Frontend Developer Intern - f/m/d"
+    ],
+    "countries": [
+      "Germany",
+      "Serbia"
+    ],
+    "counts": {
+      "new_grad": 1,
+      "internship": 1
+    },
+    "website": "http://www.fioneer.com/"
+  },
+  "Shift Technologies": {
+    "positions": [
+      "Junior Fullstack Developer - C# and Java skills",
+      "Junior Fullstack Developer with C# skills"
+    ],
+    "countries": [
+      "France"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.shift-technology.com"
+  },
+  "SpotOn": {
+    "positions": [
+      "Software Support Expert I - P2 & 5",
+      "Software Support Expert I - P1 & 4"
+    ],
+    "countries": [
+      "Mexico"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.spoton.com"
+  },
+  "Allstate": {
+    "positions": [
+      "Frontend Developer Software Engineer Consultant I"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.allstatecorporation.com"
+  },
+  "Blink - The Employee App": {
+    "positions": [
+      "Graduate Software Developer"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://joinblink.com/"
+  },
+  "Everfox": {
+    "positions": [
+      "Software Engineer I"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.everfox.com/"
+  },
+  "Sonar": {
+    "positions": [
+      "Graduate Software Engineer"
+    ],
+    "countries": [
+      "Switzerland"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.sonarsource.com"
+  },
+  "Orion Health": {
+    "positions": [
+      "Technical Graduate Programme: Software Engineering and Implementation"
+    ],
+    "countries": [
+      "New Zealand"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "http://www.orionhealth.com/"
+  },
+  "Accellor": {
+    "positions": [
+      "Junior Full-Stack Developer - React - Python"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "http://accellor.com/"
+  },
+  "IXL Learning": {
+    "positions": [
+      "Software Developer - New Grad"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.ixl.com"
+  },
+  "Symphony Solutions": {
+    "positions": [
+      "Junior Backend - Golang Engineer"
+    ],
+    "countries": [
+      "Poland"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://symphony-solutions.com/"
+  },
+  "Tripadvisor": {
+    "positions": [
+      "Software Engineer I Bókun",
+      "Junior Software Engineer"
+    ],
+    "countries": [
+      "Iceland"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.tripadvisor.com"
+  },
+  "NXP Semiconductors": {
+    "positions": [
+      "Junior Software Security Analyst - m/f/d",
+      "2027 Campus - Software Development Engineer - Industrial & IoT",
+      "Junior Software Engineer for Automotive Security Firmware",
+      "NFC System Software Engineer - Entry Level",
+      "Junior Software Engineer for Automotive Security Firmware",
+      "Internship: Embedded Crypto Software Development - m/f/d",
+      "Internship: Embedded Software - Crypto Libraries - m/f/d",
+      "2026 Intern - Embedded Software Development - UWB",
+      "Software Intern Student - RealTime Drivers"
+    ],
+    "countries": [
+      "Austria",
+      "China",
+      "Romania"
+    ],
+    "counts": {
+      "new_grad": 5,
+      "internship": 4
+    },
+    "website": "https://www.nxp.com"
+  },
+  "Plexus": {
+    "positions": [
+      "Software Engineer I"
+    ],
+    "countries": [
+      "Malaysia"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.plexus.com"
+  },
+  "Wallapop": {
+    "positions": [
+      "Software Engineer - Graduate Program"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://es.wallapop.com"
+  },
+  "Bosch": {
+    "positions": [
+      "Backend Developer Junior",
+      "Mandatory Internship Development and Validation of Software Solutions for Automotive SDV",
+      "Extracurricular Internship: Embedded Software Engineer - eBike - f/m/div.",
+      "Cloud Developer Internship",
+      "EMC Intern for Embedded Software - C++/Java/Python - Pref. JP speaking",
+      "SO Intern Software Engineer"
+    ],
+    "countries": [
+      "Botswana",
+      "Portugal",
+      "Romania",
+      "Serbia",
+      "Vietnam"
+    ],
+    "counts": {
+      "new_grad": 1,
+      "internship": 5
+    },
+    "website": "https://www.bosch.com/"
+  },
+  "CHANEL": {
+    "positions": [
+      "Alternance - DevOps - Software Factory - Tech Engineering - Mode - Septembre 2026 - H/F/X"
+    ],
+    "countries": [
+      "France"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.chanel.com"
+  },
+  "Deutsche Bank": {
+    "positions": [
+      "Junior Backend Engineer - f/m/x"
+    ],
+    "countries": [
+      "Romania"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.db.com"
+  },
+  "Graphcore": {
+    "positions": [
+      "2026 Graduate Firmware Engineer",
+      "2026 Graduate Software Engineer - Triton"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.graphcore.ai/"
+  },
+  "WATI.io": {
+    "positions": [
+      "Agentic Engineer I - Backend",
+      "Software Development Intern"
+    ],
+    "countries": [
+      "China",
+      "Vietnam"
+    ],
+    "counts": {
+      "new_grad": 1,
+      "internship": 1
+    },
+    "website": "https://www.wati.io/"
+  },
+  "Duolingo": {
+    "positions": [
+      "Software Engineer I"
+    ],
+    "countries": [
+      "China"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.duolingo.com"
+  },
+  "Invesco": {
+    "positions": [
+      "Cloud Security Engineer - I",
+      "Adv Eng I - Cloud & Sol"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.invesco.com"
+  },
+  "NAV CANADA": {
+    "positions": [
+      "Junior Software Developer - Hybrid - 3 days in office"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.navcanada.ca/"
+  },
+  "OMP": {
+    "positions": [
+      "Associate Software Engineer",
+      "Associate Presales Consultant - OMP Software - Starting from September 2026"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://careers.omp.com"
+  },
+  "Red Hat": {
+    "positions": [
+      "Junior or Software Engineer - Container Tools - Brno Office - Czech Republic",
+      "Junior or Software Engineer - Networking Services - Brno Office - Czech Republic",
+      "Junior Consultant - Linux - Software development"
+    ],
+    "countries": [
+      "Czechia",
+      "Japan"
+    ],
+    "counts": {
+      "new_grad": 3
+    },
+    "website": "https://www.redhat.com"
+  },
+  "Thoughtworks": {
+    "positions": [
+      "Associate-Graduate:Developer - FullStack Affirmative Hiring for Women & Gender Diversity",
+      "Associate-Graduate:Developer - FullStack Affirmative Hiring for Women & Gender Diversity"
+    ],
+    "countries": [
+      "Ecuador",
+      "Peru"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.thoughtworks.com"
+  },
+  "Candescent": {
+    "positions": [
+      "Software Support Engineer I"
+    ],
+    "countries": [
+      "Serbia"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://candescent.com/"
+  },
+  "Intel": {
+    "positions": [
+      "Graduate Talent - ISCP SoC Front End Team",
+      "Graduate Talent - Firmware Development Engineer",
+      "Graduate Talent - GenAI Software Solutions Engineer",
+      "Development Tools Software Intern"
+    ],
+    "countries": [
+      "Malaysia",
+      "Mexico"
+    ],
+    "counts": {
+      "new_grad": 3,
+      "internship": 1
+    },
+    "website": "https://www.intel.com"
+  },
+  "Pave Bank": {
+    "positions": [
+      "Junior Software Engineer"
+    ],
+    "countries": [
+      "Singapore"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://pavebank.com/"
+  },
+  "Tricentis": {
+    "positions": [
+      "Junior Full stack Developer - node.js - react"
+    ],
+    "countries": [
+      "Poland"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://tricentis.com"
+  },
+  "BeyondTrust": {
+    "positions": [
+      "Associate Software Development Engineer"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "http://www.beyondtrust.com"
+  },
+  "Dashlane": {
+    "positions": [
+      "Junior Software Engineer - Frontend"
+    ],
+    "countries": [
+      "France"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.dashlane.com"
+  },
+  "Adtran": {
+    "positions": [
+      "Junior Software Engineer - TypeScript/AWS",
+      "Junior Software Engineer - Python/AWS"
+    ],
+    "countries": [
+      "Poland"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.adtran.com"
+  },
+  "Avanade": {
+    "positions": [
+      "Avanade Campus: Prácticas en Software Engineering con Tecnologías Microsoft Octubre 2026",
+      "Junior Software Developer - backend - frontend - full-stack",
+      "Secure Cloud Platform Intern"
+    ],
+    "countries": [
+      "Italy",
+      "Spain",
+      "The Netherlands"
+    ],
+    "counts": {
+      "new_grad": 2,
+      "internship": 1
+    },
+    "website": "https://www.avanade.com/"
+  },
+  "Rockwell Automation": {
+    "positions": [
+      "Graduate Engineer - Software Test",
+      "Intern - Firmware Engineering"
+    ],
+    "countries": [
+      "Canada",
+      "Singapore"
+    ],
+    "counts": {
+      "new_grad": 1,
+      "internship": 1
+    },
+    "website": "https://www.rockwellautomation.com"
+  },
+  "Fidelity Investments": {
+    "positions": [
+      "2026 Undergraduate - Leap: Software Engineer - Jersey City - NJ"
+    ],
+    "countries": [
+      "Jersey"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://fidelity.com/"
+  },
+  "Quality Consulting Group": {
+    "positions": [
+      "JT040 - MANUFACTURING SOFTWARE ENGINEER I"
+    ],
+    "countries": [
+      "Puerto Rico"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "http://qualityconsultinggrouppr.com"
+  },
+  "Sid Lee": {
+    "positions": [
+      "Développeur.euse Front-End Junior - Temporaire"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://sidlee.com"
+  },
+  "Anaplan": {
+    "positions": [
+      "Engineer I - Full Stack"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "http://www.anaplan.com"
+  },
+  "Ciena": {
+    "positions": [
+      "Software Engineering Co-op September 2026 - 8-12 months",
+      "Software Development- Kubernetes Platform Migration and Workflow Orchestration Intern",
+      "Embedded Software Engineer Intern - 4 months - September 2026",
+      "Embedded Software Engineer Intern - 12-16 months - September 2026",
+      "Embedded Software Engineer - Intern"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "new_grad": 1,
+      "internship": 4
+    },
+    "website": "https://www.ciena.com"
+  },
+  "Too Good To Go": {
+    "positions": [
+      "Software Engineer 1 - Backend"
+    ],
+    "countries": [
+      "Denmark"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.toogoodtogo.com/"
+  },
+  "Tencent": {
+    "positions": [
+      "Tencent Cloud - Executive Assistant - Graduate / Early-Career Professionals",
+      "TRTCソリューションアーキテクト インターン - Tencent Cloud（日本）｜TRTC Solution Architecture Intern - Tencent Cloud - Japan",
+      "Cloud Engineer Intern",
+      "Software Engineering Intern",
+      "Tencent Cloud - EdgeOne Product Solution Architecture Intern - Malaysia",
+      "Tencent Cloud - Solution Architecture Intern - Thailand"
+    ],
+    "countries": [
+      "Japan"
+    ],
+    "counts": {
+      "new_grad": 1,
+      "internship": 5
+    },
+    "website": "https://www.tencent.com"
+  },
+  "Thermo Fisher Scientific": {
+    "positions": [
+      "Software Test Engineer I"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://thermofisher.com"
+  },
+  "Baker Hughes": {
+    "positions": [
+      "Emerging Talent - Software Engineer Apprentice 2026 - Nailsea"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.bakerhughes.com"
+  },
+  "Thales": {
+    "positions": [
+      "Junior Fullstack Software Developer with French - Java & Angular",
+      "Junior C++ Software Engineer for Airspace Business",
+      "Software Developer Intern - Open also to Protected Categories - Law 68/99"
+    ],
+    "countries": [
+      "Italy",
+      "Romania"
+    ],
+    "counts": {
+      "new_grad": 2,
+      "internship": 1
+    },
+    "website": "https://www.thalesgroup.com"
+  },
+  "Ana Luisa": {
+    "positions": [
+      "Software Engineer I - Full Stack Dev"
+    ],
+    "countries": [
+      "Romania"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.analuisa.com/"
+  },
+  "NEORIS": {
+    "positions": [
+      "Backend APX Developer Junior"
+    ],
+    "countries": [
+      "Peru"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://neoris.com"
+  },
+  "Careerswift": {
+    "positions": [
+      "Frontend Developer - React Junior/Mid"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://careerswift.ai/"
+  },
+  "ICONIQ Capital": {
+    "positions": [
+      "Software Engineer - Associate"
+    ],
+    "countries": [
+      "Portugal"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "http://www.iconiqcapital.com"
+  },
+  "Logicalis": {
+    "positions": [
+      "Junior Engineer - m/w/d - CNI & Cloud Networking"
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://logicalis.com"
+  },
+  "AI Acquisition": {
+    "positions": [
+      "Junior Full Stack Accountant - Financial & Management Accounting"
+    ],
+    "countries": [
+      "Philippines"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.aiacquisition.com/"
+  },
+  "GDIT": {
+    "positions": [
+      "Software Engineer-Junior"
+    ],
+    "countries": [
+      "Worldwide"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.gdit.com"
+  },
+  "LSEG": {
+    "positions": [
+      "Junior Software Engineer Regulatory News"
+    ],
+    "countries": [
+      "Romania"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.lseg.com"
+  },
+  "Provenir": {
+    "positions": [
+      "Associate Cloud Operations Engineer - 1 year contract to hire"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.provenir.com/"
+  },
+  "WeRide.ai": {
+    "positions": [
+      "New Grads 2026 - General Software Engineer - Beijing/Guangzhou/Shanghai - China"
+    ],
+    "countries": [
+      "China"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.weride.ai"
+  },
+  "Trimble": {
+    "positions": [
+      "Cloud Engineer - Early Career/Intermediate",
+      "Software Engineering Intern"
+    ],
+    "countries": [
+      "Lithuania",
+      "New Zealand"
+    ],
+    "counts": {
+      "new_grad": 1,
+      "internship": 1
+    },
+    "website": "https://www.trimble.com"
+  },
+  "Valtech": {
+    "positions": [
+      "Salesforce Marketing Cloud Developer Junior"
+    ],
+    "countries": [
+      "Brazil"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.valtech.com"
+  },
+  "Axis": {
+    "positions": [
+      "Junior software engineer in Linköping"
+    ],
+    "countries": [
+      "Sweden"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.axis.com"
+  },
+  "Cambridge Consultants": {
+    "positions": [
+      "Graduate Software Engineer - 2026 start",
+      "Graduate Electronics & Software Engineer - 2026 start"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.cambridgeconsultants.com"
+  },
+  "Ellation": {
+    "positions": [
+      "Software Engineer I - Android"
+    ],
+    "countries": [
+      "Mexico"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "http://www.ellation.com"
+  },
+  "Flexport": {
+    "positions": [
+      "Software Engineer I",
+      "Software Engineer I"
+    ],
+    "countries": [
+      "China"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.flexport.com"
+  },
+  "SolarWinds": {
+    "positions": [
+      "Associate Software Engineer"
+    ],
+    "countries": [
+      "Czechia"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.solarwinds.com"
+  },
+  "Exadel": {
+    "positions": [
+      "Associate Full-Stack Software Engineer - Java - Vue.js"
+    ],
+    "countries": [
+      "Bulgaria"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://exadel.com/"
+  },
+  "Fermi AI": {
+    "positions": [
+      "Junior Full Stack Founding Engineer - Meraki Labs"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://fermi.ai/"
+  },
+  "Gentex": {
+    "positions": [
+      "Embedded Software Engineer I"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.gentex.com"
+  },
+  "GlobalFoundries": {
+    "positions": [
+      "Junior Software Developer",
+      "Software Engineer Intern - Diploma"
+    ],
+    "countries": [
+      "Bulgaria",
+      "Singapore"
+    ],
+    "counts": {
+      "new_grad": 1,
+      "internship": 1
+    },
+    "website": "https://gf.com"
+  },
+  "Kyndryl": {
+    "positions": [
+      "Associate I/T Cloud Consulting"
+    ],
+    "countries": [
+      "Portugal"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.kyndryl.com"
+  },
+  "Sabre": {
+    "positions": [
+      "Junior Software Systems Engineer with Java"
+    ],
+    "countries": [
+      "Poland"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.sabre.com"
+  },
+  "USAA": {
+    "positions": [
+      "Software Engineer I"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.usaa.com"
+  },
+  "Abound": {
+    "positions": [
+      "Graduate Software Engineer"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.getabound.com/"
+  },
+  "mthree": {
+    "positions": [
+      "C++ Junior Software Developer"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://mthree.com"
+  },
+  "Airbus": {
+    "positions": [
+      "Junior Cybersecurity Software Engineer",
+      "Junior .NET Backend Developer - C#"
+    ],
+    "countries": [
+      "Poland"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.airbus.com"
+  },
+  "Opus 2": {
+    "positions": [
+      "Junior Software Engineer"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://careers.opus2.com/"
+  },
+  "Amgen": {
+    "positions": [
+      "Software Development Engineer I- Full Stack",
+      "Software Development Engineer in Test I - SDET I",
+      "Undergraduate Co-op Student - Software Engineer - Large Molecule Discovery - Technology"
+    ],
+    "countries": [
+      "Canada",
+      "India"
+    ],
+    "counts": {
+      "new_grad": 2,
+      "internship": 1
+    },
+    "website": "https://www.amgen.com"
+  },
+  "DXC Technology": {
+    "positions": [
+      "Junior Cloud DevOps Engineer 24/7",
+      "Analyst I Software Engineering",
+      "Analyst I Cloud infrastructure_3",
+      "Hybrid Cloud & Migration Services Intern"
+    ],
+    "countries": [
+      "Bulgaria",
+      "India",
+      "Malaysia",
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 3,
+      "internship": 1
+    },
+    "website": "https://dxc.com"
+  },
+  "Rocket Software": {
+    "positions": [
+      "Software Engineer - Entry-Level - NextGen Academy"
+    ],
+    "countries": [
+      "Lithuania"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.rocketsoftware.com"
+  },
+  "Yotpo": {
+    "positions": [
+      "Junior Software Engineer"
+    ],
+    "countries": [
+      "Bulgaria"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "http://www.yotpo.com"
+  },
+  "Applied Materials": {
+    "positions": [
+      "Software Engineer: C/C++ Development - New College Graduate",
+      "Junior System Engineer - with Software skills"
+    ],
+    "countries": [
+      "Italy",
+      "Singapore"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.appliedmaterials.com"
+  },
+  "Taboola": {
+    "positions": [
+      "Junior Software Engineer"
+    ],
+    "countries": [
+      "Hungary"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.taboola.com/careers"
+  },
+  "Robert Half": {
+    "positions": [
+      "Software Engineer I"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.roberthalf.com"
+  },
+  "Telnyx": {
+    "positions": [
+      "Junior Software Engineer - Elixir"
+    ],
+    "countries": [
+      "The Netherlands"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "http://www.telnyx.com"
+  },
+  "Magna": {
+    "positions": [
+      "Junior Full Stack Developer Coop",
+      "Software Engineering Co-op"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "new_grad": 1,
+      "internship": 1
+    },
+    "website": "http://magna.com"
+  },
+  "Packmatic": {
+    "positions": [
+      "Software Engineer - w/m/d - B2B Saas I Berlin - hybrid"
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://de.packmatic.io/"
+  },
+  "PolicyMe": {
+    "positions": [
+      "Junior Software Engineer - Remote"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "http://www.policyme.com/"
+  },
+  "Emergence Software": {
+    "positions": [
+      "SDE I",
+      "Fullstack Developer - Intern"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1,
+      "internship": 1
+    },
+    "website": "https://www.emsoft.com/"
+  },
+  "Apex.AI": {
+    "positions": [
+      "Software Engineer - Software Platform & Middleware - Early Career"
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.apex.ai"
+  },
+  "ABBYY": {
+    "positions": [
+      "Junior Backend Developer"
+    ],
+    "countries": [
+      "Hungary"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.abbyy.com"
+  },
+  "KINEXON": {
+    "positions": [
+      "Junior Software Engineer - m/f/d - Sports Technology"
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.kinexon.com"
+  },
+  "Teya": {
+    "positions": [
+      "Storyous - Junior Software Engineer - Full Stack"
+    ],
+    "countries": [
+      "Czechia"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.teya.com/"
+  },
+  "AeroVironment": {
+    "positions": [
+      "Junior Software Engineer"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.avinc.com"
+  },
+  "Cadence": {
+    "positions": [
+      "Software Engineer I: VIP"
+    ],
+    "countries": [
+      "Brazil"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.cadence.com"
+  },
+  "CommerceIQ": {
+    "positions": [
+      "Software Development Engineer - I"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.commerceiq.ai"
+  },
+  "Scott Logic": {
+    "positions": [
+      "Graduate Software Developer"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.scottlogic.com/"
+  },
+  "Tako": {
+    "positions": [
+      "Software Engineer - Early Career"
+    ],
+    "countries": [
+      "Brazil"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.usetako.com/"
+  },
+  "Axon": {
+    "positions": [
+      "Software Engineer in Test I",
+      "Frontend Software Engineer I",
+      "Software Engineer I"
+    ],
+    "countries": [
+      "Vietnam"
+    ],
+    "counts": {
+      "new_grad": 3
+    },
+    "website": "https://www.axon.com"
+  },
+  "G-Research": {
+    "positions": [
+      "Software Engineer - Custom I/O"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "http://www.gresearch.com/"
+  },
+  "Arondite": {
+    "positions": [
+      "Deployed Software Engineer - New Grad"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.arondite.com/"
+  },
+  "Integer": {
+    "positions": [
+      "Tijuana - Engineer I - Software Tester"
+    ],
+    "countries": [
+      "Mexico"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.integer.net"
+  },
+  "Marsh McLennan": {
+    "positions": [
+      "Junior Full-Stack Engineer"
+    ],
+    "countries": [
+      "Mexico"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://careers.mmc.com/"
+  },
+  "Netomi": {
+    "positions": [
+      "SDE I - Frontend - Analytics team",
+      "SDE I - FullStack",
+      "SDE I - Backend"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 3
+    },
+    "website": "https://www.netomi.com"
+  },
+  "Susquehanna International Group": {
+    "positions": [
+      "Software Developer Graduate: September 2026 Dublin",
+      "Software Developer Graduate: September 2026 London"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://sig.com"
+  },
+  "FINN": {
+    "positions": [
+      "Associate SAP Software Engineer - m/f/x"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.finn.com/"
+  },
+  "Guidewire": {
+    "positions": [
+      "Junior Frontend Developer Consultant - German speaking"
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.guidewire.com"
+  },
+  "KONE": {
+    "positions": [
+      "Junior Full Stack Developer"
+    ],
+    "countries": [
+      "Mexico"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.kone.com"
+  },
+  "Valeo": {
+    "positions": [
+      "Graduate In Training Program - GIT - Embedded Software",
+      "Graduate In Training Program - GIT - Full-Stack Cloud Web"
+    ],
+    "countries": [
+      "Egypt"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.valeo.com"
+  },
+  "Fever": {
+    "positions": [
+      "Graduate Software Engineer"
+    ],
+    "countries": [
+      "Spain"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.feverup.com"
+  },
+  "Capital One": {
+    "positions": [
+      "Associate - Software Engineer - New Grad Card Expansion"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.capitalone.com"
+  },
+  "Metal": {
+    "positions": [
+      "Junior Software Engineer"
+    ],
+    "countries": [
+      "Pakistan"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.metal.so/"
+  },
+  "Peak": {
+    "positions": [
+      "Software Engineer - Backend - New Grad"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://peak.com/"
+  },
+  "MasterBorn": {
+    "positions": [
+      "Junior Backend Developer - Node.js"
+    ],
+    "countries": [
+      "Poland"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://masterborn.com/"
+  },
+  "Five9": {
+    "positions": [
+      "NOC Tech I - NOC & Cloud Operations"
+    ],
+    "countries": [
+      "Philippines"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.five9.com"
+  },
+  "General Dynamics Mission Systems": {
+    "positions": [
+      "Junior Firmware Engineers"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://gdmissionsystems.com/"
+  },
+  "NIH-NCBI": {
+    "positions": [
+      "Junior/Mid Full Stack Software Engineer"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.ncbi.nlm.nih.gov"
+  },
+  "Astreya": {
+    "positions": [
+      "Software Developer I"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://astreya.com/"
+  },
+  "Plane Software": {
+    "positions": [
+      "Junior Frontend Engineer"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://plane.so/"
+  },
+  "Yellowbrick Data": {
+    "positions": [
+      "Software Engineer-Early Career"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://yellowbrick.com"
+  },
+  "Travelers": {
+    "positions": [
+      "Software Engineer I"
+    ],
+    "countries": [],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.travelers.com"
+  },
+  "ComplyAdvantage": {
+    "positions": [
+      "Junior Software Engineer"
+    ],
+    "countries": [
+      "Czechia"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://complyadvantage.com"
+  },
+  "Feathery": {
+    "positions": [
+      "Full Stack Engineer - Early Career"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.feathery.io/"
+  },
+  "Foundation AI": {
+    "positions": [
+      "Associate Software Engineer",
+      "Associate Software Engineer- India"
+    ],
+    "countries": [
+      "Colombia",
+      "India"
+    ],
+    "counts": {
+      "new_grad": 2
+    },
+    "website": "https://www.foundationai.com/"
+  },
+  "Mapbox": {
+    "positions": [
+      "Software Development Engineer I - Android - Navigation SDK"
+    ],
+    "countries": [
+      "Belarus"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.mapbox.com/"
+  },
+  "AJAX": {
+    "positions": [
+      "Junior QA Engineer - Back-end"
+    ],
+    "countries": [
+      "Ukraine"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.ajax.com"
+  },
+  "Silver": {
+    "positions": [
+      "Ramp - Early Career Software Engineer"
+    ],
+    "countries": [
+      "Argentina"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://silver.dev/"
+  },
+  "Informed Solutions": {
+    "positions": [
+      "Junior Full Stack Software Engineer"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.informed.com/"
+  },
+  "Asana": {
+    "positions": [
+      "Junior Software Engineer - Reykjavik"
+    ],
+    "countries": [
+      "Iceland"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://grnh.se/f78375ba1"
+  },
+  "NETGEAR": {
+    "positions": [
+      "Embedded Firmware Engineer - I"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.netgear.com/"
+  },
+  "Konrad": {
+    "positions": [
+      "Software Developer - Entry Level"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "new_grad": 1
+    },
+    "website": "https://www.konrad.com"
+  },
+  "Microsoft": {
+    "positions": [
+      "Software Engineering INTERN",
+      "Software Engineering INTERN"
+    ],
+    "countries": [
+      "Brazil",
+      "India"
+    ],
+    "counts": {
+      "internship": 2
+    },
+    "website": "https://www.microsoft.com"
+  },
+  "Rivian": {
+    "positions": [
+      "Software Engineer Intern - Android Connectivity - Fall-Spring Co-op",
+      "Software Integration Engineering Intern - Fall-Spring",
+      "Software Engineering Intern - Applications - Fall-Spring Co-op",
+      "Software Engineering Intern - Vehicle Controls - Fall-Spring Co-op",
+      "Software Engineering Intern - Systems Engineering - Fall-Spring Co-op"
+    ],
+    "countries": [
+      "Canada",
+      "Germany"
+    ],
+    "counts": {
+      "internship": 5
+    },
+    "website": "https://careers.rivian.com"
+  },
+  "Jump Trading": {
+    "positions": [
+      "Campus UI Software Engineer - Intern",
+      "Campus Software Engineer - Intern"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "internship": 2
+    },
+    "website": "https://www.jumptrading.com"
+  },
+  "DRW": {
+    "positions": [
+      "Software Developer Intern",
+      "Software Developer Intern",
+      "Software Developer Intern - C++",
+      "Software Developer Intern"
+    ],
+    "countries": [
+      "Canada",
+      "Singapore",
+      "The Netherlands",
+      "United Kingdom"
+    ],
+    "counts": {
+      "internship": 4
+    },
+    "website": "https://drw.com"
+  },
+  "Formlabs": {
+    "positions": [
+      "Software Engineer Intern - Full stack"
+    ],
+    "countries": [
+      "Hungary"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://formlabs.com"
+  },
+  "GE HealthCare": {
+    "positions": [
+      "Software Intern",
+      "Intern Firmware",
+      "Software Engineer Intern"
+    ],
+    "countries": [
+      "India",
+      "Poland"
+    ],
+    "counts": {
+      "internship": 3
+    },
+    "website": "https://gehealthcare.com/"
+  },
+  "GE Vernova": {
+    "positions": [
+      "Grid Automation & Software Intern"
+    ],
+    "countries": [
+      "Egypt"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.gevernova.com/"
+  },
+  "Meshy": {
+    "positions": [
+      "Fullstack Engineer Intern"
+    ],
+    "countries": [],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.meshy.ai/"
+  },
+  "Later": {
+    "positions": [
+      "Software Development Co-op - React + Node/NestJS + Agentic Development"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://later.com"
+  },
+  "Alcon": {
+    "positions": [
+      "Internship Front End Engineering"
+    ],
+    "countries": [
+      "Malaysia"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.alcon.com"
+  },
+  "Grab": {
+    "positions": [
+      "Intern - Software Engineer Mobile - iOS",
+      "Software Engineer Intern",
+      "Intern - Software Engineer - Mobile - Android",
+      "Software Engineer - Backend - Intern"
+    ],
+    "countries": [
+      "China",
+      "Malaysia"
+    ],
+    "counts": {
+      "internship": 4
+    },
+    "website": "http://www.grab.com"
+  },
+  "ZEISS": {
+    "positions": [
+      "Internship Software Development Team for Medical Robotic Systems - f/m/x"
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.zeiss.com"
+  },
+  "Caterpillar": {
+    "positions": [
+      "Software Intern"
+    ],
+    "countries": [
+      "China"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.caterpillar.com"
+  },
+  "Ada": {
+    "positions": [
+      "Software Engineering Intern"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.ada.cx"
+  },
+  "AlphaGrep Securities": {
+    "positions": [
+      "Software Development Intern"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "http://alpha-grep.com"
+  },
+  "GeoComply": {
+    "positions": [
+      "Software Engineer Intern - Backend"
+    ],
+    "countries": [
+      "Vietnam"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.geocomply.com/"
+  },
+  "Hitachi": {
+    "positions": [
+      "Software Analyst Intern - Fall 2026 - 12months",
+      "Software Analyst Intern - Fall 2026 - 8 months",
+      "Software Analyst Intern - Fall 2026 - 4/8/12 months",
+      "Software Engineer Intern - Simulation & Validator Systems"
+    ],
+    "countries": [
+      "Canada",
+      "Singapore"
+    ],
+    "counts": {
+      "internship": 4
+    },
+    "website": "https://www.hitachi.com"
+  },
+  "WindBorne Systems": {
+    "positions": [
+      "Firmware Intern"
+    ],
+    "countries": [],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://windbornesystems.com/"
+  },
+  "Johnson & Johnson": {
+    "positions": [
+      "Intern R&D Software Engineer"
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.jnj.com"
+  },
+  "Moloco": {
+    "positions": [
+      "Software Engineer Intern - 3-month internship"
+    ],
+    "countries": [
+      "South Korea"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.moloco.com"
+  },
+  "Payoneer": {
+    "positions": [
+      "Software Development Intern"
+    ],
+    "countries": [
+      "China"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.payoneer.com/"
+  },
+  "Agilent": {
+    "positions": [
+      "Intern: UX / UI Design for Software Laboratory Products M/F/D"
+    ],
+    "countries": [],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://agilent.com/"
+  },
+  "Centific": {
+    "positions": [
+      "Software Intern"
+    ],
+    "countries": [
+      "Malaysia"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://centific.com/"
+  },
+  "Perplexity": {
+    "positions": [
+      "Internship - Search Backend Infra Engineer"
+    ],
+    "countries": [
+      "Serbia"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.perplexity.ai/"
+  },
+  "Covestro": {
+    "positions": [
+      "PSRA Full Stack Developer Intern"
+    ],
+    "countries": [
+      "China"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.covestro.com"
+  },
+  "Sysco": {
+    "positions": [
+      "Intern - Software Engineering"
+    ],
+    "countries": [
+      "Sri Lanka"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.sysco.com"
+  },
+  "Nidec": {
+    "positions": [
+      "Firmware Engineering Intern"
+    ],
+    "countries": [],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.nidec.com"
+  },
+  "OPSWAT": {
+    "positions": [
+      "Software Developer Intern"
+    ],
+    "countries": [
+      "Romania"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.opswat.com"
+  },
+  "Bio-Techne": {
+    "positions": [
+      "Software Development / QA Intern"
+    ],
+    "countries": [
+      "Switzerland"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.bio-techne.com/"
+  },
+  "MKS": {
+    "positions": [
+      "Software Engineer - Intern"
+    ],
+    "countries": [
+      "Belarus"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.mksinst.com/careers"
+  },
+  "Kabam": {
+    "positions": [
+      "Software Engineer - Gameplay Co-op"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://kabam.com"
+  },
+  "Auctane": {
+    "positions": [
+      "Software Engineer Intern"
+    ],
+    "countries": [
+      "Poland"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "http://www.auctane.com"
+  },
+  "Harmattan AI": {
+    "positions": [
+      "Embedded Software Engineer Intern"
+    ],
+    "countries": [
+      "France"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.harmattan.ai/"
+  },
+  "Hong Leong Bank": {
+    "positions": [
+      "Intern - IT Application Backend"
+    ],
+    "countries": [],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.hlb.com.my"
+  },
+  "ReversingLabs": {
+    "positions": [
+      "Software Engineer - Student Internship"
+    ],
+    "countries": [
+      "Croatia"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.reversinglabs.com"
+  },
+  "ASML": {
+    "positions": [
+      "Software Engineering Internship: Python tool development",
+      "Software Testing Intern",
+      "Product - Software Engineer Internship"
+    ],
+    "countries": [
+      "China",
+      "The Netherlands"
+    ],
+    "counts": {
+      "internship": 3
+    },
+    "website": "https://www.asml.com"
+  },
+  "Clio": {
+    "positions": [
+      "Software Developer - Co-op"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.clio.com/"
+  },
+  "Taktile": {
+    "positions": [
+      "Software Engineer Intern"
+    ],
+    "countries": [
+      "Romania"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.taktile.com/"
+  },
+  "Marvell": {
+    "positions": [
+      "Software Engineer Intern",
+      "Firmware Engineering Intern",
+      "Field Application Engineer Intern - Software",
+      "Software/Firmware Engineering - Intern"
+    ],
+    "countries": [
+      "Argentina",
+      "China",
+      "Italy",
+      "Spain"
+    ],
+    "counts": {
+      "internship": 4
+    },
+    "website": "https://www.marvell.com"
+  },
+  "Autodesk": {
+    "positions": [
+      "Stagiaire en Développement Cloud - Intern Cloud Developer",
+      "Intern Software Developer - Stagiaire en Développement Logiciel"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "internship": 2
+    },
+    "website": "https://www.autodesk.com"
+  },
+  "SentinelOne": {
+    "positions": [
+      "Software Engineer Intern - React"
+    ],
+    "countries": [
+      "Czechia"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.sentinelone.com/"
+  },
+  "Viridien": {
+    "positions": [
+      "Software Engineering Intern"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.viridiengroup.com/"
+  },
+  "Arrcus": {
+    "positions": [
+      "[BLR] Intern-Networking Software Development Engineer - 2026"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.arrcus.com"
+  },
+  "Wingtra AG": {
+    "positions": [
+      "Robotics Firmware Intern - Drone Platform & Systems",
+      "Robotics Firmware Intern - GNC focus"
+    ],
+    "countries": [
+      "Switzerland"
+    ],
+    "counts": {
+      "internship": 2
+    },
+    "website": "https://wingtra.com/"
+  },
+  "OfferUp": {
+    "positions": [
+      "Software Engineering Intern - Summer 2026 - Hybrid @ Bellevue - WA"
+    ],
+    "countries": [],
+    "counts": {
+      "internship": 1
+    },
+    "website": "http://offerup.com"
+  },
+  "Coveo": {
+    "positions": [
+      "Backend Development Intern - Fall 2026",
+      "Software Developer Intern - Professional Services team - Fall 2026"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "internship": 2
+    },
+    "website": "https://www.coveo.com"
+  },
+  "TribalScale": {
+    "positions": [
+      "Agile Software Engineer - Co-op"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://tribalscale.com"
+  },
+  "Kinaxis": {
+    "positions": [
+      "Intern Software Developer Quality Assurance"
+    ],
+    "countries": [],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.kinaxis.com/"
+  },
+  "NOX METALS": {
+    "positions": [
+      "Software Engineering Intern"
+    ],
+    "countries": [],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://noxmetals.co/"
+  },
+  "Stack Builders": {
+    "positions": [
+      "Hybrid in Quito - Software Development Interns - English required"
+    ],
+    "countries": [
+      "Ecuador"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.stackbuilders.com/join-us/"
+  },
+  "Halter": {
+    "positions": [
+      "Firmware Internship 2026/2027"
+    ],
+    "countries": [
+      "New Zealand"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.halterhq.com/careers"
+  },
+  "ICEYE": {
+    "positions": [
+      "Flight Software Application Layer Intern"
+    ],
+    "countries": [
+      "Finland"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.iceye.com/"
+  },
+  "Snowflake": {
+    "positions": [
+      "Software Engineer Intern - Berlin - 2026",
+      "Software Engineer Intern - Zurich - 2026"
+    ],
+    "countries": [
+      "Switzerland"
+    ],
+    "counts": {
+      "internship": 2
+    },
+    "website": "https://www.snowflake.com/"
+  },
+  "GSA": {
+    "positions": [
+      "Software Developer - Intern"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.gsacapital.com"
+  },
+  "Palantir": {
+    "positions": [
+      "Forward Deployed Software Engineer - Internship - AUS Government",
+      "Forward Deployed Software Engineer - Internship"
+    ],
+    "countries": [
+      "Australia",
+      "France"
+    ],
+    "counts": {
+      "internship": 2
+    },
+    "website": "https://www.palantir.com"
+  },
+  "TomTom": {
+    "positions": [
+      "Maps Speeds Directions - Software Engineering Internship - Lodz"
+    ],
+    "countries": [
+      "Poland"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "http://tomtom.com/careers"
+  },
+  "RSM": {
+    "positions": [
+      "Software Developer Intern"
+    ],
+    "countries": [],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://rsmus.com/"
+  },
+  "Signify": {
+    "positions": [
+      "Embedded Software Intern - IoT Gateway - MSc Graduation"
+    ],
+    "countries": [
+      "The Netherlands"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.signify.com"
+  },
+  "ABB": {
+    "positions": [
+      "Internship - FrontEnd Software Engineer"
+    ],
+    "countries": [
+      "Poland"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://global.abb/"
+  },
+  "PwC": {
+    "positions": [
+      "Internship - Digital - Cloud - Data - Talent Pool"
+    ],
+    "countries": [
+      "Indonesia"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.pwc.com"
+  },
+  "Astera Institute": {
+    "positions": [
+      "Software Engineering Intern - Distributed Simulation Systems"
+    ],
+    "countries": [],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://astera.org/"
+  },
+  "Super.com": {
+    "positions": [
+      "Software Engineering Intern - Product - Full-Stack",
+      "Software Development Engineering Intern - Infrastructure - DevOps - 12 Months"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "internship": 2
+    },
+    "website": "https://www.super.com"
+  },
+  "Nuclear Promise X": {
+    "positions": [
+      "Software Developer Intern"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.npxinnovation.ca/careers"
+  },
+  "Pfizer": {
+    "positions": [
+      "Data Analytics and Full Stack Developer Intern"
+    ],
+    "countries": [
+      "Philippines"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.pfizer.com"
+  },
+  "Logitech": {
+    "positions": [
+      "Intern - Engineering - Software & Gaming"
+    ],
+    "countries": [
+      "China"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.logitech.com/"
+  },
+  "StackAdapt": {
+    "positions": [
+      "Software Engineer Intern - Fall 2026"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.stackadapt.com"
+  },
+  "Alan": {
+    "positions": [
+      "Software Engineer Internship - 6 months"
+    ],
+    "countries": [
+      "France"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://alan.com/"
+  },
+  "Dexmate": {
+    "positions": [
+      "Frontend Engineer Intern"
+    ],
+    "countries": [],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://dexmate.ai/"
+  },
+  "Marina Bay Sands": {
+    "positions": [
+      "Intern - Software Quality Assurance"
+    ],
+    "countries": [
+      "Singapore"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.marinabaysands.com/"
+  },
+  "Financial Times": {
+    "positions": [
+      "Software Engineer Intern - FT Core"
+    ],
+    "countries": [
+      "Bulgaria"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.ft.com"
+  },
+  "Magnet Forensics": {
+    "positions": [
+      "Software Developer Co-op - Fall 2026",
+      "Software Developer Co-op - Fall 2026"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "internship": 2
+    },
+    "website": "http://www.magnetforensics.com/"
+  },
+  "Spacial AI": {
+    "positions": [
+      "Software Engineering Intern - Summer 2026"
+    ],
+    "countries": [],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://spacial.io/"
+  },
+  "Pear VC": {
+    "positions": [
+      "Software Engineering Intern"
+    ],
+    "countries": [
+      "United Kingdom"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://pear.vc/"
+  },
+  "TELUS Digital": {
+    "positions": [
+      "Software Engineering Intern - Argentina - Year Round 2026"
+    ],
+    "countries": [
+      "Argentina"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://jobs2.telusdigital.com/"
+  },
+  "Neura Robotics": {
+    "positions": [
+      "Software Engineering Intern - human",
+      "Software Engineering Intern - Mensch"
+    ],
+    "countries": [
+      "Germany"
+    ],
+    "counts": {
+      "internship": 2
+    },
+    "website": "https://neura-robotics.com/"
+  },
+  "DoubleVerify": {
+    "positions": [
+      "Software Engineering Intern"
+    ],
+    "countries": [],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://doubleverify.com"
+  },
+  "NationGraph": {
+    "positions": [
+      "Fall 2026 Software Engineering Intern",
+      "Winter 2027 Software Engineering Intern"
+    ],
+    "countries": [
+      "Canada"
+    ],
+    "counts": {
+      "internship": 2
+    },
+    "website": "https://www.nationgraph.com/"
+  },
+  "CloudSEK": {
+    "positions": [
+      "SDE Intern - Frontend"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.cloudsek.com"
+  },
+  "Creatify": {
+    "positions": [
+      "Software Engineer Intern 2026"
+    ],
+    "countries": [],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://creatify.ai/"
+  },
+  "GoVenti": {
+    "positions": [
+      "Autonomous Vehicle Integration & Validation Intern - Software Tools"
+    ],
+    "countries": [
+      "Singapore"
+    ],
+    "counts": {
+      "internship": 1
+    },
+    "website": "https://www.ventitechnologies.com"
+  },
+  "Rocket Lab": {
+    "positions": [
+      "Software Engineer I/II - Spacecraft Operations"
+    ],
+    "countries": [
+      "New Zealand"
+    ],
+    "counts": {
+      "review": 1
+    },
+    "website": "https://www.rocketlabusa.com"
+  },
+  "Julius Baer": {
+    "positions": [
+      "SOFTWARE ENGINEER 100% - f/m/d"
+    ],
+    "countries": [
+      "Spain"
+    ],
+    "counts": {
+      "review": 1
+    },
+    "website": "https://www.juliusbaer.com"
+  },
+  "AutoRABIT": {
+    "positions": [
+      "Software Engineer - 2026"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "review": 1
+    },
+    "website": "https://www.autorabit.com"
+  },
+  "Despegar": {
+    "positions": [
+      "Software Developer III - Posventa I"
+    ],
+    "countries": [
+      "Argentina"
+    ],
+    "counts": {
+      "review": 1
+    },
+    "website": "https://www.despegar.com"
+  },
+  "Highstreet IT Solutions": {
+    "positions": [
+      "2026-1568 - Oracle Cloud Consultant -SCM"
+    ],
+    "countries": [
+      "India"
+    ],
+    "counts": {
+      "review": 1
+    },
+    "website": "http://www.highstreetit.com"
+  }
+}

@@ -1,0 +1,28 @@
+# Node / Next.js (web app)
+web/node_modules/
+web/.next/
+web/out/
+web/build/
+web/.vercel/
+web/*.tsbuildinfo
+web/next-env.d.ts
+web/npm-debug.log*
+web/yarn-debug.log*
+web/yarn-error.log*
+web/.pnpm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+scripts/__pycache__/
+
+# Excel lock files
+~$*.xlsx
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
