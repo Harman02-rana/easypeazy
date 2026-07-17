@@ -23,7 +23,7 @@ import ThemeToggle from "./ThemeToggle";
 import NavbarSearch from "./NavbarSearch";
 import NavDropdown from "./NavDropdown";
 import HeaderProductivityWidget from "./HeaderProductivityWidget";
-import LiveClock from "./LiveClock";
+import NotificationBell from "./NotificationBell";
 import TodayGoal from "./TodayGoal";
 import { SITE_NAME } from "@/lib/personalConfig";
 
@@ -70,7 +70,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-1 text-sm sm:flex">
+          <nav className="hidden items-center gap-1 text-sm xl:flex">
             {links.map((link) => {
               const active =
                 link.href === "/"
@@ -96,15 +96,16 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-2.5">
-          <HeaderProductivityWidget className="hidden lg:flex" />
+          <HeaderProductivityWidget />
           <div className="hidden sm:block">
             <NavbarSearch />
           </div>
+          <NotificationBell />
           <ThemeToggle />
           <button
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-hover hover:text-foreground sm:hidden cursor-pointer"
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-hover hover:text-foreground xl:hidden cursor-pointer"
           >
             {menuOpen ? <X className="h-5 w-5" strokeWidth={1.75} /> : <Menu className="h-5 w-5" strokeWidth={1.75} />}
           </button>
@@ -112,9 +113,8 @@ export default function Navbar() {
       </div>
 
       {menuOpen && (
-        <div className="border-t border-border px-5 py-3 sm:hidden">
-          <div className="flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-xs text-muted">
-            <LiveClock />
+        <div className="border-t border-border px-5 py-3 xl:hidden">
+          <div className="flex items-center justify-end gap-2 rounded-lg px-3 py-2 text-xs text-muted">
             <TodayGoal style={{ color: "var(--accent)" }} />
           </div>
 
