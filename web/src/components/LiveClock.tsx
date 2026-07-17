@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Clock } from "lucide-react";
+import LiveClockPopover from "./LiveClockPopover";
 
 function formatTime(date: Date): string {
   return date.toLocaleTimeString("en-US", {
@@ -19,6 +20,8 @@ function formatTime(date: Date): string {
  * mount, same SSR-safe pattern as Greeting.tsx. */
 export default function LiveClock({ className = "" }: { className?: string }) {
   const [time, setTime] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setTime(formatTime(new Date()));
@@ -26,10 +29,29 @@ export default function LiveClock({ className = "" }: { className?: string }) {
     return () => clearInterval(id);
   }, []);
 
+  useEffect(() => {
+    function onClickOutside(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
+  }, []);
+
   return (
-    <span className={`flex items-center gap-1 tabular-nums ${className}`}>
-      <Clock className="h-3 w-3 shrink-0" strokeWidth={2} />
-      {time ?? "--:--:-- --"}
-    </span>
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className={`flex items-center gap-1 tabular-nums cursor-pointer ${className}`}
+      >
+        <Clock className="h-3 w-3 shrink-0" strokeWidth={2} />
+        {time ?? "--:--:-- --"}
+      </button>
+
+      {open && (
+        <div className="fixed left-1/2 top-16 z-20 -translate-x-1/2 sm:absolute sm:left-0 sm:top-full sm:mt-2 sm:translate-x-0">
+          <LiveClockPopover />
+        </div>
+      )}
+    </div>
   );
 }
