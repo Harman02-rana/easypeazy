@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import ThemeScript from "@/components/ThemeScript";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import MilestoneWatcher from "@/components/MilestoneWatcher";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -39,6 +40,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <MilestoneWatcher />
       </body>
     </html>
   );

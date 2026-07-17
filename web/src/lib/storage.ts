@@ -51,6 +51,30 @@ class LocalStorageStore implements DataStore {
 
 export const store: DataStore = new LocalStorageStore();
 
+/**
+ * Cross-instance sync within the same tab. `useLocalStorage` uses plain
+ * React state for speed, but that means two mounted components reading the
+ * same key each get their own independent copy — a write in one wouldn't
+ * otherwise be seen by the other until it happened to remount. Every write
+ * publishes to this key; every hook instance for that key is subscribed and
+ * re-reads from storage when notified. (Cross-tab sync would need the
+ * browser's native `storage` event too, but that's out of scope for a
+ * single-user, single-tab tracker.)
+ */
+const keyListeners = new Map<string, Set<() => void>>();
+
+export function subscribeToKey(key: string, listener: () => void): () => void {
+  if (!keyListeners.has(key)) keyListeners.set(key, new Set());
+  keyListeners.get(key)!.add(listener);
+  return () => {
+    keyListeners.get(key)?.delete(listener);
+  };
+}
+
+export function publishKeyChange(key: string): void {
+  keyListeners.get(key)?.forEach((listener) => listener());
+}
+
 /** All keys the tracker persists — used by the backup export/import so
  * that adding a new tracker data type only means adding one line here. */
 export const TRACKER_KEYS = {
@@ -60,6 +84,7 @@ export const TRACKER_KEYS = {
   studyTopics: "jhp_study_topics",
   milestones: "jhp_roadmap_milestones",
   applications: "jhp_applications",
+  applicationMilestoneState: "jhp_application_milestone_state",
 } as const;
 
 export function generateId(): string {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { store } from "@/lib/storage";
+import { publishKeyChange, store, subscribeToKey } from "@/lib/storage";
 
 /**
  * Generic persisted-list hook. Renders with `initialValue` on both server
@@ -12,6 +12,11 @@ import { store } from "@/lib/storage";
  * `hydrated` is false until that load has happened; components that need
  * to distinguish "genuinely empty" from "haven't checked storage yet"
  * should gate on it (e.g. to avoid flashing an empty state for a moment).
+ *
+ * Multiple components can call this for the same key at the same time
+ * (e.g. the Applications page and the globally-mounted milestone watcher
+ * both read `jhp_applications`) — writes from any one instance are
+ * published so every other instance re-reads and stays in sync.
  */
 export function useLocalStorage<T>(key: string, initialValue: T) {
   const [value, setValue] = useState<T>(initialValue);
@@ -34,12 +39,20 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
 
+  useEffect(() => {
+    return subscribeToKey(key, () => {
+      const stored = store.getItem<T>(key);
+      if (stored !== null) setValue(stored);
+    });
+  }, [key]);
+
   const update = useCallback(
     (next: T | ((prev: T) => T)) => {
       setValue((prev) => {
         const resolved =
           typeof next === "function" ? (next as (prev: T) => T)(prev) : next;
         store.setItem(key, resolved);
+        publishKeyChange(key);
         return resolved;
       });
     },

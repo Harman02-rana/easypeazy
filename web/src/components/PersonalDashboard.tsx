@@ -6,6 +6,7 @@ import { computeApplicationStats, computeUpcomingEvents } from "@/lib/applicatio
 import { computeHeadlineProgress } from "@/lib/prepUtils";
 import { currentMonthKey, formatMonth } from "@/lib/trackerTypes";
 import EmptyState from "./EmptyState";
+import MotivationCorner from "./MotivationCorner";
 
 export default function PersonalDashboard() {
   const { items: topics, hydrated: topicsHydrated } = useStudyTopics();
@@ -117,6 +118,10 @@ export default function PersonalDashboard() {
             </div>
           </div>
         )}
+
+        <div className="mt-4">
+          <MotivationCorner />
+        </div>
       </div>
     </section>
   );
