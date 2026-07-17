@@ -25,7 +25,6 @@ import NavDropdown from "./NavDropdown";
 import HeaderProductivityWidget from "./HeaderProductivityWidget";
 import NotificationBell from "./NotificationBell";
 import LiveClock from "./LiveClock";
-import TodayGoal from "./TodayGoal";
 import { SITE_NAME } from "@/lib/personalConfig";
 
 const links = [
@@ -117,11 +116,7 @@ export default function Navbar() {
 
       {menuOpen && (
         <div className="border-t border-border px-5 py-3 xl:hidden">
-          <div className="flex items-center justify-end gap-2 rounded-lg px-3 py-2 text-xs text-muted">
-            <TodayGoal style={{ color: "var(--accent)" }} />
-          </div>
-
-          <nav className="mt-1 flex flex-col gap-1">
+          <nav className="flex flex-col gap-1">
             {links.map((link) => {
               const active =
                 link.href === "/"
