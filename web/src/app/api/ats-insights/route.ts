@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
-import Anthropic from "@anthropic-ai/sdk";
-import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { z } from "zod";
+import { generateGeminiJson, Type, type Schema } from "@/lib/ai/gemini";
 
-// Calls out to the Anthropic API — never statically optimized, and the API
+// Calls out to the Gemini API — never statically optimized, and the API
 // key only ever lives in this server-side module (read from the environment,
 // never sent to or bundled for the client).
 export const runtime = "nodejs";
@@ -18,6 +17,17 @@ const InsightsSchema = z.object({
   roleRelevance: z.string(),
   suggestions: z.array(z.string()),
 });
+
+const RESPONSE_SCHEMA: Schema = {
+  type: Type.OBJECT,
+  properties: {
+    strengths: { type: Type.ARRAY, items: { type: Type.STRING } },
+    weaknesses: { type: Type.ARRAY, items: { type: Type.STRING } },
+    roleRelevance: { type: Type.STRING },
+    suggestions: { type: Type.ARRAY, items: { type: Type.STRING } },
+  },
+  required: ["strengths", "weaknesses", "roleRelevance", "suggestions"],
+};
 
 const SYSTEM_PROMPT = `You are helping analyze a candidate's resume against a job description for a personal job-tracking tool. You are given the candidate's already-extracted resume text, the job description, and pre-computed match statistics from a separate local scoring engine (skills and keywords matched/missing, per-category scores).
 
@@ -53,7 +63,7 @@ function unavailable(reason: string) {
 }
 
 export async function POST(request: Request) {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     return unavailable("AI insights aren't configured for this deployment (no API key set).");
   }
@@ -99,23 +109,18 @@ ${resumeText.slice(0, MAX_RESUME_CHARS)}
 ${localSummary}`;
 
   try {
-    const client = new Anthropic({ apiKey });
-    const response = await client.messages.parse({
-      model: "claude-opus-4-8",
-      max_tokens: 1536,
-      thinking: { type: "adaptive" },
-      system: SYSTEM_PROMPT,
-      output_config: { format: zodOutputFormat(InsightsSchema) },
-      messages: [{ role: "user", content: userPrompt }],
+    const raw = await generateGeminiJson({
+      apiKey,
+      systemInstruction: SYSTEM_PROMPT,
+      userPrompt,
+      responseSchema: RESPONSE_SCHEMA,
+      maxOutputTokens: 1536,
     });
-
-    if (!response.parsed_output) {
-      return unavailable("AI insights response couldn't be parsed.");
-    }
+    const parsed = InsightsSchema.parse(raw);
 
     return NextResponse.json({
       available: true,
-      insights: { ...response.parsed_output, generatedAt: new Date().toISOString() },
+      insights: { ...parsed, generatedAt: new Date().toISOString() },
     });
   } catch {
     // Any API failure (auth, rate limit, network, overloaded) — the local

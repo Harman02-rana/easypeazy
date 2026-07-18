@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 
 /** Generic dismissible dialog — same backdrop/animation classes and the
@@ -12,7 +13,14 @@ import { X } from "lucide-react";
  * NOTE: z-[100] is an arbitrary Tailwind value — editors sometimes "helpfully"
  * rewrite this to z-100, which does not exist in this project's Tailwind
  * config and silently falls back to z-auto, breaking the popup. Do not
- * simplify it. */
+ * simplify it.
+ *
+ * NOTE: rendered via a portal into document.body, not inline. Every caller
+ * so far mounts this from inside a `.card-soft` card, and `.card-soft:hover`
+ * applies a `transform` — which per the CSS spec makes that card the
+ * containing block for any `position: fixed` descendant, shrinking this
+ * modal down to the card's own box instead of covering the viewport. A
+ * portal sidesteps that regardless of what any future caller's ancestors do. */
 export default function Modal({
   onClose,
   title,
@@ -32,7 +40,7 @@ export default function Modal({
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [onClose]);
 
-  return (
+  return createPortal(
     <div
       className="backdrop-fade-in fixed inset-0 z-[100] flex items-center justify-center bg-foreground/25 p-4 backdrop-blur-sm"
       role="presentation"
@@ -57,6 +65,7 @@ export default function Modal({
         </div>
         <div className="overflow-y-auto p-4">{children}</div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

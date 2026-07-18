@@ -91,6 +91,7 @@ export const TRACKER_KEYS = {
   resume: "jhp_resume",
   atsAnalyses: "jhp_ats_analyses",
   resumeVersions: "jhp_resume_versions",
+  coverLetters: "jhp_cover_letters",
 } as const;
 
 export function generateId(): string {

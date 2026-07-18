@@ -1,11 +1,15 @@
-export const REWRITE_STYLES = ["rewrite", "professional", "shorter", "ats-friendly"] as const;
+// Shared by both the resume section editor and the cover letter paragraph
+// editor — one endpoint, one style vocabulary, reused across document types.
+export const REWRITE_STYLES = ["rewrite", "professional", "shorter", "ats-friendly", "tone", "grammar"] as const;
 export type RewriteStyle = (typeof REWRITE_STYLES)[number];
 
 export const REWRITE_STYLE_LABELS: Record<RewriteStyle, string> = {
   rewrite: "AI Rewrite",
   professional: "Make Professional",
-  shorter: "Make Shorter",
+  shorter: "Make Concise",
   "ats-friendly": "ATS Friendly",
+  tone: "Improve Tone",
+  grammar: "Improve Grammar",
 };
 
 interface RewriteResponse {

@@ -8,6 +8,7 @@ import type {
   Application,
   AtsAnalysisResult,
   CompanyNote,
+  CoverLetter,
   LittleWin,
   MonthlyGoal,
   NewApplicationInput,
@@ -21,6 +22,7 @@ import type {
 
 const MAX_STORED_ATS_ANALYSES = 20;
 const MAX_STORED_RESUME_VERSIONS = 30;
+const MAX_STORED_COVER_LETTERS = 30;
 
 interface WithId {
   id: string;
@@ -317,6 +319,52 @@ export function useResumeVersions() {
   );
 
   return { ...crud, saveMaster, saveVersion, renameVersion, setTemplate, duplicateVersion };
+}
+
+/** Saved cover letters — a flat list like resume versions, capped the
+ * same way. No "master" concept here since every cover letter is already
+ * company/role-specific by nature. */
+export function useCoverLetters() {
+  const crud = useCrudList<CoverLetter>(TRACKER_KEYS.coverLetters, []);
+
+  const saveNew = useCallback(
+    (input: Omit<CoverLetter, "id" | "createdAt" | "lastModifiedAt">) => {
+      const now = new Date().toISOString();
+      const letter: CoverLetter = { id: generateId(), createdAt: now, lastModifiedAt: now, ...input };
+      crud.setItems((prev) => [letter, ...prev].slice(0, MAX_STORED_COVER_LETTERS));
+      return letter;
+    },
+    [crud]
+  );
+
+  const renameLetter = useCallback(
+    (id: string, label: string) => {
+      crud.update(id, { label, lastModifiedAt: new Date().toISOString() });
+    },
+    [crud]
+  );
+
+  const updateContent = useCallback(
+    (id: string, content: string) => {
+      crud.update(id, { content, lastModifiedAt: new Date().toISOString() });
+    },
+    [crud]
+  );
+
+  const duplicateLetter = useCallback(
+    (id: string) => {
+      crud.setItems((prev) => {
+        const source = prev.find((l) => l.id === id);
+        if (!source) return prev;
+        const now = new Date().toISOString();
+        const copy: CoverLetter = { ...source, id: generateId(), label: `${source.label} (Copy)`, createdAt: now, lastModifiedAt: now };
+        return [copy, ...prev].slice(0, MAX_STORED_COVER_LETTERS);
+      });
+    },
+    [crud]
+  );
+
+  return { ...crud, saveNew, renameLetter, updateContent, duplicateLetter };
 }
 
 /** Dismissed hiring-reminder ids — a plain string set, persisted so a

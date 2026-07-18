@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
-import Anthropic from "@anthropic-ai/sdk";
-import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { z } from "zod";
+import { generateGeminiJson, Type, type Schema } from "@/lib/ai/gemini";
 
-// Calls out to the Anthropic API — never statically optimized, and the API
+// Calls out to the Gemini API — never statically optimized, and the API
 // key only ever lives in this server-side module (read from the environment,
 // never sent to or bundled for the client).
 export const runtime = "nodejs";
@@ -16,6 +15,15 @@ const OptimizeSchema = z.object({
   optimizedResume: z.string(),
   changeSummary: z.array(z.string()),
 });
+
+const RESPONSE_SCHEMA: Schema = {
+  type: Type.OBJECT,
+  properties: {
+    optimizedResume: { type: Type.STRING },
+    changeSummary: { type: Type.ARRAY, items: { type: Type.STRING } },
+  },
+  required: ["optimizedResume", "changeSummary"],
+};
 
 const SYSTEM_PROMPT = `You are rewriting a candidate's resume text to be better tailored to a specific job description, for a personal job-tracking tool. You are given the candidate's already-extracted resume text, the job description, and (optionally) local ATS match statistics for context.
 
@@ -54,7 +62,7 @@ function unavailable(reason: string, status = 200) {
 }
 
 export async function POST(request: Request) {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     return unavailable("AI resume optimization isn't configured for this deployment (no API key set).");
   }
@@ -96,21 +104,15 @@ ${resumeText.slice(0, MAX_RESUME_CHARS)}
 ${analysisSummary}`;
 
   try {
-    const client = new Anthropic({ apiKey });
-    const response = await client.messages.parse({
-      model: "claude-opus-4-8",
-      max_tokens: 4096,
-      thinking: { type: "adaptive" },
-      system: SYSTEM_PROMPT,
-      output_config: { format: zodOutputFormat(OptimizeSchema) },
-      messages: [{ role: "user", content: userPrompt }],
+    const raw = await generateGeminiJson({
+      apiKey,
+      systemInstruction: SYSTEM_PROMPT,
+      userPrompt,
+      responseSchema: RESPONSE_SCHEMA,
+      maxOutputTokens: 4096,
     });
-
-    if (!response.parsed_output) {
-      return unavailable("The optimization response couldn't be parsed.");
-    }
-
-    return NextResponse.json({ available: true, result: response.parsed_output });
+    const result = OptimizeSchema.parse(raw);
+    return NextResponse.json({ available: true, result });
   } catch {
     // Any API failure (auth, rate limit, network, overloaded) — surface as
     // "unavailable" rather than a 500, so the UI can show a clear message

@@ -14,6 +14,7 @@ import {
   GraduationCap,
   House,
   LayoutDashboard,
+  Mail,
   MapPin,
   Menu,
   NotebookPen,
@@ -44,6 +45,7 @@ const trackerLinks = [
   { href: "/applications", label: "My Applications", icon: ClipboardList },
   { href: "/resume-studio", label: "Resume Studio", icon: FileText },
   { href: "/ats-analyzer", label: "ATS Analyzer", icon: Gauge },
+  { href: "/cover-letters", label: "Cover Letters", icon: Mail },
 ];
 
 const hiringRadarLinks = [

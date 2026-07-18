@@ -325,3 +325,42 @@ export interface ResumeVersion {
   createdAt: string;
   lastModifiedAt: string;
 }
+
+// ---------------------------------------------------------------------------
+// AI Cover Letter Generator
+// ---------------------------------------------------------------------------
+
+export const WRITING_STYLES = ["professional", "formal", "friendly", "enthusiastic", "concise", "executive"] as const;
+export type WritingStyle = (typeof WRITING_STYLES)[number];
+
+/** Company/role/placeholder checks are computed locally (deterministic —
+ * either the text contains "[Company Name]" or it doesn't); tone and
+ * grammar are the AI's own self-assessment at generation time. Both kinds
+ * feed the same "Ready to Send" indicator so the UI doesn't need to know
+ * which check came from where. */
+export interface CoverLetterQualityCheck {
+  companyNameMentioned: boolean;
+  jobTitleMentioned: boolean;
+  noPlaceholderText: boolean;
+  toneConsistent: boolean;
+  grammarCorrect: boolean;
+  notes: string[];
+}
+
+export interface CoverLetter {
+  id: string;
+  label: string;
+  companyName: string;
+  jobRole: string;
+  jobDescription: string;
+  writingStyle: WritingStyle;
+  /** Snapshot of the resume version used, kept even if that version is
+   * later renamed or deleted — `resumeVersionId` is the live link (may go
+   * stale), `resumeVersionLabel` is what's always safe to display. */
+  resumeVersionId: string | null;
+  resumeVersionLabel: string;
+  content: string;
+  qualityCheck: CoverLetterQualityCheck | null;
+  createdAt: string;
+  lastModifiedAt: string;
+}
