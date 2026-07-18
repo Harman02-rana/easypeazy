@@ -11,7 +11,19 @@ export default function ResumeStudioClient() {
   const { saveMaster } = useResumeVersions();
   const [replacing, setReplacing] = useState(false);
 
-  if (!hydrated) return null;
+  if (!hydrated) {
+    return (
+      <div className="grid animate-pulse gap-5 md:grid-cols-[18rem_1fr]">
+        <div className="card-soft h-64 p-4">
+          <div className="h-4 w-2/3 rounded bg-surface-hover" />
+          <div className="mt-4 h-40 rounded bg-surface-hover" />
+        </div>
+        <div className="card-soft h-64 p-4">
+          <div className="h-full rounded bg-surface-hover" />
+        </div>
+      </div>
+    );
+  }
 
   if (!resume || replacing) {
     return (

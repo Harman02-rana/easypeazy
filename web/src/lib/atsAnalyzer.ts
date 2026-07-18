@@ -355,3 +355,18 @@ export function analyzeResume(params: {
     aiInsights: null,
   };
 }
+
+/** A deterministic "what if you fixed the gaps" estimate — not a second AI
+ * call, just the same category weights re-applied with skills/keyword
+ * match assumed fixed. Gives the coach checklist something concrete to
+ * point at without inventing a new scoring system. */
+export function estimateImprovedScore(result: AtsAnalysisResult): number {
+  let hypothetical = 0;
+  for (const cat of result.categoryScores) {
+    let score = cat.score;
+    if (cat.category === "skillsMatch" && result.missingSkills.length > 0) score = 100;
+    if (cat.category === "keywordMatch" && result.missingKeywords.length > 0) score = Math.min(100, score + 25);
+    hypothetical += score * cat.weight;
+  }
+  return Math.round(Math.min(100, Math.max(hypothetical, result.overallScore)));
+}

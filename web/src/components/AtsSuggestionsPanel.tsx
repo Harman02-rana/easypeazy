@@ -1,36 +1,22 @@
-import { Lightbulb, Loader2, Sparkles, ThumbsDown, ThumbsUp } from "lucide-react";
+import { Loader2, Sparkles, ThumbsDown, ThumbsUp } from "lucide-react";
 import type { AiInsights } from "@/lib/trackerTypes";
 
+/** Purely the AI's qualitative narrative (role relevance + strengths +
+ * weaknesses) — the actionable "what to fix" checklist lives in
+ * AiResumeCoach instead, which already folds in both the local engine's
+ * suggestions and the AI's contextual ones. Keeping both here too would
+ * just repeat the same list twice on the page. */
 export default function AtsSuggestionsPanel({
-  suggestions,
   aiInsights,
   aiLoading,
 }: {
-  suggestions: string[];
   aiInsights: AiInsights | null;
   aiLoading: boolean;
 }) {
+  if (!aiLoading && !aiInsights) return null;
+
   return (
     <div className="space-y-4">
-      <div className="card-soft p-4">
-        <div className="flex items-center gap-2">
-          <Lightbulb className="h-4 w-4" style={{ color: "var(--cat-planner)" }} strokeWidth={2} />
-          <p className="text-sm font-semibold text-foreground">Improvement suggestions</p>
-        </div>
-        {suggestions.length === 0 ? (
-          <p className="mt-2 text-xs text-muted">Nothing major stood out — this resume looks well aligned with the job description.</p>
-        ) : (
-          <ul className="mt-2 space-y-1.5 text-sm text-foreground/90">
-            {suggestions.map((s, i) => (
-              <li key={i} className="flex items-start gap-2">
-                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-current text-muted" />
-                <span>{s}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
       {aiLoading && (
         <div className="card-soft flex items-center gap-2 p-4 text-sm text-muted">
           <Loader2 className="h-4 w-4 animate-spin" strokeWidth={2} />
@@ -72,17 +58,6 @@ export default function AtsSuggestionsPanel({
               </p>
               <ul className="mt-1.5 space-y-1 text-sm text-foreground/90">
                 {aiInsights.weaknesses.map((s, i) => (
-                  <li key={i}>&bull; {s}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {aiInsights.suggestions.length > 0 && (
-            <div>
-              <p className="text-xs font-medium text-muted">Contextual suggestions</p>
-              <ul className="mt-1.5 space-y-1 text-sm text-foreground/90">
-                {aiInsights.suggestions.map((s, i) => (
                   <li key={i}>&bull; {s}</li>
                 ))}
               </ul>

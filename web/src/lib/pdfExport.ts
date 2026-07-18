@@ -1,4 +1,4 @@
-import { jsPDF } from "jspdf";
+import type { jsPDF } from "jspdf";
 import { getResumeTemplate, type ResumeTemplate } from "./resumeTemplates";
 import type { ResumeTemplateId } from "./trackerTypes";
 
@@ -34,8 +34,12 @@ export function normalizeResumeLines(content: string): string[] {
   return result;
 }
 
-function renderPdf(content: string, template: ResumeTemplate): jsPDF {
-  const doc = new jsPDF({ unit: "pt", format: "letter" });
+async function renderPdf(content: string, template: ResumeTemplate): Promise<jsPDF> {
+  // jsPDF is a sizeable dependency — dynamically imported so it only ever
+  // loads when someone actually generates a PDF, not on every visit to a
+  // page that merely has the download button available.
+  const { jsPDF: JsPdf } = await import("jspdf");
+  const doc = new JsPdf({ unit: "pt", format: "letter" });
   const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
   const maxWidth = pageWidth - template.marginPt * 2;
@@ -104,7 +108,7 @@ function renderPdf(content: string, template: ResumeTemplate): jsPDF {
 /** Builds the PDF document without saving it — used by both the download
  * button and (in future) anything that wants the raw PDF bytes instead of
  * triggering a browser download. */
-export function generateResumePdf(content: string, templateId: ResumeTemplateId = "classic"): jsPDF {
+export async function generateResumePdf(content: string, templateId: ResumeTemplateId = "classic"): Promise<jsPDF> {
   return renderPdf(content, getResumeTemplate(templateId));
 }
 
@@ -115,7 +119,7 @@ function safeFileName(label: string): string {
 /** Renders plain resume text into a paginated, template-styled PDF and
  * triggers a download. Deliberately plain (one font, no columns/tables/
  * images) — the whole point is to stay ATS-friendly, not to look fancy. */
-export function downloadResumeAsPdf(content: string, fileLabel: string, templateId: ResumeTemplateId = "classic"): void {
-  const doc = generateResumePdf(content, templateId);
+export async function downloadResumeAsPdf(content: string, fileLabel: string, templateId: ResumeTemplateId = "classic"): Promise<void> {
+  const doc = await generateResumePdf(content, templateId);
   doc.save(`${safeFileName(fileLabel)}.pdf`);
 }

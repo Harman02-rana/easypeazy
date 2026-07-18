@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { FileWarning } from "lucide-react";
+import { FileSearch, FileWarning } from "lucide-react";
 import { useResume, useAtsAnalyses } from "@/hooks/useTracker";
 import { analyzeResume, AtsAnalysisError } from "@/lib/atsAnalyzer";
 import { fetchAiInsights } from "@/lib/atsInsights";
@@ -12,8 +12,11 @@ import AtsScoreOverview from "./AtsScoreOverview";
 import AtsSkillsKeywordsPanel from "./AtsSkillsKeywordsPanel";
 import AtsSuggestionsPanel from "./AtsSuggestionsPanel";
 import AtsHistoryList from "./AtsHistoryList";
+import AiResumeCoach from "./AiResumeCoach";
+import ResumeInsights from "./ResumeInsights";
 import ResumeOptimizerSection from "./ResumeOptimizerSection";
 import ResumeVersionManager from "./ResumeVersionManager";
+import ResumeWorkspaceSkeleton from "./ResumeWorkspaceSkeleton";
 
 export default function AtsAnalyzerClient() {
   const { resume, hydrated: resumeHydrated } = useResume();
@@ -24,21 +27,27 @@ export default function AtsAnalyzerClient() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [aiLoading, setAiLoading] = useState(false);
 
-  if (!resumeHydrated || !analysesHydrated) return null;
+  if (!resumeHydrated || !analysesHydrated) return <ResumeWorkspaceSkeleton />;
 
   if (!resume) {
     return (
-      <div className="card-soft flex items-start gap-3 p-5">
-        <FileWarning className="mt-0.5 h-5 w-5 shrink-0" style={{ color: "var(--cat-rejected)" }} strokeWidth={2} />
+      <div className="card-soft flex flex-col items-center gap-3 px-6 py-14 text-center">
+        <span
+          className="flex h-14 w-14 items-center justify-center rounded-full"
+          style={{ backgroundColor: "var(--cat-applications-bg)", color: "var(--cat-applications)" }}
+        >
+          <FileSearch className="h-6 w-6" strokeWidth={2} />
+        </span>
         <div>
           <p className="text-sm font-medium text-foreground">No resume uploaded yet</p>
-          <p className="mt-1 text-sm text-muted">
-            Upload a resume in Resume Studio first — this analyzer reads the text already extracted there.
+          <p className="mx-auto mt-1 max-w-sm text-sm text-muted">
+            Upload a resume in Resume Studio first — the ATS Analyzer reads the text already extracted
+            there and scores it against any job description you paste.
           </p>
-          <Link href="/resume-studio" className="btn-secondary-sm mt-3">
-            Go to Resume Studio
-          </Link>
         </div>
+        <Link href="/resume-studio" className="btn-primary mt-1">
+          Go to Resume Studio
+        </Link>
       </div>
     );
   }
@@ -78,6 +87,21 @@ export default function AtsAnalyzerClient() {
     if (found) setCurrent(found);
   }
 
+  function handleReanalyze(analysis: AtsAnalysisResult) {
+    handleAnalyze({
+      jobDescription: analysis.jobDescription,
+      companyName: analysis.companyName,
+      jobRole: analysis.jobRole,
+    });
+  }
+
+  function handleOptimizeFromHistory(id: string) {
+    handleSelectHistory(id);
+    requestAnimationFrame(() => {
+      document.getElementById("resume-optimizer-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
   function handleRemoveHistory(id: string) {
     remove(id);
     setCurrent((prev) => (prev?.id === id ? null : prev));
@@ -97,6 +121,23 @@ export default function AtsAnalyzerClient() {
         </div>
       )}
 
+      {!current && analyses.length === 0 && !error && (
+        <div className="card-soft flex flex-col items-center gap-2 px-6 py-12 text-center">
+          <span
+            className="flex h-12 w-12 items-center justify-center rounded-full"
+            style={{ backgroundColor: "var(--cat-study-bg)", color: "var(--cat-study)" }}
+          >
+            <FileSearch className="h-5 w-5" strokeWidth={2} />
+          </span>
+          <p className="text-sm font-medium text-foreground">No analysis yet</p>
+          <p className="mx-auto max-w-md text-sm text-muted">
+            Paste a job description above and click Analyze — the local scoring engine checks your resume
+            for skills match, keyword overlap, experience/project relevance, education match, and
+            structure, all in your browser. No account or API key needed for this part.
+          </p>
+        </div>
+      )}
+
       {current && (
         <>
           <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
@@ -104,18 +145,30 @@ export default function AtsAnalyzerClient() {
               <AtsScoreOverview result={current} />
               <AtsSkillsKeywordsPanel result={current} />
             </div>
-            <AtsSuggestionsPanel
-              suggestions={current.suggestions}
-              aiInsights={current.aiInsights}
-              aiLoading={aiLoading && current.aiInsights === null}
-            />
+            <div className="space-y-6">
+              <AiResumeCoach result={current} />
+              <AtsSuggestionsPanel
+                aiInsights={current.aiInsights}
+                aiLoading={aiLoading && current.aiInsights === null}
+              />
+            </div>
           </div>
 
-          <ResumeOptimizerSection resume={resume} analysis={current} />
+          <div id="resume-optimizer-section">
+            <ResumeOptimizerSection resume={resume} analysis={current} />
+          </div>
         </>
       )}
 
-      <AtsHistoryList analyses={analyses} onSelect={handleSelectHistory} onRemove={handleRemoveHistory} />
+      <ResumeInsights analyses={analyses} />
+
+      <AtsHistoryList
+        analyses={analyses}
+        onSelect={handleSelectHistory}
+        onReanalyze={handleReanalyze}
+        onOptimize={handleOptimizeFromHistory}
+        onRemove={handleRemoveHistory}
+      />
 
       <ResumeVersionManager />
     </div>
