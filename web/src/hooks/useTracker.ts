@@ -223,9 +223,10 @@ export function useAtsAnalyses() {
 }
 
 /** Saved resume versions — one canonical Master Resume (re-saved in place,
- * never duplicated) plus any number of company/role-tailored optimized
- * copies. Capped like the ATS analyses list so localStorage doesn't grow
- * unbounded over a long placement season. */
+ * automatically kept in sync with Resume Studio's active upload, never
+ * duplicated) plus any number of company/role-tailored optimized copies.
+ * Capped like the ATS analyses list so localStorage doesn't grow unbounded
+ * over a long placement season. */
 export function useResumeVersions() {
   const crud = useCrudList<ResumeVersion>(TRACKER_KEYS.resumeVersions, []);
 
@@ -237,13 +238,15 @@ export function useResumeVersions() {
           id: existingMaster?.id ?? generateId(),
           label: "Master Resume",
           isMaster: true,
+          versionNumber: 0,
           companyName: "",
           jobRole: "",
           content,
+          templateId: existingMaster?.templateId ?? "classic",
           changeSummary: [],
           sourceAnalysisId: null,
           createdAt: existingMaster?.createdAt ?? new Date().toISOString(),
-          optimizedAt: new Date().toISOString(),
+          lastModifiedAt: new Date().toISOString(),
         };
         return [master, ...prev.filter((v) => !v.isMaster)];
       });
@@ -260,19 +263,60 @@ export function useResumeVersions() {
       changeSummary: string[];
       sourceAnalysisId: string | null;
     }) => {
-      const version: ResumeVersion = {
-        id: generateId(),
-        isMaster: false,
-        createdAt: new Date().toISOString(),
-        optimizedAt: new Date().toISOString(),
-        ...input,
-      };
-      crud.setItems((prev) => [version, ...prev].slice(0, MAX_STORED_RESUME_VERSIONS));
+      crud.setItems((prev) => {
+        const highestVersion = prev.reduce((max, v) => Math.max(max, v.versionNumber), 0);
+        const version: ResumeVersion = {
+          id: generateId(),
+          isMaster: false,
+          versionNumber: highestVersion + 1,
+          templateId: "classic",
+          createdAt: new Date().toISOString(),
+          lastModifiedAt: new Date().toISOString(),
+          ...input,
+        };
+        return [version, ...prev].slice(0, MAX_STORED_RESUME_VERSIONS);
+      });
     },
     [crud]
   );
 
-  return { ...crud, saveMaster, saveVersion };
+  const renameVersion = useCallback(
+    (id: string, label: string) => {
+      crud.update(id, { label, lastModifiedAt: new Date().toISOString() });
+    },
+    [crud]
+  );
+
+  const setTemplate = useCallback(
+    (id: string, templateId: ResumeVersion["templateId"]) => {
+      crud.update(id, { templateId, lastModifiedAt: new Date().toISOString() });
+    },
+    [crud]
+  );
+
+  const duplicateVersion = useCallback(
+    (id: string) => {
+      crud.setItems((prev) => {
+        const source = prev.find((v) => v.id === id);
+        if (!source) return prev;
+        const highestVersion = prev.reduce((max, v) => Math.max(max, v.versionNumber), 0);
+        const now = new Date().toISOString();
+        const copy: ResumeVersion = {
+          ...source,
+          id: generateId(),
+          isMaster: false,
+          versionNumber: highestVersion + 1,
+          label: `${source.label} (Copy)`,
+          createdAt: now,
+          lastModifiedAt: now,
+        };
+        return [copy, ...prev].slice(0, MAX_STORED_RESUME_VERSIONS);
+      });
+    },
+    [crud]
+  );
+
+  return { ...crud, saveMaster, saveVersion, renameVersion, setTemplate, duplicateVersion };
 }
 
 /** Dismissed hiring-reminder ids — a plain string set, persisted so a

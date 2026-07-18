@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { AlertCircle, Check, Copy, Download, Loader2, Save, Sparkles } from "lucide-react";
+import { AlertCircle, Check, CheckCircle2, Copy, Loader2, Sparkles } from "lucide-react";
 import { fetchOptimizedResume } from "@/lib/resumeOptimizer";
-import { downloadResumeAsPdf } from "@/lib/pdfExport";
 import { useResumeVersions } from "@/hooks/useTracker";
 import type { AtsAnalysisResult, ResumeRecord } from "@/lib/trackerTypes";
 import ResumeDiffView from "./ResumeDiffView";
@@ -23,16 +22,14 @@ export default function ResumeOptimizerSection({
   const { saveVersion } = useResumeVersions();
   const [isOptimizing, setIsOptimizing] = useState(false);
   const [optimized, setOptimized] = useState<{ text: string; changeSummary: string[] } | null>(null);
-  const [accepted, setAccepted] = useState(false);
+  const [savedLabel, setSavedLabel] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
-  const [saved, setSaved] = useState(false);
 
   async function handleOptimize() {
     setError(null);
     setIsOptimizing(true);
-    setAccepted(false);
-    setSaved(false);
+    setSavedLabel(null);
 
     const { result, reason } = await fetchOptimizedResume({
       resumeText: resume.extractedText,
@@ -67,7 +64,12 @@ export default function ResumeOptimizerSection({
       .catch(() => setError("Couldn't copy to clipboard — your browser may be blocking it."));
   }
 
-  function handleSaveVersion() {
+  /** Accepting is the one deliberate step — reviewing the diff before it
+   * becomes a saved version. Once accepted, it's saved automatically as a
+   * brand-new version (never overwriting earlier ones); choosing a
+   * template, previewing, and downloading a PDF happen from Resume
+   * Versions below, which is now the single place that owns PDF export. */
+  function handleAccept() {
     if (!optimized) return;
     const label = analysis.companyName
       ? `${analysis.companyName}${analysis.jobRole ? ` — ${analysis.jobRole}` : ""}`
@@ -80,7 +82,7 @@ export default function ResumeOptimizerSection({
       changeSummary: optimized.changeSummary,
       sourceAnalysisId: analysis.id,
     });
-    setSaved(true);
+    setSavedLabel(label);
   }
 
   return (
@@ -132,27 +134,26 @@ export default function ResumeOptimizerSection({
             </div>
           )}
 
-          {!accepted ? (
-            <button onClick={() => setAccepted(true)} className="btn-primary">
+          {!savedLabel ? (
+            <button onClick={handleAccept} className="btn-primary">
               <Check className="h-3.5 w-3.5" strokeWidth={2} />
               Accept all changes
             </button>
           ) : (
-            <div className="flex flex-wrap gap-2">
+            <div className="space-y-2">
+              <div
+                className="flex items-start gap-2 rounded-lg border px-3 py-2.5 text-sm"
+                style={{ borderColor: "var(--cat-offer)", backgroundColor: "var(--cat-offer-bg)", color: "var(--cat-offer)" }}
+              >
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={2} />
+                <span>
+                  Saved as a new version — &ldquo;{savedLabel}&rdquo;. Choose a template, preview, and download it
+                  from Resume Versions below.
+                </span>
+              </div>
               <button onClick={handleCopy} className="btn-secondary">
                 <Copy className="h-3.5 w-3.5" strokeWidth={2} />
                 {copied ? "Copied!" : "Copy optimized resume"}
-              </button>
-              <button
-                onClick={() => downloadResumeAsPdf(optimized.text, `${analysis.companyName || "resume"}-optimized`)}
-                className="btn-secondary"
-              >
-                <Download className="h-3.5 w-3.5" strokeWidth={2} />
-                Download as PDF
-              </button>
-              <button onClick={handleSaveVersion} className="btn-secondary" disabled={saved}>
-                <Save className="h-3.5 w-3.5" strokeWidth={2} />
-                {saved ? "Saved" : "Save version"}
               </button>
             </div>
           )}

@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { useResume } from "@/hooks/useTracker";
+import { useResume, useResumeVersions } from "@/hooks/useTracker";
 import ResumeUpload from "./ResumeUpload";
 import ResumeFileInfoPanel from "./ResumeFileInfoPanel";
 import ResumePreviewPanel from "./ResumePreviewPanel";
 
 export default function ResumeStudioClient() {
   const { resume, hydrated, setResume } = useResume();
+  const { saveMaster } = useResumeVersions();
   const [replacing, setReplacing] = useState(false);
 
   if (!hydrated) return null;
@@ -19,6 +20,10 @@ export default function ResumeStudioClient() {
           compact={replacing}
           onUploaded={(record) => {
             setResume(record);
+            // The uploaded resume IS the Master Resume — keep the version
+            // manager's copy in sync the instant it changes, not just the
+            // next time that page happens to mount.
+            saveMaster(record.extractedText);
             setReplacing(false);
           }}
         />

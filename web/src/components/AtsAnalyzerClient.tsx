@@ -117,7 +117,7 @@ export default function AtsAnalyzerClient() {
 
       <AtsHistoryList analyses={analyses} onSelect={handleSelectHistory} onRemove={handleRemoveHistory} />
 
-      <ResumeVersionManager masterResumeText={resume.extractedText} />
+      <ResumeVersionManager />
     </div>
   );
 }

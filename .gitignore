@@ -1,3 +1,11 @@
+# Env files (secrets) — anywhere in the repo, not just web/
+.env
+.env.local
+.env.*.local
+web/.env
+web/.env.local
+web/.env.*.local
+
 # Node / Next.js (web app)
 web/node_modules/
 web/.next/

@@ -301,19 +301,27 @@ export interface AtsAnalysisResult {
 // AI Resume Optimizer / Resume Version Manager
 // ---------------------------------------------------------------------------
 
+export const RESUME_TEMPLATE_IDS = ["classic", "compact", "modern"] as const;
+export type ResumeTemplateId = (typeof RESUME_TEMPLATE_IDS)[number];
+
 /** A saved resume version — either the one canonical Master Resume (kept
- * up to date from Resume Studio) or a company/role-tailored optimized copy.
- * `sourceAnalysisId` links a tailored version back to the ATS analysis it
- * was optimized against, when there is one. */
+ * automatically in sync with whatever's uploaded in Resume Studio) or a
+ * company/role-tailored optimized copy. `sourceAnalysisId` links a
+ * tailored version back to the ATS analysis it was optimized against, when
+ * there is one. `versionNumber` is 0 for the Master and an incrementing
+ * integer (1, 2, 3...) for tailored versions in creation order — a stable,
+ * human-readable identifier distinct from the internal `id`. */
 export interface ResumeVersion {
   id: string;
   label: string;
   isMaster: boolean;
+  versionNumber: number;
   companyName: string;
   jobRole: string;
   content: string;
+  templateId: ResumeTemplateId;
   changeSummary: string[];
   sourceAnalysisId: string | null;
   createdAt: string;
-  optimizedAt: string;
+  lastModifiedAt: string;
 }
