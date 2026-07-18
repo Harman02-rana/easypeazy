@@ -245,3 +245,75 @@ export interface ResumeRecord {
   extractedText: string;
   uploadedAt: string; // ISO timestamp
 }
+
+// ---------------------------------------------------------------------------
+// ATS Compatibility Analyzer
+// ---------------------------------------------------------------------------
+
+export const ATS_CATEGORIES = [
+  "skillsMatch",
+  "keywordMatch",
+  "experienceRelevance",
+  "projectRelevance",
+  "educationMatch",
+  "resumeStructure",
+] as const;
+export type AtsCategory = (typeof ATS_CATEGORIES)[number];
+
+export interface AtsCategoryScore {
+  category: AtsCategory;
+  label: string;
+  score: number; // 0-100
+  weight: number; // fraction of the overall score, weights sum to 1
+  note: string;
+}
+
+/** Optional, AI-generated commentary layered on top of the local score —
+ * never the source of the score itself. `null` means the caller either
+ * didn't request it or the AI API was unavailable; the rest of the
+ * analysis is unaffected either way. */
+export interface AiInsights {
+  strengths: string[];
+  weaknesses: string[];
+  roleRelevance: string;
+  suggestions: string[];
+  generatedAt: string;
+}
+
+export interface AtsAnalysisResult {
+  id: string;
+  createdAt: string;
+  companyName: string;
+  jobRole: string;
+  jobDescription: string;
+  resumeFileName: string;
+  overallScore: number; // 0-100
+  categoryScores: AtsCategoryScore[];
+  matchedSkills: string[];
+  missingSkills: string[];
+  matchedKeywords: string[];
+  missingKeywords: string[];
+  suggestions: string[];
+  aiInsights: AiInsights | null;
+}
+
+// ---------------------------------------------------------------------------
+// AI Resume Optimizer / Resume Version Manager
+// ---------------------------------------------------------------------------
+
+/** A saved resume version — either the one canonical Master Resume (kept
+ * up to date from Resume Studio) or a company/role-tailored optimized copy.
+ * `sourceAnalysisId` links a tailored version back to the ATS analysis it
+ * was optimized against, when there is one. */
+export interface ResumeVersion {
+  id: string;
+  label: string;
+  isMaster: boolean;
+  companyName: string;
+  jobRole: string;
+  content: string;
+  changeSummary: string[];
+  sourceAnalysisId: string | null;
+  createdAt: string;
+  optimizedAt: string;
+}

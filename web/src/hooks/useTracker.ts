@@ -6,16 +6,21 @@ import { generateId, TRACKER_KEYS } from "@/lib/storage";
 import { createStarterMilestones, createStarterStudyTopics } from "@/lib/starterData";
 import type {
   Application,
+  AtsAnalysisResult,
   CompanyNote,
   LittleWin,
   MonthlyGoal,
   NewApplicationInput,
   PlannerEntry,
   ResumeRecord,
+  ResumeVersion,
   RoadmapMilestone,
   StudyTopic,
   Task,
 } from "@/lib/trackerTypes";
+
+const MAX_STORED_ATS_ANALYSES = 20;
+const MAX_STORED_RESUME_VERSIONS = 30;
 
 interface WithId {
   id: string;
@@ -200,6 +205,74 @@ export function useResume() {
   const clear = useCallback(() => setResume(null), [setResume]);
 
   return { resume, hydrated, setResume, clear };
+}
+
+/** Past ATS analyses, most recent first — capped so localStorage doesn't
+ * grow unbounded across many job descriptions over time. */
+export function useAtsAnalyses() {
+  const crud = useCrudList<AtsAnalysisResult>(TRACKER_KEYS.atsAnalyses, []);
+
+  const add = useCallback(
+    (result: AtsAnalysisResult) => {
+      crud.setItems((prev) => [result, ...prev].slice(0, MAX_STORED_ATS_ANALYSES));
+    },
+    [crud]
+  );
+
+  return { ...crud, add };
+}
+
+/** Saved resume versions — one canonical Master Resume (re-saved in place,
+ * never duplicated) plus any number of company/role-tailored optimized
+ * copies. Capped like the ATS analyses list so localStorage doesn't grow
+ * unbounded over a long placement season. */
+export function useResumeVersions() {
+  const crud = useCrudList<ResumeVersion>(TRACKER_KEYS.resumeVersions, []);
+
+  const saveMaster = useCallback(
+    (content: string) => {
+      crud.setItems((prev) => {
+        const existingMaster = prev.find((v) => v.isMaster);
+        const master: ResumeVersion = {
+          id: existingMaster?.id ?? generateId(),
+          label: "Master Resume",
+          isMaster: true,
+          companyName: "",
+          jobRole: "",
+          content,
+          changeSummary: [],
+          sourceAnalysisId: null,
+          createdAt: existingMaster?.createdAt ?? new Date().toISOString(),
+          optimizedAt: new Date().toISOString(),
+        };
+        return [master, ...prev.filter((v) => !v.isMaster)];
+      });
+    },
+    [crud]
+  );
+
+  const saveVersion = useCallback(
+    (input: {
+      label: string;
+      companyName: string;
+      jobRole: string;
+      content: string;
+      changeSummary: string[];
+      sourceAnalysisId: string | null;
+    }) => {
+      const version: ResumeVersion = {
+        id: generateId(),
+        isMaster: false,
+        createdAt: new Date().toISOString(),
+        optimizedAt: new Date().toISOString(),
+        ...input,
+      };
+      crud.setItems((prev) => [version, ...prev].slice(0, MAX_STORED_RESUME_VERSIONS));
+    },
+    [crud]
+  );
+
+  return { ...crud, saveMaster, saveVersion };
 }
 
 /** Dismissed hiring-reminder ids — a plain string set, persisted so a

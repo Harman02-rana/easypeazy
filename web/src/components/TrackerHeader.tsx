@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ClipboardList, FileText, GraduationCap, NotebookPen } from "lucide-react";
+import { ClipboardList, FileText, Gauge, GraduationCap, NotebookPen } from "lucide-react";
 import BackupControls from "./BackupControls";
 
 const tabs = [
@@ -10,6 +10,7 @@ const tabs = [
   { href: "/preparation", label: "Preparation", icon: GraduationCap },
   { href: "/applications", label: "My Applications", icon: ClipboardList },
   { href: "/resume-studio", label: "Resume Studio", icon: FileText },
+  { href: "/ats-analyzer", label: "ATS Analyzer", icon: Gauge },
 ];
 
 export default function TrackerHeader() {
