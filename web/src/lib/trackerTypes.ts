@@ -230,3 +230,18 @@ export type NewApplicationInput = Pick<
   Partial<
     Omit<Application, "id" | "dateSaved" | "company" | "role" | "jobType" | "location" | "applicationLink">
   >;
+
+// ---------------------------------------------------------------------------
+// Resume Studio
+// ---------------------------------------------------------------------------
+
+export type ResumeFileType = "pdf" | "docx";
+
+export interface ResumeRecord {
+  fileName: string;
+  fileSize: number; // bytes
+  lastModified: number; // File.lastModified timestamp
+  fileType: ResumeFileType;
+  extractedText: string;
+  uploadedAt: string; // ISO timestamp
+}

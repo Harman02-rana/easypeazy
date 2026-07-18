@@ -11,6 +11,7 @@ import type {
   MonthlyGoal,
   NewApplicationInput,
   PlannerEntry,
+  ResumeRecord,
   RoadmapMilestone,
   StudyTopic,
   Task,
@@ -186,6 +187,19 @@ export function useCompanyNotes() {
   );
 
   return { notes, hydrated, getNote, saveNote };
+}
+
+/** The single uploaded resume record (or null if none uploaded yet) — not
+ * a CRUD list, since there's only ever one active resume. */
+export function useResume() {
+  const [resume, setResume, hydrated] = useLocalStorage<ResumeRecord | null>(
+    TRACKER_KEYS.resume,
+    null
+  );
+
+  const clear = useCallback(() => setResume(null), [setResume]);
+
+  return { resume, hydrated, setResume, clear };
 }
 
 /** Dismissed hiring-reminder ids — a plain string set, persisted so a

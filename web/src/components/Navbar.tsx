@@ -9,6 +9,7 @@ import {
   Building2,
   CalendarDays,
   ClipboardList,
+  FileText,
   GraduationCap,
   House,
   LayoutDashboard,
@@ -40,6 +41,7 @@ const trackerLinks = [
   { href: "/planner", label: "My Planner", icon: NotebookPen },
   { href: "/preparation", label: "Preparation", icon: GraduationCap },
   { href: "/applications", label: "My Applications", icon: ClipboardList },
+  { href: "/resume-studio", label: "Resume Studio", icon: FileText },
 ];
 
 const hiringRadarLinks = [
